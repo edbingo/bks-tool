@@ -209,3 +209,63 @@ Processing by StaticPagesController#impressum as HTML
   Rendered static_pages/impressum.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_hilfe
+------------------------------------------------
+Started GET "/static_pages/hilfe" for 127.0.0.1 at 2018-07-07 20:05:46 +0200
+Processing by StaticPagesController#hilfe as HTML
+  Rendering static_pages/hilfe.html.erb within layouts/application
+  Rendered static_pages/hilfe.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1345ms (Views: 1332.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StaticPagesControllerTest: test_should_get_impressum
+----------------------------------------------------
+Started GET "/static_pages/impressum" for 127.0.0.1 at 2018-07-07 20:05:47 +0200
+Processing by StaticPagesController#impressum as HTML
+  Rendering static_pages/impressum.html.erb within layouts/application
+  Rendered static_pages/impressum.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/static_pages/home" for 127.0.0.1 at 2018-07-07 20:05:47 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/static_pages/home" for 127.0.0.1 at 2018-07-07 20:10:24 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 244ms (Views: 234.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StaticPagesControllerTest: test_should_get_impressum
+----------------------------------------------------
+Started GET "/static_pages/impressum" for 127.0.0.1 at 2018-07-07 20:10:24 +0200
+Processing by StaticPagesController#impressum as HTML
+  Rendering static_pages/impressum.html.erb within layouts/application
+  Rendered static_pages/impressum.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_hilfe
+------------------------------------------------
+Started GET "/static_pages/hilfe" for 127.0.0.1 at 2018-07-07 20:10:24 +0200
+Processing by StaticPagesController#hilfe as HTML
+  Rendering static_pages/hilfe.html.erb within layouts/application
+  Rendered static_pages/hilfe.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
