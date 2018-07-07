@@ -1,24 +1,7 @@
-# README
+# README BKS-TOOL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This tool aims to provide a registration page to year 5 students, so that they
+can sign up for Matura presentations presented by year 6 students. Built on
+rails and passenger, it is designed to run on a debian server with apache.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Uses RUBY 2.5.1 and RAILS 5.2.0
