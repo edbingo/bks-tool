@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'schuelers/new'
   get 'users/new'
   get 'admins/new'
   root   'static_pages#home'
