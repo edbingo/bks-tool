@@ -8,21 +8,27 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get home" do
-    get static_pages_home_url
+    get root_path
     assert_response :success
     assert_select "title", "#{@base_title}"
   end
 
   test "should get hilfe" do
-    get static_pages_hilfe_url
+    get hilfe_path
     assert_response :success
     assert_select "title", "Hilfe | #{@base_title}"
   end
 
   test "should get impressum" do
-    get static_pages_impressum_url
+    get impressum_path
     assert_response :success
     assert_select "title", "Impressum | #{@base_title}"
+  end
+
+  test "should get kontakt" do
+    get kontakt_path
+    assert_response :success
+    assert_select "title", "Kontakt | #{@base_title}"
   end
 
 end

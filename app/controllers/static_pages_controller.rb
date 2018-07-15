@@ -7,5 +7,7 @@ class StaticPagesController < ApplicationController
 
   def impressum
   end
-  
+
+  def kontakt
+  end
 end
