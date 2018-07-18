@@ -6,8 +6,7 @@ class SchuelerTest < ActiveSupport::TestCase
 
   def setup
     @schueler = Schueler.new(name: "Surname", vorname: "Name", klasse: "5Gf",
-      mail:"surname.name@bks-campus.ch", password: "5678",
-      password_confirmation: "5678")
+      mail:"surname.name@bks-campus.ch")
   end
 
   # Makes sure entries are valid.

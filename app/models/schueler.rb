@@ -4,5 +4,4 @@ class Schueler < ApplicationRecord
   validates :vorname, presence: true
   validates :klasse,  presence: true
   validates :mail,    presence: true, uniqueness: { case_sensitive: false }
-  has_secure_password
 end
