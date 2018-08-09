@@ -7,6 +7,7 @@ rails and passenger, it is designed to run on a debian server with apache.
 Uses RUBY 2.5.1 and RAILS 5.2.0
 
 # SETUP GUIDE
+If possible use the install and setup scripts.
 ## Run these commands as root
 ### Update system
 `apt update && apt upgrade`
