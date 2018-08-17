@@ -26,7 +26,7 @@ curl -sSL https://get.rvm.io | bash -s stable
 source /etc/profile.d/rvm.sh
 
 # Adds current user to rvm group
-usermod -a -G `whoami`
+usermod -a -G rvm `whoami`
 
 # Installs the required version of Ruby
 rvm install ruby-2.5.1
