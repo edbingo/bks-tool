@@ -7,7 +7,9 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-adduser bkstool
+adduser -m -p SiYnqBkxiqWvo bkstool
+source /etc/profile.d/rvm.sh
+usermod -a -G rvm bkstool
 
 # Makes folder to hold webapp
 mkdir -p /var/www/bkstool
@@ -15,6 +17,7 @@ chown bkstool: /var/www/bkstool
 
 # Switches to created folder and downloads repo
 su - bkstool
+source /etc/profile.d/rvm.sh
 cd /var/www
 git clone https://bitbucket.org/elancaster/bks-tool
 
