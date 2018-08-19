@@ -8,6 +8,7 @@ cd /
 
 # Adds dedicated user for safety reasons
 useradd -m -p SiYnqBkxiqWvo bkstool
+bash
 source /etc/profile.d/rvm.sh
 usermod -a -G rvm bkstool
 
