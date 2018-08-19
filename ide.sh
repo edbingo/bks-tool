@@ -45,9 +45,9 @@ echo "Source has been set"
 echo -e $TEXT_RESET
 
 # Adds current user to rvm group
-usermod -a -G rvm root
+usermod -a -G rvm `whoami`
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Root user added to rvm group"
+echo "current user added to rvm group"
 echo -e $TEXT_RESET
 
 # Installs the required version of Ruby
@@ -68,36 +68,11 @@ echo "Bundler installed"
 echo -e $TEXT_RESET
 
 # Installs nodejs for Rails compatability
-echo "Installing nodejs"
-apt -qq update && apt -qq install -y apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && sudo apt-get install -y nodejs build-essential
+apt install -y nodejs && ln -sf /usr/bin/nodejs /usr/local/bin/node
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "nodejs installed"
-echo -e $TEXT_RESET
-# Gets keys for passenger
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recvkeys 561F9B9CAC40B2F7
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Passenger keys received"
-echo -e $TEXT_RESET
-# Adds the repo to the sources list and refreshes them
-sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger stretch main > /etc/apt/sources.list.d/passenger.list'
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Repo added to apt list"
-echo -e $TEXT_RESET
-apt -qq update
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Apt repositories updated"
+echo "NodeJS Installed"
 echo -e $TEXT_RESET
 
-# Installs the Passenger and Apache modules
-apt -qq install -y libapache2-mod-passenger
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Passenger + Apache moules installed"
-echo -e $TEXT_RESET
-
-# Enable passenger mod (just in case)
-a2enmod passenger
-apache2ctl restart
-
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installation complete. Please move on to step 2, setup.sh"
+echo "Installation complete. DE now set up"
 echo -e $TEXT_RESET
