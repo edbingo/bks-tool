@@ -37,13 +37,13 @@ echo "Permission given to new user"
 echo "Copied install file to user home"
 echo -e $TEXT_RESET
 
-cp /root/bks-tool/usersetup.sh /home/bks-tool/
+cp /root/bks-tool/usersetup.sh /home/bks-tool/usersetup.sh
 
 # Switches to created folder and downloads repo
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
 echo -e $TEXT_RESET
-su - bks-tool | ./usersetup.sh
+su - bks-tool | ./home/bks-tool/usersetup.sh
 
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched back to root user"
