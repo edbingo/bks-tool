@@ -7,7 +7,20 @@ rails and passenger, it is designed to run on a debian server with apache.
 Uses RUBY 2.5.1 and RAILS 5.2.0
 
 # SETUP GUIDE
-If possible use the install and setup scripts.
+## Run these commands as root
+### Install git from the repositories
+`apt -y install git`
+### Clone the bitbucket repo
+`git clone https://bitbucket.org/elancaster/bks-tool`
+### Change into the cloned folder
+`cd bks-tool`
+### Execute the install.sh script
+`./install.sh`
+### Execute the setup.sh script
+`./setup.sh`
+
+If possible use the install and setup scripts. Otherwise follow the instructions
+below.
 ## Run these commands as root
 ### Update system
 `apt update && apt upgrade`

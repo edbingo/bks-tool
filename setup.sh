@@ -7,7 +7,7 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-adduser -m -p SiYnqBkxiqWvo bkstool
+useradd -m -p SiYnqBkxiqWvo bkstool
 source /etc/profile.d/rvm.sh
 usermod -a -G rvm bkstool
 
@@ -45,3 +45,6 @@ echo "      Options -MultiViews" >> bkstool.conf
 echo "    </Directory>" >> bkstool.conf
 echo "</VirtualHost>" >> bkstool.conf
 apache2ctl restart
+
+apt -qq update
+apt -qq upgrade
