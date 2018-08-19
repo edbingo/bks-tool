@@ -10,14 +10,17 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Fully upgrades the system
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Updating apt repositories"
+echo -e $TEXT_RESET
 apt -qq update
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Updated apt repositories"
+echo "Updating system software"
 echo -e $TEXT_RESET
 
 apt -qq upgrade -y
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Updated software"
+echo "Done"
 echo -e $TEXT_RESET
 
 # Installs prerequired packages
@@ -51,6 +54,9 @@ echo "Root user added to rvm group"
 echo -e $TEXT_RESET
 
 # Installs the required version of Ruby
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Installing Ruby 2.5.1"
+echo -e $TEXT_RESET
 rvm install ruby-2.5.1
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Ruby 2.5.1 Installed"
@@ -68,7 +74,9 @@ echo "Bundler installed"
 echo -e $TEXT_RESET
 
 # Installs nodejs for Rails compatability
-echo "Installing nodejs"
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Installing NodeJS"
+echo -e $TEXT_RESET
 apt -qq update && apt -qq install -y apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && sudo apt-get install -y nodejs build-essential
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "nodejs installed"
@@ -89,6 +97,9 @@ echo "Apt repositories updated"
 echo -e $TEXT_RESET
 
 # Installs the Passenger and Apache modules
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Installing Passenger + Apache modules"
+echo -e $TEXT_RESET
 apt -qq install -y libapache2-mod-passenger
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Passenger + Apache moules installed"
@@ -96,7 +107,13 @@ echo -e $TEXT_RESET
 
 # Enable passenger mod (just in case)
 a2enmod passenger
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Passenger mod enabled"
+echo -e $TEXT_RESET
 apache2ctl restart
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Apache2 restarted"
+echo -e $TEXT_RESET
 
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installation complete. Please move on to step 2, setup.sh"

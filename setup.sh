@@ -12,7 +12,15 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-useradd -m -p SiYnqBkxiqWvo bkstool LOGIN
+adduser bks-tool
+Site.Access
+Site.Access
+echo
+echo
+echo
+echo
+echo
+echo "y"
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User has been added"
 echo -e $TEXT_RESET
@@ -43,7 +51,7 @@ echo -e $TEXT_RESET
 source /etc/profile.d/rvm.sh
 cd /var/www
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "changed to folder"
+echo "Changed to folder"
 echo -e $TEXT_RESET
 git clone https://bitbucket.org/elancaster/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'

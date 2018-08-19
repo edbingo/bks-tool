@@ -10,14 +10,17 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # Fully upgrades the system
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Updating apt repositories"
+echo -e $TEXT_RESET
 apt -qq update
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Updated apt repositories"
+echo "Updating system software"
 echo -e $TEXT_RESET
 
 apt -qq upgrade -y
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Updated software"
+echo "Done"
 echo -e $TEXT_RESET
 
 # Installs prerequired packages
@@ -25,6 +28,9 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installing curl, gnupg, build-essential and dirmngr"
 echo -e $TEXT_RESET
 apt -qq install -y curl gnupg build-essential dirmngr
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Done"
+echo -e $TEXT_RESET
 
 # Fetches key from server
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -76,3 +82,5 @@ echo -e $TEXT_RESET
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installation complete. DE now set up"
 echo -e $TEXT_RESET
+
+source /etc/profile.d/rvm.sh
