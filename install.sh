@@ -115,6 +115,10 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Apache2 restarted"
 echo -e $TEXT_RESET
 
+
+
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installation complete. Please move on to step 2, setup.sh"
+echo "Installation complete. moving on to step 2"
 echo -e $TEXT_RESET
+
+./setup.sh

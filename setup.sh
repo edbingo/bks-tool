@@ -39,7 +39,6 @@ echo -e $TEXT_RESET
 
 cp usersetup.sh /home/bks-tool/
 
-
 # Switches to created folder and downloads repo
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
