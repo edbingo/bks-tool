@@ -40,7 +40,7 @@ echo -e $TEXT_RESET
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
 echo -e $TEXT_RESET
-su - bks-tool | ./usersetup.sh
+su - bks-tool | git clone https://bitbucket.org/elancaster/bks-tool && cd bks-tool && ./usersetup.sh
 
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched back to root user"
