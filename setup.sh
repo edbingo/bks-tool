@@ -12,8 +12,8 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-sudo adduser myuser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo "myuser:password" | sudo chpasswd
+adduser bks-tool --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+echo "bks-tool:Site.Access" | chpasswd
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User has been added"
 echo -e $TEXT_RESET
@@ -21,23 +21,23 @@ source /etc/profile.d/rvm.sh
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Source set"
 echo -e $TEXT_RESET
-usermod -a -G rvm bkstool
+usermod -a -G rvm bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User added to group rvm"
 echo -e $TEXT_RESET
 
 # Makes folder to hold webapp
-mkdir -p /var/www/bkstool
+mkdir -p /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Folder created"
 echo -e $TEXT_RESET
-chown bkstool: /var/www/bkstool
+chown bks-tool: /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Permission given to new user"
 echo -e $TEXT_RESET
 
 # Switches to created folder and downloads repo
-su - bkstool
+su - bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
 echo -e $TEXT_RESET
@@ -68,22 +68,22 @@ echo "Switched back to root user"
 echo -e $TEXT_RESET
 
 # Configures the apache
-touch /etc/apache2/sites-enabled/bkstool.conf
+touch /etc/apache2/sites-enabled/bks-tool.conf
 cd /etc/apache2/sites-enabled/
-echo "<VirtualHost *:80>" >> bkstool.conf
-echo "    ServerName athene.bks-campus.ch" >> bkstool.conf
-echo "" >> bkstool.conf
-echo "    # Tell Apache and Passenger where your app's 'public' directory is" >> bkstool.conf
-echo "    DocumentRoot /var/www/bks-tool/public" >> bkstool.conf
-echo "" >> bkstool.conf
-echo "    PassengerRuby /usr/local/rvm/gems/ruby-2.5.1/wrappers/ruby" >> bkstool.conf
-echo "" >> bkstool.conf
-echo "    # Relaxes Apache security" >> bkstool.conf
-echo "    <Directory /var/www/bks-tool/public>" >> bkstool.conf
-echo "      Allow from all" >> bkstool.conf
-echo "      Options -MultiViews" >> bkstool.conf
-echo "    </Directory>" >> bkstool.conf
-echo "</VirtualHost>" >> bkstool.conf
+echo "<VirtualHost *:80>" >> bks-tool.conf
+echo "    ServerName athene.bks-campus.ch" >> bks-tool.conf
+echo "" >> bks-tool.conf
+echo "    # Tell Apache and Passenger where your app's 'public' directory is" >> bks-tool.conf
+echo "    DocumentRoot /var/www/bks-tool/public" >> bks-tool.conf
+echo "" >> bks-tool.conf
+echo "    PassengerRuby /usr/local/rvm/gems/ruby-2.5.1/wrappers/ruby" >> bks-tool.conf
+echo "" >> bks-tool.conf
+echo "    # Relaxes Apache security" >> bks-tool.conf
+echo "    <Directory /var/www/bks-tool/public>" >> bks-tool.conf
+echo "      Allow from all" >> bks-tool.conf
+echo "      Options -MultiViews" >> bks-tool.conf
+echo "    </Directory>" >> bks-tool.conf
+echo "</VirtualHost>" >> bks-tool.conf
 apache2ctl restart
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Apache configured and restarted"
