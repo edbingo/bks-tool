@@ -43,7 +43,7 @@ cp /root/bks-tool/usersetup.sh /home/bks-tool/usersetup.sh
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
 echo -e $TEXT_RESET
-su - bks-tool | ./home/bks-tool/usersetup.sh
+sudo -u bks-tool -H bash | ./home/bks-tool/usersetup.sh
 
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched back to root user"
