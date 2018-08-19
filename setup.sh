@@ -12,8 +12,7 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-useradd -m -p SiYnqBkxiqWvo bkstool
-bash
+useradd -m -p SiYnqBkxiqWvo bkstool LOGIN
 echo -e $TEXT_RED_B='\e[1;31m'
 echo "User has been added"
 echo -e $TEXT_RESET
