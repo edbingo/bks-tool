@@ -4,43 +4,7 @@ TEXT_RESET='\e[0m'
 TEXT_YELLOW='\e[0;33m'
 TEXT_RED_B='\e[1;31m'
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
 
-cd /
-
-# Adds dedicated user for safety reasons
-adduser bks-tool --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
-echo "bks-tool:Site.Access" | chpasswd
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "User has been added"
-echo -e $TEXT_RESET
-source /etc/profile.d/rvm.sh
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Source set"
-echo -e $TEXT_RESET
-usermod -a -G rvm bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "User added to group rvm"
-echo -e $TEXT_RESET
-
-# Makes folder to hold webapp
-mkdir -p /var/www/bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Folder created"
-echo -e $TEXT_RESET
-chown bks-tool: /var/www/bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Permission given to new user"
-echo -e $TEXT_RESET
-
-# Switches to created folder and downloads repo
-su - bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Switched to new user - now execute usersetup.sh"
-echo -e $TEXT_RESET
 source /etc/profile.d/rvm.sh
 cd /var/www
 echo -e $TEXT_RED_B'\e[1;31m'

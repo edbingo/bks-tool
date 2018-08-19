@@ -27,7 +27,7 @@ echo -e $TEXT_RESET
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installing curl, gnupg, build-essential and dirmngr"
 echo -e $TEXT_RESET
-apt -qq install -y curl gnupg build-essential dirmngr
+apt -qq install -y curl gnupg build-essential dirmngr sudo
 
 # Fetches key from server
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
