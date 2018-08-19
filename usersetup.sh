@@ -26,39 +26,3 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Bundler installed"
 echo -e $TEXT_RESET
 exit
-exit
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Switched back to root user"
-echo -e $TEXT_RESET
-
-# Configures the apache
-touch /etc/apache2/sites-enabled/bks-tool.conf
-cd /etc/apache2/sites-enabled/
-echo "<VirtualHost *:80>" >> bks-tool.conf
-echo "    ServerName athene.bks-campus.ch" >> bks-tool.conf
-echo "" >> bks-tool.conf
-echo "    # Tell Apache and Passenger where your app's 'public' directory is" >> bks-tool.conf
-echo "    DocumentRoot /var/www/bks-tool/public" >> bks-tool.conf
-echo "" >> bks-tool.conf
-echo "    PassengerRuby /usr/local/rvm/gems/ruby-2.5.1/wrappers/ruby" >> bks-tool.conf
-echo "" >> bks-tool.conf
-echo "    # Relaxes Apache security" >> bks-tool.conf
-echo "    <Directory /var/www/bks-tool/public>" >> bks-tool.conf
-echo "      Allow from all" >> bks-tool.conf
-echo "      Options -MultiViews" >> bks-tool.conf
-echo "    </Directory>" >> bks-tool.conf
-echo "</VirtualHost>" >> bks-tool.conf
-apache2ctl restart
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Apache configured and restarted"
-echo -e $TEXT_RESET
-
-apt -qq update
-apt -qq upgrade
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Sys update finished"
-echo -e $TEXT_RESET
-
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installation complete! To test, go to athene.bks-campus.ch"
-echo -e $TEXT_RESET

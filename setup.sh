@@ -38,31 +38,7 @@ echo -e $TEXT_RESET
 
 # Switches to created folder and downloads repo
 su - bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Switched to new user - now execute usersetup.sh"
-echo -e $TEXT_RESET
-source /etc/profile.d/rvm.sh
-cd /var/www
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Changed to folder"
-echo -e $TEXT_RESET
-git clone https://bitbucket.org/elancaster/bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Source cloned to folder"
-echo -e $TEXT_RESET
 
-# Install app dependencies
-rvm rvmrc warning ignore /var/www/bks-tool/Gemfile
-cd /bks-tool
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Changed to source folder"
-echo -e $TEXT_RESET
-bundle install --deployment --without development test
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Bundler installed"
-echo -e $TEXT_RESET
-exit
-exit
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched back to root user"
 echo -e $TEXT_RESET
