@@ -24,5 +24,6 @@ echo -e $TEXT_RESET
 bundle install --deployment --without development test
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Bundler installed"
+echo "Changing back to root"
 echo -e $TEXT_RESET
 exit
