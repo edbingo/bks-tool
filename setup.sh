@@ -12,15 +12,8 @@ fi
 cd /
 
 # Adds dedicated user for safety reasons
-adduser bks-tool
-Site.Access
-Site.Access
-echo
-echo
-echo
-echo
-echo
-echo "y"
+sudo adduser myuser --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+echo "myuser:password" | sudo chpasswd
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User has been added"
 echo -e $TEXT_RESET
