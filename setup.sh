@@ -34,13 +34,17 @@ echo -e $TEXT_RESET
 chown bks-tool: /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Permission given to new user"
+echo "Copied install file to user home"
 echo -e $TEXT_RESET
+
+cp usersetup.sh /home/bks-tool/
+
 
 # Switches to created folder and downloads repo
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched to new user"
 echo -e $TEXT_RESET
-su - bks-tool | git clone https://bitbucket.org/elancaster/bks-tool && cd bks-tool && ./usersetup.sh
+su - bks-tool | ./usersetup.sh
 
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Switched back to root user"
