@@ -121,4 +121,4 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installation complete. moving on to step 2"
 echo -e $TEXT_RESET
 
-./setup.sh
+./root/setup.sh
