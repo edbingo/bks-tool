@@ -3,21 +3,23 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@schueler) do |f| %>
+    <%= form_for(@schueler, url: signup_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+
       <%= f.label :vorname %>
-      <%= f.text_field :vorname %>
+      <%= f.text_field :vorname, class: 'form-control' %>
 
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :mail %>
-      <%= f.email_field :mail %>
+      <%= f.email_field :mail, class: 'form-control' %>
 
       <%= f.label :klasse %>
-      <%= f.text_field :klasse %>
+      <%= f.text_field :klasse, class: 'form-control' %>
 
       <%= f.label :number %>
-      <%= f.text_field :number %>
+      <%= f.text_field :number, class: 'form-control' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>

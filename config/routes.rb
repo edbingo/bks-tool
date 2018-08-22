@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post   '/login',      to: 'sessions#create'
   delete '/login',      to: 'sessions#destroy'
   get    '/signup',     to: 'schuelers#new'
+  post   '/signup',     to: 'schuelers#create'
 
   resources :schuelers
 

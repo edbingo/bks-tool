@@ -4,10 +4,22 @@ class SchuelersController < ApplicationController
   end
 
   def show
-  @schuelers = Schueler.find(params[:id])
+    @schuelers = Schueler.find(params[:id])
   end
 
   def create
-    @schueler = Schueler.new
+    @schueler = Schueler.new(user_params)
+    if @schueler.save
+      flash[:success] = "User successfully registered"
+      redirect_to @schueler
+    else
+      render 'new'
+    end
   end
+
+  private
+
+    def user_params
+      params.require(:schueler).permit(:vorname, :name, :mail, :klasse, :number)
+    end
 end
