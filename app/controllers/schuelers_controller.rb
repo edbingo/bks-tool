@@ -8,7 +8,7 @@ class SchuelersController < ApplicationController
   end
 
   def create
-    @schueler = Schueler.new(user_params)
+    @schueler = Schueler.new(schueler_params)
     if @schueler.save
       flash[:success] = "User successfully registered"
       redirect_to @schueler
@@ -19,7 +19,7 @@ class SchuelersController < ApplicationController
 
   private
 
-    def user_params
+    def schueler_params
       params.require(:schueler).permit(:vorname, :name, :mail, :klasse, :number)
     end
 end

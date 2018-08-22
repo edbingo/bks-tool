@@ -6,7 +6,8 @@ class SchuelerTest < ActiveSupport::TestCase
 
   def setup
     @schueler = Schueler.new(name: "Surname", vorname: "Name", klasse: "5Ga",
-      mail:"s1234@bks-campus.ch", number:"s1234")
+      mail:"s1234@bks-campus.ch", number:"s1234", password: "123456",
+      password_confirmation: "123456")
   end
 
   # Makes sure entries are valid.
@@ -52,6 +53,11 @@ class SchuelerTest < ActiveSupport::TestCase
     @schueler.mail = mixed_case_mail
     @schueler.save
     assert_equal mixed_case_mail.downcase, @schueler.reload.mail
+  end
+
+  test "password should be present" do
+    @schueler.password = "     "
+    assert_not @schueler.valid?
   end
 
 end

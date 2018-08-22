@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get    '/hilfe',      to: 'static_pages#hilfe'
   get    '/impressum',  to: 'static_pages#impressum'
   get    '/kontakt',    to: 'static_pages#kontakt'
-  get    '/login',      to: 'sessions#new'
-  post   '/login',      to: 'sessions#create'
-  delete '/login',      to: 'sessions#destroy'
+  get    '/anmeldung',      to: 'sessions#new'
+  post   '/anmeldung',      to: 'sessions#create'
+  delete '/anmeldung',      to: 'sessions#destroy'
   get    '/signup',     to: 'schuelers#new'
   post   '/signup',     to: 'schuelers#create'
 

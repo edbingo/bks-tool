@@ -3,7 +3,7 @@ require 'test_helper'
 class AdminTest < ActiveSupport::TestCase
   def setup
     @admin = Admin.new(name: "Surname", vorname: "Name", mail: "l999@bks-campus.ch",
-    number: "l999")
+    number: "l999", password: "123456", password_confirmation: "123456")
   end
 
   test "should be valid" do
@@ -27,6 +27,11 @@ class AdminTest < ActiveSupport::TestCase
 
   test "number should be present" do
     @admin.number = "     "
+    assert_not @admin.valid?
+  end
+
+  test "password should be present" do
+    @admin.password = "     "
     assert_not @admin.valid?
   end
 end

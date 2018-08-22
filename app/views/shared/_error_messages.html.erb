@@ -1,0 +1,12 @@
+<% if @schueler.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@schueler.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @schueler.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

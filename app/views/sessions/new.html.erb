@@ -1,2 +1,14 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "Anmeldung") %>
+<h1>Anmelden</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: anmeldung_path) do |f| %>
+      <%= f.label :number %>
+      <%= f.text_field :number, class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.submit "Anmelden", class: "btn-primary btn" %>
+    <% end %>
