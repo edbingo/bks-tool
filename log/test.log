@@ -1239,3 +1239,529 @@ Processing by SchuelersController#new as HTML
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "schuelers"[0m
+  [1m[35m (383.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_vorname_should_be_present
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_klasse_should_be_valid
+-----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+SchuelerTest: test_mail_should_be_saved_lowercase
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_surname_should_be_present
+--------------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+SchuelerTest: test_mail_should_be_unique
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+SchuelerTest: test_mail_should_be_valid
+---------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_number_should_be_valid
+-----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------
+SchuelerTest: test_should_be_vaild
+----------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Started GET "/sessions/new" for 127.0.0.1 at 2018-08-22 10:21:16 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 5783ms (Views: 5774.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+SiteLayoutTest: test_layout_links
+---------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelersControllerTest: test_should_get_new
+--------------------------------------------
+Started GET "/schuelers/new" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by SchuelersController#new as HTML
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered schuelers/new.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StaticPagesControllerTest: test_should_get_impressum
+----------------------------------------------------
+Started GET "/impressum" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by StaticPagesController#impressum as HTML
+  Rendering static_pages/impressum.html.erb within layouts/application
+  Rendered static_pages/impressum.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_kontakt
+--------------------------------------------------
+Started GET "/kontakt" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by StaticPagesController#kontakt as HTML
+  Rendering static_pages/kontakt.html.erb within layouts/application
+  Rendered static_pages/kontakt.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_hilfe
+------------------------------------------------
+Started GET "/hilfe" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by StaticPagesController#hilfe as HTML
+  Rendering static_pages/hilfe.html.erb within layouts/application
+  Rendered static_pages/hilfe.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:21:22 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "admins"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (148.9ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "vorname" varchar, "mail" varchar, "number" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "schuelers"[0m
+  [1m[35m (153.1ms)[0m  [1m[35mCREATE TABLE "schuelers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "vorname" varchar, "name" varchar, "klasse" varchar, "mail" varchar, "number" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (153.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (186.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180822083241)[0m
+  [1m[35m (221.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180822082306);
+
+[0m
+  [1m[35m (176.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-08-22 08:38:45.412658"], ["updated_at", "2018-08-22 08:38:45.412658"]]
+  [1m[35m (176.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "schuelers"[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "admins"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:38:45.653977', '2018-08-22 08:38:45.653977', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:38:45.653977', '2018-08-22 08:38:45.653977', 298486374)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:38:45.657383', '2018-08-22 08:38:45.657383', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:38:45.657383', '2018-08-22 08:38:45.657383', 298486374)[0m
+  [1m[35m (157.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelersControllerTest: test_should_get_new
+--------------------------------------------
+Started GET "/schuelers/new" for 127.0.0.1 at 2018-08-22 10:38:45 +0200
+Processing by SchuelersController#new as HTML
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered schuelers/new.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 252ms (Views: 243.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+SiteLayoutTest: test_layout_links
+---------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Started GET "/sessions/new" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_number_should_be_valid
+-----------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "     "], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_surname_should_be_present
+--------------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_vorname_should_be_present
+--------------------------------------------
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+SchuelerTest: test_mail_should_be_saved_lowercase
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "SuRnAmE.nAmE@bKs-CaMpUs.Ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[36mSchueler Create (0.3ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["vorname", "Name"], ["name", "Surname"], ["klasse", "5Ga"], ["mail", "surname.name@bks-campus.ch"], ["number", "s1234"], ["created_at", "2018-08-22 08:38:46.208841"], ["updated_at", "2018-08-22 08:38:46.208841"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+SchuelerTest: test_mail_should_be_unique
+----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[36mSchueler Create (0.4ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["vorname", "Name"], ["name", "Surname"], ["klasse", "5Ga"], ["mail", "s1234@bks-campus.ch"], ["number", "s1234"], ["created_at", "2018-08-22 08:38:46.216263"], ["updated_at", "2018-08-22 08:38:46.216263"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "S1234@BKS-CAMPUS.CH"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_klasse_should_be_valid
+-----------------------------------------
+  [1m[36mSchueler Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------
+SchuelerTest: test_should_be_vaild
+----------------------------------
+  [1m[36mSchueler Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "s1234@bks-campus.ch"], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+SchuelerTest: test_mail_should_be_valid
+---------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."mail") = LOWER(?) LIMIT ?[0m  [["mail", "     "], ["LIMIT", 1]]
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_hilfe
+------------------------------------------------
+Started GET "/hilfe" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by StaticPagesController#hilfe as HTML
+  Rendering static_pages/hilfe.html.erb within layouts/application
+  Rendered static_pages/hilfe.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StaticPagesControllerTest: test_should_get_impressum
+----------------------------------------------------
+Started GET "/impressum" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by StaticPagesController#impressum as HTML
+  Rendering static_pages/impressum.html.erb within layouts/application
+  Rendered static_pages/impressum.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_kontakt
+--------------------------------------------------
+Started GET "/kontakt" for 127.0.0.1 at 2018-08-22 10:38:46 +0200
+Processing by StaticPagesController#kontakt as HTML
+  Rendering static_pages/kontakt.html.erb within layouts/application
+  Rendered static_pages/kontakt.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+AdminTest: test_mail_should_be_present
+--------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+AdminTest: test_name_should_be_present
+--------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+AdminTest: test_surname_should_be_present
+-----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+AdminTest: test_number_should_be_present
+----------------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+AdminTest: test_should_be_valid
+-------------------------------
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.3ms)[0m  [1m[31mDELETE FROM "schuelers"[0m
+  [1m[36mFixture Delete (0.1ms)[0m  [1m[31mDELETE FROM "admins"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:42:37.636322', '2018-08-22 08:42:37.636322', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:42:37.636322', '2018-08-22 08:42:37.636322', 298486374)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:42:37.639085', '2018-08-22 08:42:37.639085', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2018-08-22 08:42:37.639085', '2018-08-22 08:42:37.639085', 298486374)[0m
+  [1m[35m (166.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Started GET "/sessions/new" for 127.0.0.1 at 2018-08-22 10:42:37 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 263ms (Views: 254.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+AdminTest: test_name_should_be_present
+--------------------------------------
+  [1m[36mAdmin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "l999"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+AdminTest: test_should_be_valid
+-------------------------------
+  [1m[36mAdmin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "l999"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+AdminTest: test_surname_should_be_present
+-----------------------------------------
+  [1m[36mAdmin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "l999"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+AdminTest: test_mail_should_be_present
+--------------------------------------
+  [1m[36mAdmin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "l999"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+AdminTest: test_number_should_be_present
+----------------------------------------
+  [1m[36mAdmin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "     "], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelersControllerTest: test_should_get_new
+--------------------------------------------
+Started GET "/schuelers/new" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by SchuelersController#new as HTML
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered schuelers/new.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_hilfe
+------------------------------------------------
+Started GET "/hilfe" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by StaticPagesController#hilfe as HTML
+  Rendering static_pages/hilfe.html.erb within layouts/application
+  Rendered static_pages/hilfe.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_kontakt
+--------------------------------------------------
+Started GET "/kontakt" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by StaticPagesController#kontakt as HTML
+  Rendering static_pages/kontakt.html.erb within layouts/application
+  Rendered static_pages/kontakt.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+StaticPagesControllerTest: test_should_get_impressum
+----------------------------------------------------
+Started GET "/impressum" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by StaticPagesController#impressum as HTML
+  Rendering static_pages/impressum.html.erb within layouts/application
+  Rendered static_pages/impressum.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_number_should_be_valid
+-----------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "     "], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_vorname_should_be_present
+--------------------------------------------
+  [1m[36mSchueler Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+SchuelerTest: test_mail_should_be_unique
+----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[36mSchueler Create (0.7ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["vorname", "Name"], ["name", "Surname"], ["klasse", "5Ga"], ["mail", "s1234@bks-campus.ch"], ["number", "s1234"], ["created_at", "2018-08-22 08:42:38.207891"], ["updated_at", "2018-08-22 08:42:38.207891"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------
+SchuelerTest: test_should_be_vaild
+----------------------------------
+  [1m[36mSchueler Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+SchuelerTest: test_surname_should_be_present
+--------------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+SchuelerTest: test_mail_should_be_valid
+---------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+SchuelerTest: test_mail_should_be_saved_lowercase
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSchueler Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[36mSchueler Create (0.5ms)[0m  [1m[32mINSERT INTO "schuelers" ("vorname", "name", "klasse", "mail", "number", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["vorname", "Name"], ["name", "Surname"], ["klasse", "5Ga"], ["mail", "surname.name@bks-campus.ch"], ["number", "s1234"], ["created_at", "2018-08-22 08:42:38.221872"], ["updated_at", "2018-08-22 08:42:38.221872"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 980190963], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------
+SchuelerTest: test_klasse_should_be_valid
+-----------------------------------------
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."number") = LOWER(?) LIMIT ?[0m  [["number", "s1234"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------
+SiteLayoutTest: test_layout_links
+---------------------------------
+Started GET "/" for 127.0.0.1 at 2018-08-22 10:42:38 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

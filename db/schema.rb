@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_15_153036) do
+ActiveRecord::Schema.define(version: 2018_08_22_083241) do
 
-  create_table "schuelers", force: :cascade do |t|
+  create_table "admins", force: :cascade do |t|
     t.string "name"
     t.string "vorname"
-    t.string "klasse"
     t.string "mail"
+    t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["mail"], name: "index_schuelers_on_mail", unique: true
+  end
+
+  create_table "schuelers", force: :cascade do |t|
+    t.string "vorname"
+    t.string "name"
+    t.string "klasse"
+    t.string "mail"
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

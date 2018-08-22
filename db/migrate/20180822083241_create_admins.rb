@@ -1,10 +1,10 @@
-class CreateSchuelers < ActiveRecord::Migration[5.2]
+class CreateAdmins < ActiveRecord::Migration[5.2]
   def change
-    create_table :schuelers do |t|
+    create_table :admins do |t|
       t.string :name
       t.string :vorname
-      t.string :klasse
       t.string :mail
+      t.string :number
 
       t.timestamps
     end

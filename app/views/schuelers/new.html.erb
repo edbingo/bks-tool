@@ -1,2 +1,25 @@
-<h1>Schuelers#new</h1>
-<p>Find me in app/views/schuelers/new.html.erb</p>
+<% provide(:title, 'Registrieren') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@schueler) do |f| %>
+      <%= f.label :vorname %>
+      <%= f.text_field :vorname %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :mail %>
+      <%= f.email_field :mail %>
+
+      <%= f.label :klasse %>
+      <%= f.text_field :klasse %>
+
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

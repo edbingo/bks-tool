@@ -5,8 +5,8 @@ class SchuelerTest < ActiveSupport::TestCase
   # Tests that entries in the Schueler db are correct, with all values.
 
   def setup
-    @schueler = Schueler.new(name: "Surname", vorname: "Name", klasse: "5Gf",
-      mail:"surname.name@bks-campus.ch")
+    @schueler = Schueler.new(name: "Surname", vorname: "Name", klasse: "5Ga",
+      mail:"s1234@bks-campus.ch", number:"s1234")
   end
 
   # Makes sure entries are valid.
@@ -32,6 +32,11 @@ class SchuelerTest < ActiveSupport::TestCase
 
   test "mail should be valid" do
     @schueler.mail = "     "
+    assert_not @schueler.valid?
+  end
+
+  test "number should be valid" do
+    @schueler.number = "     "
     assert_not @schueler.valid?
   end
 
