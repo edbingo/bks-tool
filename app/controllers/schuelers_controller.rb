@@ -4,7 +4,7 @@ class SchuelersController < ApplicationController
   end
 
   def show
-    @schuelers = Schueler.find(params[:id])
+    @schueler = Schueler.find(params[:id])
   end
 
   def create
