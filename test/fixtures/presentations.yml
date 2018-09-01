@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  klasse: MyString
+  titel: MyString
+  fach: MyString
+  betreuer: MyString
+  zimmer: MyString
+  von: MyString
+  bis: MyString
+  datum: MyString
+  frei: MyString
+  besetzt: MyString
+
+two:
+  name: MyString
+  klasse: MyString
+  titel: MyString
+  fach: MyString
+  betreuer: MyString
+  zimmer: MyString
+  von: MyString
+  bis: MyString
+  datum: MyString
+  frei: MyString
+  besetzt: MyString

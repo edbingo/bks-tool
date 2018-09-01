@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'presentations/list'
   get 'sessions/new'
   get 'schuelers/new'
   get 'users/new'
   root   'static_pages#home'
+  get    '/liste',          to: 'presentations#list'
   get    '/hilfe',          to: 'static_pages#hilfe'
   get    '/impressum',      to: 'static_pages#impressum'
   get    '/kontakt',        to: 'static_pages#kontakt'
@@ -12,8 +14,10 @@ Rails.application.routes.draw do
   get    '/signup',         to: 'schuelers#new'
   post   '/signup',         to: 'schuelers#create'
 
+
   resources :schuelers
   resources :admins
+  resources :presentations
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
