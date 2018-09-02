@@ -4,6 +4,13 @@ class SelectionsController < ApplicationController
     @presentations = Presentation.all
   end
 
+  def confirm
+  end
+
+  def addtodb
+    
+  end
+
   def logged_in_stud
     unless logged_stud?
       flash[:danger] = "Diese Seite ist nur für angemeldete Schüler zugänglich"

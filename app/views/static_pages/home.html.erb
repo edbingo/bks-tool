@@ -4,6 +4,11 @@
     Finden Sie die Portalseite unter <a href="https://portal.bks-campus.ch">
       portal.bks-campus.ch</a>.
   </h2>
-
-  <%= link_to "Jetzt Anmelden", studenten_anmelden_path, class: "btn btn-lg btn-primary" %>
+  <% if logged_stud? %>
+    <%= link_to "Jetzt Registrieren", studenten_waehlen_path, class: "btn btn-lg btn-primary" %>
+  <% elsif logged_ad? %>
+    <%= link_to "Jetzt Verwalten", admin_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Jetzt Anmelden", studenten_anmelden_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>

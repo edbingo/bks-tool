@@ -9,6 +9,7 @@ class Presentation < ApplicationRecord
     presentations.each do |row|
         row.update_attribute(:Frei, 5)
         row.update_attribute(:Besetzt, 0)
+        row.update_attribute(:Besucher, nil)
     end
   end
   validates :Name, presence: true, uniqueness: { case_sensitive: false }

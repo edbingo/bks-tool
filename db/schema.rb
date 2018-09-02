@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_31_113924) do
     t.string "Datum"
     t.integer "Frei"
     t.integer "Besetzt"
+    t.string "Besucher"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   delete '/studenten/anmelden', to: 'sessions#studdestroy'
 
   get '/studenten/waehlen', to: 'selections#list'
+  post '/studenten/waehlen', to: 'selections#addtodb'
+  get '/studenten/bestaetigen', to: 'selections#confirm'
 
 
   resources :schuelers do

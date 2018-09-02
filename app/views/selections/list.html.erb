@@ -26,7 +26,12 @@
         <td scope="row"><%= pres.Von %></td>
         <td scope="row"><%= pres.Bis %></td>
         <td scope="row"><%= pres.Frei %></td>
-        <td scope="row"></td>
+        <td scope="row"><%=
+          @choice = pres.Titel
+          form_for(@choice, url: studenten_waehlen_path) do |f|
+            f.submit "Wählen", class:"btn btn-primary"
+          end
+          %></td>
       </tr>
     <% end %>
   </tbody>
