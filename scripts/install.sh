@@ -121,4 +121,34 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installation complete. moving on to step 2"
 echo -e $TEXT_RESET
 
-./root/bks-tool/setup.sh
+cd /
+
+# Adds dedicated user for safety reasons
+adduser bks-tool --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+echo "bks-tool:Site.Access" | chpasswd
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "User has been added"
+echo -e $TEXT_RESET
+source /etc/profile.d/rvm.sh
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Source set"
+echo -e $TEXT_RESET
+usermod -a -G rvm bks-tool
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "User added to group rvm"
+echo -e $TEXT_RESET
+
+# Makes folder to hold webapp
+mkdir -p /var/www/bks-tool
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Folder created"
+echo -e $TEXT_RESET
+chown bks-tool: /var/www/bks-tool
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Permission given to new user"
+echo "Copied install file to user home"
+echo -e $TEXT_RESET
+mkdir /scripts
+cp /root/bks-tool/usersetup.sh /scripts
+chown bks-tool: /scripts
+sudo -H -u bks-tool bash -c './scripts/usersetup.sh'
