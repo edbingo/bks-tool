@@ -8,6 +8,5 @@ class PresentationsController < ApplicationController
     Presentation.import(params[:file])
     redirect_to adminhub_url
     flash[:success] = "File uploaded successfully"
-
   end
 end
