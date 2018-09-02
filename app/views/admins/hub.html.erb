@@ -1,5 +1,13 @@
 <% provide(:title, "Admin Bereich") %>
 <div class="center jumbotron">
-  <h1>Willkommen zum Admin Zentrum</h1>
-  <%= link_to "Presentations Liste hochladen", addingpres_path, class: "btn, btn-lg, btn-primary" %>
+  <h3>Willkommen zum Admin Zentrum</h3>
+  <br />
+  <%= link_to "Presentationsliste hochladen", adminhub_add_presentations_path, class: "btn btn-secondary" %>
+  <%= link_to "Schülerliste hochladen", adminhub_add_students_path, class: "btn btn-secondary" %>
+  <br />
+  <%= link_to "Presentationsliste anzeigen", adminhub_show_presentations_path, class: "btn btn-secondary" %>
+  <%= link_to "Schülerliste anzeigen",  adminhub_show_students_path, class: "btn btn-secondary" %>
+  <br />
+  <%= link_to "Neuen Admin hinzufügen", adminhub_new_admin_path, class: "btn btn-secondary" %>
+  <%= link_to "Adminliste anzeigen", adminhub_show_admins_path, class: "btn btn-secondary" %>
 </div>

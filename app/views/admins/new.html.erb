@@ -1,28 +1,25 @@
-<% provide(:title, 'Registrieren') %>
+<% provide(:title, "Admin Registration") %>
 <div class="center jumbotron">
-  <h1>Sign up</h1>
-
+  <h3>Admin Registration</h3>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= form_for(@schueler, url: adminhub_add_student_path) do |f| %>
-        <%= render 'shared/error_messages' %>
-
+      <%= form_for(@admin, url: adminhub_new_admin_path) do |f| %>
+        <%= render 'shared/error_messages_admin' %>
         <%= f.label :vorname %>
         <%= f.text_field :vorname, class: 'form-control' %>
-
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
-
         <%= f.label :mail %>
         <%= f.email_field :mail, class: 'form-control' %>
-
-        <%= f.label :klasse %>
-        <%= f.text_field :klasse, class: 'form-control' %>
-
         <%= f.label :number %>
         <%= f.text_field :number, class: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <%= f.label :password_confirmation, "Bestätigung" %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.submit "Konto erstellen", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

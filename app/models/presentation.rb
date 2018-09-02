@@ -6,11 +6,11 @@ class Presentation < ApplicationRecord
     end
     presentations = Presentation.all
     presentations.each do |row|
-        row.Frei = 5
-        row.Besetzt = 0
+        row.update_attribute(:Frei, 5)
+        row.update_attribute(:Besetzt, 0)
     end
   end
-  validates :Name, presence: true
+  validates :Name, presence: true, uniqueness: { case_sensitive: false }
   validates :Klasse, presence: true
   validates :Titel, presence: true
   validates :Fach, presence: true

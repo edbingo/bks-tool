@@ -1,0 +1,26 @@
+<% provide(:title, "Schülerliste") %>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Number</th>
+      <th scope="col">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @students.each do |stud| %>
+    <tr>
+      <td scope="row"><%= stud.Name %></td>
+      <td scope="row"><%= stud.Vorname %></td>
+      <td scope="row"><%= stud.Klasse %></td>
+      <td scope="row"><%= stud.Mail %></td>
+      <td scope="row"><%= stud.Number %></td>
+      <td scope="row"><%= stud.Code %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

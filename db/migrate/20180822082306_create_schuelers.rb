@@ -1,12 +1,12 @@
 class CreateSchuelers < ActiveRecord::Migration[5.2]
   def change
     create_table :schuelers do |t|
-      t.string :vorname
-      t.string :name
-      t.string :klasse
-      t.string :mail
-      t.string :number
-
+      t.string :Vorname
+      t.string :Name
+      t.string :Klasse
+      t.string :Mail
+      t.string :Number
+      t.string :Code
       t.timestamps
     end
   end

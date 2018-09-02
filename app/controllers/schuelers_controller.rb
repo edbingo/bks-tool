@@ -17,6 +17,16 @@ class SchuelersController < ApplicationController
     end
   end
 
+  def import
+    Schueler.import(params[:file])
+    redirect_to adminhub_url
+    flash[:success] = "Students added successfully"
+  end
+
+  def list
+    @students = Schueler.all
+  end
+
   private
 
     def schueler_params

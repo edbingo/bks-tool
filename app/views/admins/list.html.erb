@@ -1,0 +1,21 @@
+<% provide(:title, "Adminliste") %>
+<table class="table">
+  <thead class="thead">
+    <tr>
+      <th scope="col">Vorname</th>
+      <th scope="col">Nachname</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Nummer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @admins.each do |admn| %>
+      <tr>
+        <td scope="row"><%= admn.vorname %></td>
+        <td scope="row"><%= admn.name %></td>
+        <td scope="row"><%= admn.mail %></td>
+        <td scope="row"><%= admn.number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

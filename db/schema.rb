@@ -39,11 +39,12 @@ ActiveRecord::Schema.define(version: 2018_08_31_113924) do
   end
 
   create_table "schuelers", force: :cascade do |t|
-    t.string "vorname"
-    t.string "name"
-    t.string "klasse"
-    t.string "mail"
-    t.string "number"
+    t.string "Vorname"
+    t.string "Name"
+    t.string "Klasse"
+    t.string "Mail"
+    t.string "Number"
+    t.string "Code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
