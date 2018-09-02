@@ -7,6 +7,7 @@ class CreateSchuelers < ActiveRecord::Migration[5.2]
       t.string :Mail
       t.string :Number
       t.string :Code
+      t.boolean :Registered
       t.timestamps
     end
   end

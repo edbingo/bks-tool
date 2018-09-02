@@ -2,12 +2,24 @@
 <div class="center jumbotron">
   <h3>Willkommen zum Admin Zentrum</h3>
   <br />
-  <%= link_to "Presentationsliste hochladen", adminhub_add_presentations_path, class: "btn btn-secondary" %>
-  <%= link_to "Schülerliste hochladen", adminhub_add_students_path, class: "btn btn-secondary" %>
-  <br />
-  <%= link_to "Presentationsliste anzeigen", adminhub_show_presentations_path, class: "btn btn-secondary" %>
-  <%= link_to "Schülerliste anzeigen",  adminhub_show_students_path, class: "btn btn-secondary" %>
-  <br />
-  <%= link_to "Neuen Admin hinzufügen", adminhub_new_admin_path, class: "btn btn-secondary" %>
-  <%= link_to "Adminliste anzeigen", adminhub_show_admins_path, class: "btn btn-secondary" %>
+  <h4>Dateien Hochladen</h4>
+  <div>
+    <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
+    <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
+  </div>
+  <h4>Listen Anzeigen</h4>
+  <div>
+  <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-secondary" %>
+  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-secondary" %>
+  <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-secondary" %>
+  </div>
+  <h4>Einzeln hinzufügen</h4>
+  <div>
+    <%= link_to "Neuen Admin hinzufügen", admin_new_admin_path, class: "btn btn-secondary" %>
+    <%= link_to "Neuen Schüler hinzufügen", admin_add_student_path, class: "btn btn-secondary" %>
+  </div>
+  <h4>System verwalten</h4>
+  <div>
+    <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-secondary" %>
+  </div>
 </div>

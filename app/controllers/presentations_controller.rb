@@ -6,7 +6,7 @@ class PresentationsController < ApplicationController
   end
   def import
     Presentation.import(params[:file])
-    redirect_to adminhub_url
-    flash[:success] = "File uploaded successfully"
+    redirect_to admin_url
+    flash[:success] = "Presentationen erfolgreich hinzugefügt"
   end
 end

@@ -1,4 +1,5 @@
 class Admin < ApplicationRecord
+  include Resetable
   before_save { number.downcase! }
   validates :name, presence: true
   validates :vorname, presence: true

@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_08_31_113924) do
     t.string "Mail"
     t.string "Number"
     t.string "Code"
+    t.boolean "Registered"
+    t.string "Selected"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

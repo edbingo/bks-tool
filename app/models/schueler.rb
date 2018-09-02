@@ -1,4 +1,5 @@
 class Schueler < ApplicationRecord
+  include Resetable
   require "csv"
   def self.import(file)
     table = CSV.read(file.path, { headers: true, col_sep: "," })
@@ -8,17 +9,20 @@ class Schueler < ApplicationRecord
       row["password"] = pass.join
       row["password_confirmation"] = pass.join
       row["Code"] = pass.join
+      row["Registered"] = false
+      row["Selected"] = nil
     end
 
-    CSV.open("file2.csv", "w") do |f|
+    CSV.open(file.path, "w") do |f|
       f << table.headers
       table.each{ |row| f << row }
     end
 
-    CSV.foreach("file2.csv", headers: true) do |row|
+    CSV.foreach(file.path, headers: true) do |row|
       Schueler.create! row.to_hash
     end
     students = Schueler.all
+    Schueler.all.order!(Name: :asc, Vorname: :desc)
   end
   validates :Name,     presence: true
   validates :Vorname,  presence: true

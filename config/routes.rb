@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'selections/list'
   get 'sessions_stud/new'
   get 'admins/hub'
   get 'presentations/list'
@@ -8,16 +9,19 @@ Rails.application.routes.draw do
   root   'static_pages#home'
 
 # Admin related sites
-  get '/adminhub', to: 'admins#hub'
-  get '/adminhub/add/presentations', to: 'presentations#add'
-  get '/adminhub/add/students', to: 'schuelers#add'
-  get '/adminhub/add/student', to: 'schuelers#new'
-  post '/adminhub/add/student', to: 'schuelers#create'
-  get '/adminhub/show/presentations', to: 'presentations#list'
-  get '/adminhub/show/students', to: 'schuelers#list'
-  get '/adminhub/show/admins', to: 'admins#list'
-  get '/adminhub/new/admin', to: 'admins#new'
-  post '/adminhub/new/admin', to: 'admins#create'
+  get '/admin', to: 'admins#hub'
+  get '/admin/add', to: 'admins#upload'
+  get '/admin/add/presentations', to: 'presentations#add'
+  get '/admin/add/students', to: 'schuelers#add'
+  get '/admin/add/student', to: 'schuelers#new'
+  post '/admin/add/student', to: 'schuelers#create'
+  get '/admin/show/presentations', to: 'presentations#list'
+  get '/admin/show/students', to: 'schuelers#list'
+  get '/admin/show/admins', to: 'admins#list'
+  get '/admin/new/admin', to: 'admins#new'
+  post '/admin/new/admin', to: 'admins#create'
+  get '/admin/reset', to: 'admins#reset'
+  get '/admin/clear', to: 'admins#clear'
 
 
 # Static Pages
@@ -30,10 +34,12 @@ Rails.application.routes.draw do
   post '/admin/login', to: 'sessions#create'
   delete '/admin/login', to: 'sessions#destroy'
 
-# Student related sites
-  get '/studenten/anmelden', to: 'sessions_stud#new'
-  post '/studenten/anmelden', to: 'sessions_stud#create'
-  delete '/studenten/anmelden', to: 'sessions_stud#destroy'
+# Student session creation
+  get '/studenten/anmelden', to: 'sessions#newstud'
+  post '/studenten/anmelden', to: 'sessions#studcreate'
+  delete '/studenten/anmelden', to: 'sessions#studdestroy'
+
+  get '/studenten/waehlen', to: 'selections#list'
 
 
   resources :schuelers do

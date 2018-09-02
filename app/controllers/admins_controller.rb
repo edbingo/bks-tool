@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  before_action :logged_in_stud
   def new
     @admin = Admin.new
   end
@@ -12,7 +13,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       flash[:success] = "Admin wurde registriert"
-      redirect_to adminhub_path
+      redirect_to admin_path
     else
       render 'new'
     end
@@ -20,6 +21,20 @@ class AdminsController < ApplicationController
 
   def list
     @admins = Admin.all
+  end
+
+  def clear
+    [Schueler, Admin, Presentation].each { |model| model.truncate! }
+    Rails.application.load_seed
+    flash[:success] = "Datenbank wurde zurückgesetzt"
+    redirect_to root_path
+  end
+
+  def logged_in_stud
+    unless logged_ad?
+      flash[:danger] = "Diese Seite ist nur für Administrator zugänglich"
+      redirect_to admin_login_path
+    end
   end
 
   private

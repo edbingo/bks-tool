@@ -17,7 +17,7 @@ echo -e $TEXT_RESET
 
 # Install app dependencies
 rvm rvmrc warning ignore /var/www/bks-tool/Gemfile
-cd /bks-tool
+cd /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Changed to source folder"
 echo -e $TEXT_RESET
@@ -26,4 +26,3 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Bundler installed"
 echo "Install complete."
 echo -e $TEXT_RESET
-exit

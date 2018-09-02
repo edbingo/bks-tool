@@ -1,6 +1,13 @@
 <footer class="footer">
+
   <small>
-    BKS Anmeldetool  /  Entwickelt von Edward Lancaster MA18
+    <% if logged_ad? %>
+      Als Administrator angemeldet
+    <% elsif logged_stud? %>
+      Als Schüler angemeldet
+    <% else %>
+      BKS Anmeldetool  /  Entwickelt von Edward Lancaster MA18
+    <% end %>
   </small>
   <nav>
     <ul>

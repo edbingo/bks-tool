@@ -1,0 +1,33 @@
+<% provide(:title, "Presentationsauswahl") %>
+<table class="table table-hover">
+  <thead class="thead">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Fach</th>
+      <th scope="col">Betreuer</th>
+      <th scope="col">Zimmer</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+      <th scope="col">Freie Plätze</th>
+      <th scope="col">Wählen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @presentations.each do |pres| %>
+      <tr>
+        <td scope="row"><%= pres.Name %></td>
+        <td scope="row"><%= pres.Klasse %></td>
+        <td scope="row"><%= pres.Titel %></td>
+        <td scope="row"><%= pres.Fach %></td>
+        <td scope="row"><%= pres.Betreuer %></td>
+        <td scope="row"><%= pres.Zimmer %></td>
+        <td scope="row"><%= pres.Von %></td>
+        <td scope="row"><%= pres.Bis %></td>
+        <td scope="row"><%= pres.Frei %></td>
+        <td scope="row"></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

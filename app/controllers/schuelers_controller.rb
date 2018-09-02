@@ -1,4 +1,5 @@
 class SchuelersController < ApplicationController
+  before_action :logged_in_stud, only: [:show, :new, :import, :list, :create]
   def new
     @schueler = Schueler.new
   end
@@ -19,7 +20,7 @@ class SchuelersController < ApplicationController
 
   def import
     Schueler.import(params[:file])
-    redirect_to adminhub_url
+    redirect_to admin_url
     flash[:success] = "Students added successfully"
   end
 
@@ -27,9 +28,16 @@ class SchuelersController < ApplicationController
     @students = Schueler.all
   end
 
+  def logged_in_stud
+    unless logged_ad?
+      flash[:danger] = "Diese Seite ist nur für Administrator zugänglich"
+      redirect_to admin_login_path
+    end
+  end
+
   private
 
     def schueler_params
-      params.require(:schueler).permit(:vorname, :name, :mail, :klasse, :number)
+      params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,:password,:password_confirmation)
     end
 end

@@ -176,6 +176,7 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Permission given to new user"
 echo "Copied install file to user home"
 echo -e $TEXT_RESET
+gem install rails
 mkdir /scripts
 cp /root/bks-tool/usersetup.sh /scripts
 chown bks-tool: /scripts
