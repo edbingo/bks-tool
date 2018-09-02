@@ -1,5 +1,6 @@
 class Schueler < ApplicationRecord
   before_save { mail.downcase! }
+  before_save { number.downcase! }
   validates :name,     presence: true
   validates :vorname,  presence: true
   validates :klasse,   presence: true

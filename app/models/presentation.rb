@@ -1,10 +1,21 @@
 class Presentation < ApplicationRecord
-  validates :name, presence: true
-  validates :klasse, presence: true
-  validates :titel, presence: true
-  validates :fach, presence: true
-  validates :betreuer, presence: true
-  validates :zimmer, presence: true
-  validates :von, presence: true
-  validates :bis, presence: true
+  require "csv"
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Presentation.create! row.to_hash
+    end
+    presentations = Presentation.all
+    presentations.each do |row|
+        row.Frei = 5
+        row.Besetzt = 0
+    end
+  end
+  validates :Name, presence: true
+  validates :Klasse, presence: true
+  validates :Titel, presence: true
+  validates :Fach, presence: true
+  validates :Betreuer, presence: true
+  validates :Zimmer, presence: true
+  validates :Von, presence: true
+  validates :Bis, presence: true
 end

@@ -1,2 +1,5 @@
-<%= @schueler.vorname %>, <%= @schueler.name %>, <%= @schueler.klasse %>,
-<%= @schueler.mail %>, <%= @schueler.number %>
+<% provide(:title, "Schüler anzeigen") %>
+<div class="center jumbotron">
+  <%= @schueler.vorname %>, <%= @schueler.name %>, <%= @schueler.klasse %>,
+  <%= @schueler.mail %>, <%= @schueler.number %>
+</div>

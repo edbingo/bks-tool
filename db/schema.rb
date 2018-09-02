@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(version: 2018_08_31_113924) do
   end
 
   create_table "presentations", force: :cascade do |t|
-    t.string "name"
-    t.string "klasse"
-    t.string "titel"
-    t.string "fach"
-    t.string "betreuer"
-    t.string "zimmer"
-    t.string "von"
-    t.string "bis"
-    t.string "datum"
-    t.string "frei"
-    t.string "besetzt"
+    t.string "Name"
+    t.string "Klasse"
+    t.string "Titel"
+    t.string "Fach"
+    t.string "Betreuer"
+    t.string "Zimmer"
+    t.string "Von"
+    t.string "Bis"
+    t.string "Datum"
+    t.integer "Frei"
+    t.integer "Besetzt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
