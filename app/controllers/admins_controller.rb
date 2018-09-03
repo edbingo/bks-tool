@@ -5,9 +5,6 @@ class AdminsController < ApplicationController
   end
   def hub
   end
-  def show
-    @admin = Admin.find(params[:id])
-  end
 
   def create
     @admin = Admin.new(admin_params)
@@ -20,8 +17,9 @@ class AdminsController < ApplicationController
   end
 
   def list
-    @admins = Admin.all
+    @admin = Admin.all
   end
+
 
   def clear
     [Schueler, Admin, Presentation].each { |model| model.truncate! }

@@ -13,8 +13,14 @@
     <ul>
       <li><%= link_to "Impressum",     impressum_path %></li>
       <li><%= link_to "Kontakt",       kontakt_path %></li>
-      <li><%= link_to "Anmelden",      studenten_anmelden_path %></li>
-      <li><%= link_to "Admin Bereich", admin_login_path %></li>
+      <% if logged_ad? %>
+        <li><%= link_to "Hub", admin_path %></li>
+      <% elsif logged_stud? %>
+        <li><%= link_to "Registrieren", studenten_waehlen_path %></li>
+      <% else %>
+        <li><%= link_to "Anmelden",      studenten_anmelden_path %></li>
+        <li><%= link_to "Admin Bereich", admin_login_path %></li>
+      <% end %>
     </ul>
   </nav>
 </footer>

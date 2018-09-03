@@ -21305,3 +21305,461 @@ Processing by SelectionsController#list as HTML
 Completed 200 OK in 69ms (Views: 64.7ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:50:12 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (23.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 99ms (Views: 75.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-02 22:50:14 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendered static_pages/home.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 60ms (Views: 58.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:50:16 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (6.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 84ms (Views: 80.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:50:19 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yL1G+iyzvyA3op9RGmu+V4vD1s2ixvdk0NaAxZRXgPW1JiEwP6y2Wa2kF2PvI2qBMzsFpQECXpleM0vEy3R4dA==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 25ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:50:26 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CS6yELcBMN1KHTrFbL/K1aHF+wvYLP8H2sXBPNznE6B0tdXapB45pNAbsveZ9x4DGT0oY3voVvpUIAo9g8TrIQ==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:50:26 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XDTdGQJmB1bSM/cvxtbKy8Zp/mTlAFfPBN+5h5jPd6Uhr7rTEXkOL0g1fx0znh4dfpEtDEbE/jKKOnKGx+yPJA==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 22ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-02 22:52:36 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendered static_pages/home.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 76.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:52:37 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.5ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (36.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 102ms (Views: 92.3ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:52:38 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gJrkhPLAmzjAs5QsJZCdHH4TnDbs6Y8ewMjXaxdnCefmQxYANQLFXkERmJF3paiyQCdGHh3D8H15uhc835kpg==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (1.6ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (1.5ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Title" = ? LIMIT ?[0m  [["Title", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:11
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: presentations.Title: SELECT  "presentations".* FROM "presentations" WHERE "presentations"."Title" = ? LIMIT ?):
+  
+app/controllers/selections_controller.rb:11:in `addtodb'
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:53:45 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gJrkhPLAmzjAs5QsJZCdHH4TnDbs6Y8ewMjXaxdnCefmQxYANQLFXkERmJF3paiyQCdGHh3D8H15uhc835kpg==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:11
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::MissingTemplate (Missing template selections/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/edward/Matura/app/views"
+):
+  
+app/controllers/selections_controller.rb:13:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:53:56 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4gJrkhPLAmzjAs5QsJZCdHH4TnDbs6Y8ewMjXaxdnCefmQxYANQLFXkERmJF3paiyQCdGHh3D8H15uhc835kpg==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:11
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 49ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:53:59 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.5ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (35.0ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 98ms (Views: 93.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:54:00 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/VHmpw5/ClJEfpszcdbYAixiTvM/gQHKPtlcez+pWRMSRo+16s00MKR75sYotT/umYVNbAtzQnyUvFjp9Qe+gw==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:11
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:54:18 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (22.4ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 111ms (Views: 82.4ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:54:20 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.1ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:11
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::MissingTemplate (Missing template selections/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/edward/Matura/app/views"
+):
+  
+app/controllers/selections_controller.rb:13:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:54:45 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:13
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template selections/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/edward/Matura/app/views"
+):
+  
+app/controllers/selections_controller.rb:15:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:54:47 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.1ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:13
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::MissingTemplate (Missing template selections/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/edward/Matura/app/views"
+):
+  
+app/controllers/selections_controller.rb:15:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:55:10 +0200
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:13
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionView::MissingTemplate (Missing template selections/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/edward/Matura/app/views"
+):
+  
+app/controllers/selections_controller.rb:15:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:56:13 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:13
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `[]=' for #<Class:0x00007f982cdf8880>):
+  
+app/controllers/selections_controller.rb:14:in `addtodb'
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 22:58:25 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rn+DkDkKCfNwCrWIJ3AQ4z99Cs3y/b+zgqNiSqaQN3BBaOqC3bg3kZAPyH1+E/cPipoJUsYP/AUoxmbYbD7Q4A==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", ""], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:13
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 44ms (ActiveRecord: 1.9ms)
+
+
+  [1m[36mPresentation Load (0.5ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:15:54 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.2ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (23.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 349ms (Views: 327.6ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:15:58 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nd7H3BYLf7cLgigwBxjA5qkhMafyFhC1dlj52JFNXwPaya7O8rlB1euHVcVeeycKHMYyOMbkUwPcPf1KW+O4kw==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:16:13 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nd7H3BYLf7cLgigwBxjA5qkhMafyFhC1dlj52JFNXwPaya7O8rlB1euHVcVeeycKHMYyOMbkUwPcPf1KW+O4kw==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:16:15 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nd7H3BYLf7cLgigwBxjA5qkhMafyFhC1dlj52JFNXwPaya7O8rlB1euHVcVeeycKHMYyOMbkUwPcPf1KW+O4kw==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 24ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:16:58 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/views/selections/list.html.erb:18
+  Rendered selections/list.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 60ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-02 23:17:00 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2j+aCYT3tiw9QkMRw9ioQxzvpN9+qILai38wjLGm/M41KPMbYEWITt1HPuSau0+vqQinQEpawWwhGjQeewgbXg==", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+No template found for SelectionsController#addtodb, rendering head :no_content
+Completed 204 No Content in 26ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-03 16:42:23 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mSchueler Load (0.1ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 74ms (Views: 72.2ms | ActiveRecord: 0.1ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/bin/rake:23
+Started GET "/" for 192.168.1.131 at 2018-09-03 16:57:06 +0200
+Cannot render console from 192.168.1.131! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 478ms (Views: 469.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/studenten/anmelden" for 192.168.1.131 at 2018-09-03 16:57:24 +0200
+Cannot render console from 192.168.1.131! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#newstud as HTML
+  Rendering sessions/newstud.html.erb within layouts/application
+  Rendered sessions/newstud.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 86ms (Views: 84.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (101.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (88.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSchuelers (20180822082306)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schuelers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Vorname" varchar, "Name" varchar, "Klasse" varchar, "Mail" varchar, "Number" varchar, "Code" varchar, "Registered" boolean, "Selected" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180822082306_create_schuelers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822082306"]]
+  ↳ bin/rails:9
+  [1m[35m (87.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateAdmins (20180822083241)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "vorname" varchar, "mail" varchar, "number" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180822083241_create_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822083241"]]
+  ↳ bin/rails:9
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddPasswordDigestToSchuelers (20180822165605)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "schuelers" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20180822165605_add_password_digest_to_schuelers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822165605"]]
+  ↳ bin/rails:9
+  [1m[35m (91.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddPasswordDigestToAdmins (20180822165612)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "admins" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20180822165612_add_password_digest_to_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822165612"]]
+  ↳ bin/rails:9
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePresentations (20180831113924)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "presentations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Klasse" varchar, "Titel" varchar, "Fach" varchar, "Betreuer" varchar, "Zimmer" varchar, "Von" varchar, "Bis" varchar, "Datum" varchar, "Frei" integer, "Besetzt" integer, "Besucher" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180831113924_create_presentations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831113924"]]
+  ↳ bin/rails:9
+  [1m[35m (120.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-03 15:45:00.520897"], ["updated_at", "2018-09-03 15:45:00.520897"]]
+  ↳ bin/rails:9
+  [1m[35m (92.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mAdmin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mAdmin Create (0.2ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lancaster"], ["vorname", "Edward"], ["mail", "elancaster4@gmail.com"], ["number", "s9362"], ["created_at", "2018-09-03 15:45:04.889796"], ["updated_at", "2018-09-03 15:45:04.889796"], ["password_digest", "$2a$10$olF1xrMHcIGmdC9CsMhJcuksfVFrXBFkOGM72JjXOPTTcgnua7AM."]]
+  ↳ db/seeds.rb:9
+  [1m[35m (84.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mSchueler Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."Number") = LOWER(?) LIMIT ?[0m  [["Number", "s9362"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mSchueler Create (0.3ms)[0m  [1m[32mINSERT INTO "schuelers" ("Vorname", "Name", "Klasse", "Mail", "Number", "Registered", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Vorname", "Edward"], ["Name", "Lancaster"], ["Klasse", "6 Gf"], ["Mail", "s9362@bks-campus.ch"], ["Number", "s9362"], ["Registered", 0], ["created_at", "2018-09-03 15:45:05.094264"], ["updated_at", "2018-09-03 15:45:05.094264"], ["password_digest", "$2a$10$hSgwlNvKmhKhj1IoQhDICe6lzMutlIWpZvcn/76RfjhlD61YQhZQ2"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (68.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12

@@ -25,7 +25,7 @@ class SchuelersController < ApplicationController
   end
 
   def list
-    @students = Schueler.all
+    @student = Schueler.all
   end
 
   def logged_in_stud

@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    flash[:success] = "Erfolgreich abgemolden"
     log_out
     redirect_to root_url
   end
@@ -41,6 +42,7 @@ class SessionsController < ApplicationController
   end
 
   def studdestroy
+    flash[:success] = "Erfolgreich abgemolden"
     stud_out
     redirect_to root_path
   end
