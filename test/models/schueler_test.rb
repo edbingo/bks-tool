@@ -5,8 +5,8 @@ class SchuelerTest < ActiveSupport::TestCase
   # Tests that entries in the Schueler db are correct, with all values.
 
   def setup
-    @schueler = Schueler.new(name: "Surname", vorname: "Name", klasse: "5Ga",
-      mail:"s1234@bks-campus.ch", number:"s1234", password: "123456",
+    @schueler = Schueler.new(Name: "Surname", Vorname: "Name", Klasse: "5Ga",
+      Mail:"s1234@bks-campus.ch", Number:"s1234", password: "123456",
       password_confirmation: "123456")
   end
 
@@ -21,8 +21,8 @@ class SchuelerTest < ActiveSupport::TestCase
     assert_not @schueler.valid?
   end
 
-  test "vorname should be present" do
-    @schueler.vorname = "     "
+  test "Vorname should be present" do
+    @schueler.Vorname = "     "
     assert_not @schueler.valid?
   end
 

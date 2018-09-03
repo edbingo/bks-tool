@@ -2,31 +2,31 @@ require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
   def setup
-    @admin = Admin.new(name: "Surname", vorname: "Name", mail: "l999@bks-campus.ch",
-    number: "l999", password: "123456", password_confirmation: "123456")
+    @admin = Admin.new(Name: "Surname", Vorname: "Name", Mail: "l999@bks-campus.ch",
+    Number: "l999", password: "123456", password_confirmation: "123456")
   end
 
   test "should be valid" do
     assert @admin.valid?
   end
 
-  test "surname should be present" do
-    @admin.name = "     "
+  test "surName should be present" do
+    @admin.Name = "     "
     assert_not @admin.valid?
   end
 
   test "name should be present" do
-    @admin.vorname = "     "
+    @admin.Vorname = "     "
     assert_not @admin.valid?
   end
 
   test "mail should be present" do
-    @admin.mail = "     "
+    @admin.Mail = "     "
     assert_not @admin.valid?
   end
 
   test "number should be present" do
-    @admin.number = "     "
+    @admin.Number = "     "
     assert_not @admin.valid?
   end
 
