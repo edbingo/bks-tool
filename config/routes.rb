@@ -50,6 +50,12 @@ Rails.application.routes.draw do
   post '/studenten/waehlen', to: 'selections#addtodb'
   get '/studenten/bestaetigen', to: 'selections#confirm'
 
+  get '/studenten/waehlen/klasse', to:'selections#listk'
+  get '/studenten/waehlen/titel', to:'selections#listt'
+  get '/studenten/waehlen/fach', to:'selections#listf'
+  get '/studenten/waehlen/betreuer', to:'selections#listb'
+  get '/studenten/waehlen/zimmer', to:'selections#listz'
+  get '/studenten/waehlen/zeit', to:'selections#listv'
 
   get '/studenten/profil', to: 'schuelers#show'
   post '/studenten/profil', to: 'schuelers#delfromdb'

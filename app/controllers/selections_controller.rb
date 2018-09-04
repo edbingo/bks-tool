@@ -2,8 +2,29 @@ class SelectionsController < ApplicationController
   before_action :logged_in_stud
   def new
   end
+
   def list
     @presentations = Presentation.all.order(:Name)
+  end
+
+  def listb
+    @presentations = Presentation.all.order(:Betreuer)
+  end
+
+  def listf
+    @presentations = Presentation.all.order(:Fach)
+  end
+
+  def listk
+    @presentations = Presentation.all.order(:Klasse)
+  end
+
+  def listt
+    @presentations = Presentation.all.order(:Titel)
+  end
+
+  def listv
+    @presentations = Presentation.all.order(:Von)
   end
 
   def confirm

@@ -29,17 +29,17 @@ class SchuelersController < ApplicationController
       @schueler.update_attribute(:Selected, nil)
       pres = Presentation.find_by(Titel: titl)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     elsif params[:commit] == @schueler.Selected1
       @schueler.update_attribute(:Selected1, nil)
       pres = Presentation.find_by(Titel: titl)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     elsif params[:commit] == @schueler.Selected2
       @schueler.update_attribute(:Selected2, nil)
       pres = Presentation.find_by(Titel: titl)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     end
   end
 
