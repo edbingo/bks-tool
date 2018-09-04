@@ -1,11 +1,39 @@
 class SchuelersController < ApplicationController
-  before_action :logged_in_stud, only: [:show, :new, :import, :list, :create]
+  before_action :logged_in_stud, only: [:new, :import, :list, :create]
   def new
     @schueler = Schueler.new
   end
 
   def show
-    @schueler = Schueler.find(params[:id])
+    @schueler = Schueler.find_by(id: session[:student_id])
+    if @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil
+      redirect_to error_path
+    else
+      @pres0 = Presentation.find_by(Titel: @schueler.Selected)
+      @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
+      @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
+    end
+  end
+
+  def delfromdb
+    @schueler = Schueler.find_by(id: session[:student_id])
+    titl = params[:commit]
+    if params[:commit] == @schueler.Selected
+      @schueler.update_attribute(:Selected, nil)
+      pres = Presentation.find_by(Titel: titl)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
+      redirect_to studenten_profil_path
+    elsif params[:commit] == @schueler.Selected1
+      @schueler.update_attribute(:Selected1, nil)
+      pres = Presentation.find_by(Titel: titl)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
+      redirect_to studenten_profil_path
+    elsif params[:commit] == @schueler.Selected2
+      @schueler.update_attribute(:Selected2, nil)
+      pres = Presentation.find_by(Titel: titl)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
+      redirect_to studenten_profil_path
+    end
   end
 
   def create
@@ -50,6 +78,7 @@ class SchuelersController < ApplicationController
   private
 
     def schueler_params
-      params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,:password,:password_confirmation)
+      params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,
+        :password,:password_confirmation)
     end
 end

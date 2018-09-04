@@ -6,17 +6,26 @@
   <div>
     <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
     <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
+    <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
   </div>
   <h4>Listen Anzeigen</h4>
   <div>
   <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-secondary" %>
   <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-secondary" %>
+  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-secondary" %>
   <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-secondary" %>
   </div>
   <h4>Einzeln hinzufügen</h4>
   <div>
     <%= link_to "Neuen Admin hinzufügen", admin_new_admin_path, class: "btn btn-secondary" %>
     <%= link_to "Neuen Schüler hinzufügen", admin_add_student_path, class: "btn btn-secondary" %>
+    <%= link_to "Neuen Lehrer hinzufügen", '#', class: "btn btn-secondary" %>
+  </div>
+  <h4>Mails schicken</h4>
+  <div>
+    <%= link_to "Login daten versenden", '#', class: "btn btn-secondary" %>
+    <%= link_to "Mahnungen versenden", '#', class: "btn btn-secondary" %>
+    <%= link_to "Anmeldungsliste versenden", '#', class: "btn btn-secondary" %>
   </div>
   <h4>System verwalten</h4>
   <div>

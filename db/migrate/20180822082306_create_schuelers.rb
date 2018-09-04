@@ -9,6 +9,8 @@ class CreateSchuelers < ActiveRecord::Migration[5.2]
       t.string :Code
       t.boolean :Registered
       t.string :Selected
+      t.string :Selected1
+      t.string :Selected2
       t.timestamps
     end
   end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'teachers/list'
   get 'selections/list'
   get 'sessions_stud/new'
   get 'admins/hub'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get '/admin/add', to: 'admins#upload'
   get '/admin/add/presentations', to: 'presentations#add'
   get '/admin/add/students', to: 'schuelers#add'
+  get '/admin/add/teachers', to: 'teachers#add'
   get '/admin/add/student', to: 'schuelers#new'
   post '/admin/add/student', to: 'schuelers#create'
   get '/admin/show/presentations', to: 'presentations#list'
@@ -21,9 +23,11 @@ Rails.application.routes.draw do
   get '/admin/show/students/st', to: 'schuelers#listst'
   get '/admin/show/students', to: 'schuelers#list'
   get '/admin/show/admins', to: 'admins#list'
+  get '/admin/show/teachers', to: 'teachers#list'
   get '/admin/new/admin', to: 'admins#new'
   post '/admin/new/admin', to: 'admins#create'
   get '/admin/reset', to: 'admins#reset'
+  get '/admin/confirm', to: 'admins#warning'
   get '/admin/clear', to: 'admins#clear'
 
 
@@ -47,10 +51,18 @@ Rails.application.routes.draw do
   get '/studenten/bestaetigen', to: 'selections#confirm'
 
 
+  get '/studenten/profil', to: 'schuelers#show'
+  post '/studenten/profil', to: 'schuelers#delfromdb'
+  get '/error', to: 'schuelers#fail'
+
+
   resources :schuelers do
     collection { post :import }
   end
   resources :admins
+  resources :teachers do
+    collection { post :import }
+  end
   resources :presentations do
     collection { post :import }
   end

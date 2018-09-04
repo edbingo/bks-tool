@@ -1,5 +1,179 @@
 <% provide(:title, "Schüler anzeigen") %>
 <div class="center jumbotron">
-  <%= @schueler.Vorname %>, <%= @schueler.Name %>, <%= @schueler.Klasse %>,
-  <%= @schueler.Mail %>, <%= @schueler.Number %>
+  <%= @schueler.Vorname %>, <%= @schueler.Name %>, <%= @schueler.Klasse %><br />
+  Sie haben folgende Presentationen gewählt:
+
+  <% if @schueler.Selected != nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil %>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Klasse</th>
+          <th scope="col">Titel</th>
+          <th scope="col">Fach</th>
+          <th scope="col">Betreuer</th>
+          <th scope="col">Zimmer</th>
+          <th scope="col">Von</th>
+          <th scope="col">Bis</th>
+          <th scope="col">Freie<br />Plätze</th>
+          <th scope="col">Abwählen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <tr>
+            <td scope="row"><%= @pres0.Name %></td>
+            <td scope="row"><%= @pres0.Klasse %></td>
+            <td scope="row"><%= @pres0.Titel %></td>
+            <td scope="row"><%= @pres0.Fach %></td>
+            <td scope="row"><%= @pres0.Betreuer %></td>
+            <td scope="row"><%= @pres0.Zimmer %></td>
+            <td scope="row"><%= @pres0.Von %></td>
+            <td scope="row"><%= @pres0.Bis %></td>
+            <td scope="row"><%= @pres0.Frei %></td>
+            <td scope="row">
+              <%= form_for :dechoice, url: studenten_profil_path do |f| %>
+                <%= f.hidden_field :title, name: "title" %>
+                <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+              <% end %>
+            </td>
+          </tr>
+        </tr>
+      </tbody>
+    </table>
+
+  <% elsif @schueler.Selected == nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil %>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Klasse</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Fach</th>
+        <th scope="col">Betreuer</th>
+        <th scope="col">Zimmer</th>
+        <th scope="col">Von</th>
+        <th scope="col">Bis</th>
+        <th scope="col">Freie<br />Plätze</th>
+        <th scope="col">Abwählen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr>
+          <td scope="row"><%= @pres1.Name %></td>
+          <td scope="row"><%= @pres1.Klasse %></td>
+          <td scope="row"><%= @pres1.Titel %></td>
+          <td scope="row"><%= @pres1.Fach %></td>
+          <td scope="row"><%= @pres1.Betreuer %></td>
+          <td scope="row"><%= @pres1.Zimmer %></td>
+          <td scope="row"><%= @pres1.Von %></td>
+          <td scope="row"><%= @pres1.Bis %></td>
+          <td scope="row"><%= @pres1.Frei %></td>
+          <td scope="row">
+            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
+              <%= f.hidden_field :title, name: "title" %>
+              <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <% end %>
+          </td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+
+  <% elsif @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 != nil %>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Klasse</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Fach</th>
+        <th scope="col">Betreuer</th>
+        <th scope="col">Zimmer</th>
+        <th scope="col">Von</th>
+        <th scope="col">Bis</th>
+        <th scope="col">Freie<br />Plätze</th>
+        <th scope="col">Abwählen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr>
+          <td scope="row"><%= @pres2.Name %></td>
+          <td scope="row"><%= @pres2.Klasse %></td>
+          <td scope="row"><%= @pres2.Titel %></td>
+          <td scope="row"><%= @pres2.Fach %></td>
+          <td scope="row"><%= @pres2.Betreuer %></td>
+          <td scope="row"><%= @pres2.Zimmer %></td>
+          <td scope="row"><%= @pres2.Von %></td>
+          <td scope="row"><%= @pres2.Bis %></td>
+          <td scope="row"><%= @pres2.Frei %></td>
+          <td scope="row">
+            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
+              <%= f.hidden_field :title, name: "title" %>
+              <%= submit_tag "Abwählen", value: @pres2.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <% end %>
+          </td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+  
+  <% elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil %>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Klasse</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Fach</th>
+        <th scope="col">Betreuer</th>
+        <th scope="col">Zimmer</th>
+        <th scope="col">Von</th>
+        <th scope="col">Bis</th>
+        <th scope="col">Freie<br />Plätze</th>
+        <th scope="col">Abwählen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr>
+          <td scope="row"><%= @pres0.Name %></td>
+          <td scope="row"><%= @pres0.Klasse %></td>
+          <td scope="row"><%= @pres0.Titel %></td>
+          <td scope="row"><%= @pres0.Fach %></td>
+          <td scope="row"><%= @pres0.Betreuer %></td>
+          <td scope="row"><%= @pres0.Zimmer %></td>
+          <td scope="row"><%= @pres0.Von %></td>
+          <td scope="row"><%= @pres0.Bis %></td>
+          <td scope="row"><%= @pres0.Frei %></td>
+          <td scope="row">
+            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
+              <%= f.hidden_field :title, name: "title" %>
+              <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td scope="row"><%= @pres1.Name %></td>
+          <td scope="row"><%= @pres1.Klasse %></td>
+          <td scope="row"><%= @pres1.Titel %></td>
+          <td scope="row"><%= @pres1.Fach %></td>
+          <td scope="row"><%= @pres1.Betreuer %></td>
+          <td scope="row"><%= @pres1.Zimmer %></td>
+          <td scope="row"><%= @pres1.Von %></td>
+          <td scope="row"><%= @pres1.Bis %></td>
+          <td scope="row"><%= @pres1.Frei %></td>
+          <td scope="row">
+            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
+              <%= f.hidden_field :title, name: "title" %>
+              <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <% end %>
+          </td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
 </div>

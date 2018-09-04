@@ -22,6 +22,7 @@ apt -qq upgrade -y
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Done"
 echo -e $TEXT_RESET
+cd /
 
 # Installs prerequired packages
 echo -e $TEXT_RED_B'\e[1;31m'
@@ -77,12 +78,12 @@ echo -e $TEXT_RESET
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Installing NodeJS"
 echo -e $TEXT_RESET
-apt -qq update && apt -qq install -y apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && sudo apt-get install -y nodejs build-essential
+apt -qq update && apt -qq install -y apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && apt install -y nodejs build-essential
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "nodejs installed"
 echo -e $TEXT_RESET
 # Gets keys for passenger
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recvkeys 561F9B9CAC40B2F7
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Passenger keys received"
 echo -e $TEXT_RESET
@@ -129,10 +130,6 @@ echo "bks-tool:Site.Access" | chpasswd
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User has been added"
 echo -e $TEXT_RESET
-source /etc/profile.d/rvm.sh
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Source set"
-echo -e $TEXT_RESET
 usermod -a -G rvm bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "User added to group rvm"
@@ -171,7 +168,7 @@ mkdir -p /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Folder created"
 echo -e $TEXT_RESET
-chown bks-tool: /var/www/bks-tool
+chown -R bks-tool: /var/www/
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Permission given to new user"
 echo "Copied install file to user home"

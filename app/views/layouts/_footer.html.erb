@@ -4,7 +4,7 @@
     <% if logged_ad? %>
       Als Administrator angemeldet
     <% elsif logged_stud? %>
-      Als Schüler angemeldet
+      Als Schüler <%= @current_student.Number %> angemeldet
     <% else %>
       BKS Anmeldetool  /  Entwickelt von Edward Lancaster MA18
     <% end %>

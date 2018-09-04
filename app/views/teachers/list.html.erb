@@ -1,0 +1,18 @@
+<% provide(:title, "Lehrerliste") %>
+<h3>Nach Name sortiert</h3>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @teacher.each do |teac| %>
+    <tr>
+      <td><%= teac.Name %></td>
+      <td><%= teac.Mail %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

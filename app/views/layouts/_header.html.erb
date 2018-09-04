@@ -20,6 +20,7 @@
               </ul>
             </li>
           <% elsif logged_stud? %>
+            <li><%= link_to "Profil", studenten_profil_path %>
             <li><%= link_to "Abmelden", studenten_anmelden_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Anmelden", studenten_anmelden_path %></li>

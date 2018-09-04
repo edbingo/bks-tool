@@ -48,14 +48,16 @@ ActiveRecord::Schema.define(version: 2018_09_04_054544) do
     t.string "Code"
     t.boolean "Registered"
     t.string "Selected"
+    t.string "Selected1"
+    t.string "Selected2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.string "mail"
+    t.string "Name"
+    t.string "Mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

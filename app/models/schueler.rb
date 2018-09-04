@@ -11,6 +11,8 @@ class Schueler < ApplicationRecord
       row["Code"] = pass.join
       row["Registered"] = false
       row["Selected"] = nil
+      row["Selected1"] = nil
+      row["Selected2"] = nil
     end
 
     CSV.open(file.path, "w") do |f|
