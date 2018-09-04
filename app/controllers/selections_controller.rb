@@ -31,23 +31,24 @@ class SelectionsController < ApplicationController
   end
 
   def addtodb
+    # Find current student based on Session ID
     @schueler = Schueler.find_by(id: session[:student_id])
     if @schueler.Selected == nil
-      prestitle = params['titel']
-      @schueler.update_attribute(:Selected, prestitle)
-      pres = Presentation.find_by(Titel: prestitle)
+      title = params[:title]
+      @schueler.update_attribute(:Selected, title)
+      pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
       redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 == nil
-      prestitle = params['titel']
-      @schueler.update_attribute(:Selected1, prestitle)
-      pres = Presentation.find_by(Titel: prestitle)
+      title = params['title']
+      @schueler.update_attribute(:Selected1, title)
+      pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
       redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
-      prestitle = params['titel']
-      @schueler.update_attribute(:Selected2, prestitle)
-      pres = Presentation.find_by(Titel: prestitle)
+      title = params['title']
+      @schueler.update_attribute(:Selected2, title)
+      pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
       redirect_to studenten_waehlen_path
     end
@@ -61,9 +62,5 @@ class SelectionsController < ApplicationController
   end
 
   private
-
-  def select_params
-    params.require(:title)
-  end
 
 end

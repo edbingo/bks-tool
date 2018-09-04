@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@bks-campus.ch'
+  default from: 'noreply@localhost:3000'
   layout 'mailer'
 end

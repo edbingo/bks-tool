@@ -1,25 +1,25 @@
 require 'test_helper'
 
-class StudMailMailerTest < ActionMailer::TestCase
-  test "password_delivery" do
-    mail = StudMailMailer.password_delivery
-    assert_equal "Password delivery", mail.subject
+class StudentMailerTest < ActionMailer::TestCase
+  test "password_mail" do
+    mail = StudentMailer.password_mail
+    assert_equal "Password mail", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
     assert_match "Hi", mail.body.encoded
   end
 
-  test "pres_list" do
-    mail = StudMailMailer.pres_list
-    assert_equal "Pres list", mail.subject
+  test "catchup_mail" do
+    mail = StudentMailer.catchup_mail
+    assert_equal "Catchup mail", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
     assert_match "Hi", mail.body.encoded
   end
 
-  test "nonactive_warning" do
-    mail = StudMailMailer.nonactive_warning
-    assert_equal "Nonactive warning", mail.subject
+  test "final_mail" do
+    mail = StudentMailer.final_mail
+    assert_equal "Final mail", mail.subject
     assert_equal ["to@example.org"], mail.to
     assert_equal ["from@example.com"], mail.from
     assert_match "Hi", mail.body.encoded

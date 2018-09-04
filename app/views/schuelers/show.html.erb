@@ -1,5 +1,5 @@
 <% provide(:title, "Schüler anzeigen") %>
-<div class="center jumbotron">
+
   <%= @schueler.Vorname %>, <%= @schueler.Name %>, <%= @schueler.Klasse %><br />
   Sie haben folgende Presentationen gewählt:
 
@@ -31,9 +31,9 @@
           <td scope="row"><%= @pres0.Bis %></td>
           <td scope="row"><%= @pres0.Frei %></td>
           <td scope="row">
-            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-              <%= f.hidden_field :title, name: "title" %>
-              <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', @pres0.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
           </td>
         </tr>
@@ -68,9 +68,9 @@
           <td scope="row"><%= @pres1.Bis %></td>
           <td scope="row"><%= @pres1.Frei %></td>
           <td scope="row">
-            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-              <%= f.hidden_field :title, name: "title" %>
-              <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', @pres1.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
           </td>
         </tr>
@@ -105,9 +105,9 @@
           <td scope="row"><%= @pres2.Bis %></td>
           <td scope="row"><%= @pres2.Frei %></td>
           <td scope="row">
-            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-              <%= f.hidden_field :title, name: "title" %>
-              <%= submit_tag "Abwählen", value: @pres2.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', @pres2.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
           </td>
       </tr>
@@ -142,9 +142,9 @@
           <td scope="row"><%= @pres0.Bis %></td>
           <td scope="row"><%= @pres0.Frei %></td>
           <td scope="row">
-            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-              <%= f.hidden_field :title, name: "title" %>
-              <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', @pres0.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
           </td>
         </tr>
@@ -159,9 +159,9 @@
           <td scope="row"><%= @pres1.Bis %></td>
           <td scope="row"><%= @pres1.Frei %></td>
           <td scope="row">
-            <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-              <%= f.hidden_field :title, name: "title" %>
-              <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', @pres1.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
           </td>
       </tr>
@@ -196,9 +196,9 @@
         <td scope="row"><%= @pres0.Bis %></td>
         <td scope="row"><%= @pres0.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres0.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -213,9 +213,9 @@
         <td scope="row"><%= @pres2.Bis %></td>
         <td scope="row"><%= @pres2.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres2.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres2.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -250,9 +250,9 @@
         <td scope="row"><%= @pres1.Bis %></td>
         <td scope="row"><%= @pres1.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres1.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -267,9 +267,9 @@
         <td scope="row"><%= @pres1.Bis %></td>
         <td scope="row"><%= @pres1.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres1.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -303,9 +303,9 @@
         <td scope="row"><%= @pres0.Bis %></td>
         <td scope="row"><%= @pres0.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres0.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres0.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -320,9 +320,9 @@
         <td scope="row"><%= @pres1.Bis %></td>
         <td scope="row"><%= @pres1.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres1.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres1.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -337,9 +337,9 @@
         <td scope="row"><%= @pres2.Bis %></td>
         <td scope="row"><%= @pres2.Frei %></td>
         <td scope="row">
-          <%= form_for :dechoice, url: studenten_profil_path do |f| %>
-            <%= f.hidden_field :title, name: "title" %>
-            <%= submit_tag "Abwählen", value: @pres2.Titel, class: "btn btn-secondary", data: { confirm: "Ganz sicher?" } %>
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres2.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
         </td>
       </tr>
@@ -360,4 +360,3 @@
     </tbody>
   </table>
   <% end %>
-</div>

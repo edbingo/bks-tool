@@ -43,15 +43,15 @@
         <td scope="row"><%= pres.Frei %></td>
         <td scope="row">
           <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
-
-            <%= form_tag studenten_waehlen_path do %>
-              <%= hidden_field_tag :title %>
-              <%= submit_tag "Wählen", class: "btn btn-secondary", value: pres.Titel %>
+          <%= form_tag studenten_waehlen_path do %>
+            <%= hidden_field_tag 'title', pres.Titel %>
+            <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
+          <% end %>
+          <% else %>
+            <%= form_tag studenten_profil_path do %>
+              <%= hidden_field_tag 'title', pres.Titel %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
-            <% else %>
-              <%= form_for :dechoice, url: studenten_profil_path do %>
-                <%= submit_tag "Abwählen", value: pres.Titel, class: "btn btn-primary" %>
-              <% end %>
           <% end %>
         </td>
       </tr>

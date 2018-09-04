@@ -1,11 +1,11 @@
-class StudMailMailer < ApplicationMailer
+class StudentMailer < ApplicationMailer
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.stud_mail_mailer.password_delivery.subject
+  #   en.student_mailer.password_mail.subject
   #
-  def password_delivery
+  def password_mail(student)
     @student = student
     mail to: student.Mail, subject: "MA19 - Elektronische Anmeldung"
   end
@@ -13,10 +13,9 @@ class StudMailMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.stud_mail_mailer.pres_list.subject
+  #   en.student_mailer.catchup_mail.subject
   #
-  def pres_list
-    @greeting = "Hi"
+  def catchup_mail
 
     mail to: "to@example.org"
   end
@@ -24,11 +23,10 @@ class StudMailMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.stud_mail_mailer.nonactive_warning.subject
+  #   en.student_mailer.final_mail.subject
   #
-  def nonactive_warning
-    @greeting = "Hi"
-
+  def final_mail(student)
+    @student = student
     mail to: "to@example.org"
   end
 end

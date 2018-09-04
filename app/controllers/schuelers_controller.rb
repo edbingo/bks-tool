@@ -24,20 +24,20 @@ class SchuelersController < ApplicationController
 
   def delfromdb
     @schueler = Schueler.find_by(id: session[:student_id])
-    titl = params[:commit]
-    if params[:commit] == @schueler.Selected
+    title = params[:title]
+    if params[:title] == @schueler.Selected
       @schueler.update_attribute(:Selected, nil)
-      pres = Presentation.find_by(Titel: titl)
+      pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
       redirect_to studenten_waehlen_path
-    elsif params[:commit] == @schueler.Selected1
+    elsif params[:title] == @schueler.Selected1
       @schueler.update_attribute(:Selected1, nil)
-      pres = Presentation.find_by(Titel: titl)
+      pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
       redirect_to studenten_waehlen_path
-    elsif params[:commit] == @schueler.Selected2
+    elsif params[:title] == @schueler.Selected2
       @schueler.update_attribute(:Selected2, nil)
-      pres = Presentation.find_by(Titel: titl)
+      pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
       redirect_to studenten_waehlen_path
     end
@@ -49,9 +49,11 @@ class SchuelersController < ApplicationController
     pres0 = Presentation.find_by(Titel: schueler.Selected)
     pres1 = Presentation.find_by(Titel: schueler.Selected1)
     pres2 = Presentation.find_by(Titel: schueler.Selected2)
-    pres0.update_attribute(:Besucher, "#{pres0.Besucher}," + "#{schueler.Vorname} " + "#{schueler.Name}")
+    pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
+    StudentMailer.final_mail.deliver_now
+    flash[:info] = "Email sent"
     # Send email to student and to teacher
-    schueler.update_attribute(:password_digest, ":)")
+    schueler.update_attribute(:Number, ":)")
     studsend()
   end
 
