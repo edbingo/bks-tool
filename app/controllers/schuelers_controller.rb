@@ -25,7 +25,19 @@ class SchuelersController < ApplicationController
   end
 
   def list
-    @student = Schueler.all
+    @student = Schueler.all.order(:Name)
+  end
+
+  def listfn
+    @student = Schueler.all.order(:Vorname)
+  end
+
+  def listkl
+    @student = Schueler.all.order(:Klasse)
+  end
+
+  def listst
+    @student = Schueler.all.order(:Registered)
   end
 
   def logged_in_stud

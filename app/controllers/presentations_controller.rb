@@ -1,6 +1,6 @@
 class PresentationsController < ApplicationController
   def list
-    @presentations = Presentation.all
+    @presentations = Presentation.all.order(:Name)
   end
   def show
   end

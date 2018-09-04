@@ -125,6 +125,14 @@ input {
   height: auto !important;
 }
 
+.black {
+  color: grey;
+}
+
+.black:hover{
+  color: black;
+}
+
 #error_explanation {
   color: red;
   ul {
