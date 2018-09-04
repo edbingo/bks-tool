@@ -15,6 +15,13 @@ class SchuelersController < ApplicationController
     end
   end
 
+  def confirm
+    @schueler = Schueler.find_by(id: session[:student_id])
+    @pres0 = Presentation.find_by(Titel: @schueler.Selected)
+    @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
+    @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
+  end
+
   def delfromdb
     @schueler = Schueler.find_by(id: session[:student_id])
     titl = params[:commit]
@@ -34,6 +41,18 @@ class SchuelersController < ApplicationController
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
       redirect_to studenten_profil_path
     end
+  end
+
+  def sendfile
+    schueler = Schueler.find_by(id: session[:student_id])
+    schueler.update_attribute(:Registered, true)
+    pres0 = Presentation.find_by(Titel: schueler.Selected)
+    pres1 = Presentation.find_by(Titel: schueler.Selected1)
+    pres2 = Presentation.find_by(Titel: schueler.Selected2)
+    pres0.update_attribute(:Besucher, "#{pres0.Besucher}," + "#{schueler.Vorname} " + "#{schueler.Name}")
+    # Send email to student and to teacher
+    schueler.update_attribute(:password_digest, ":)")
+    studsend()
   end
 
   def create

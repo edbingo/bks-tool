@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
   def new
     @admin = Admin.new
   end
+
   def hub
   end
 
@@ -17,7 +18,7 @@ class AdminsController < ApplicationController
   end
 
   def list
-    @admin = Admin.all
+   @admin = Admin.all
   end
 
 

@@ -174,6 +174,7 @@ echo "Permission given to new user"
 echo "Copied install file to user home"
 echo -e $TEXT_RESET
 gem install rails
+gem install jquery-rails
 mkdir /scripts
 cp /root/bks-tool/usersetup.sh /scripts
 chown bks-tool: /scripts

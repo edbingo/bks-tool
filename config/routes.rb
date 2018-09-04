@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
   get '/studenten/profil', to: 'schuelers#show'
   post '/studenten/profil', to: 'schuelers#delfromdb'
+  get '/studenten/profil/send', to: 'schuelers#confirm'
+  post '/studenten/profil/send', to: 'schuelers#sendfile'
   get '/error', to: 'schuelers#fail'
 
 

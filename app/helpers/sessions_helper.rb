@@ -18,6 +18,12 @@ module SessionsHelper
     @current_student = nil
   end
 
+  def studsend
+    flash[:success] = "Anmeldung verschickt!"
+    stud_out
+    redirect_to root_path
+  end
+
   def current_admin
     if session[:admin_id]
       @current_admin ||= Admin.find_by(id: session[:admin_id])

@@ -1,0 +1,58 @@
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Fach</th>
+      <th scope="col">Betreuer</th>
+      <th scope="col">Zimmer</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+      <th scope="col">Freie<br />Plätze</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td scope="row"><%= @pres0.Name %></td>
+        <td scope="row"><%= @pres0.Klasse %></td>
+        <td scope="row"><%= @pres0.Titel %></td>
+        <td scope="row"><%= @pres0.Fach %></td>
+        <td scope="row"><%= @pres0.Betreuer %></td>
+        <td scope="row"><%= @pres0.Zimmer %></td>
+        <td scope="row"><%= @pres0.Von %></td>
+        <td scope="row"><%= @pres0.Bis %></td>
+        <td scope="row"><%= @pres0.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres1.Name %></td>
+        <td scope="row"><%= @pres1.Klasse %></td>
+        <td scope="row"><%= @pres1.Titel %></td>
+        <td scope="row"><%= @pres1.Fach %></td>
+        <td scope="row"><%= @pres1.Betreuer %></td>
+        <td scope="row"><%= @pres1.Zimmer %></td>
+        <td scope="row"><%= @pres1.Von %></td>
+        <td scope="row"><%= @pres1.Bis %></td>
+        <td scope="row"><%= @pres1.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres2.Name %></td>
+        <td scope="row"><%= @pres2.Klasse %></td>
+        <td scope="row"><%= @pres2.Titel %></td>
+        <td scope="row"><%= @pres2.Fach %></td>
+        <td scope="row"><%= @pres2.Betreuer %></td>
+        <td scope="row"><%= @pres2.Zimmer %></td>
+        <td scope="row"><%= @pres2.Von %></td>
+        <td scope="row"><%= @pres2.Bis %></td>
+        <td scope="row"><%= @pres2.Frei %></td>
+      </tr>
+    </tbody>
+  </table>
+  Wenn Sie dieses Formular abschicken können Sie Ihre Wahl nicht mehr ändern!
+  <br />
+  <%= link_to "Zurück", studenten_profil_path, class: "btn btn-primary" %>
+  <br />
+  <br />
+  <%= form_for :lastchance, url: studenten_profil_send_path do %>
+    <%= submit_tag "Absenden", value: "Absenden", class: "btn btn-danger", data: { confirm: "Letzte Chance!" } %>
+  <% end %>
