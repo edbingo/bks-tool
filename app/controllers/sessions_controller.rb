@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def newstud
+  end
+
   def create
     mildstudestroy
     admin = Admin.find_by(number: params[:session][:number].downcase)
@@ -18,12 +21,15 @@ class SessionsController < ApplicationController
   def studcreate
     mildestroy
     schueler = Schueler.find_by(number: params[:session][:number].downcase)
-    if schueler && schueler.authenticate(params[:session][:password])
+    if schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == false
       stud_in schueler
       redirect_to studenten_waehlen_path
+    elsif schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == true
+      flash.now[:danger] = "Sie haben sich schon Registriert"
+      render 'newstud'
     else
       flash.now[:danger] = "Benutzer name oder Passwort falsch"
-      render 'new'
+      render 'newstud'
     end
   end
 

@@ -52,7 +52,6 @@ class SchuelersController < ApplicationController
     pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     StudentMailer.final_mail(schueler).deliver_now
     # Send email to teacher
-    schueler.update_attribute(:Number, "User deactivated")
     studsend()
   end
 
