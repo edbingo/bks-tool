@@ -3,13 +3,14 @@ class StudentMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/student_mailer/password_mail
   def password_mail
-    schueler = Schueler.first
-    StudentMailer.password_mail(schueler)
+    student = Schueler.first
+    StudentMailer.password_mail(student)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/student_mailer/catchup_mail
   def catchup_mail
-    StudentMailer.catchup_mail
+    student = Schueler.first
+    StudentMailer.catchup_mail(student)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/student_mailer/final_mail

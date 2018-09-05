@@ -23,7 +23,7 @@ class AdminsController < ApplicationController
 
 
   def clear
-    [Schueler, Admin, Presentation].each { |model| model.truncate! }
+    [Schueler, Admin, Presentation, Teacher].each { |model| model.truncate! }
     Rails.application.load_seed
     flash[:success] = "Datenbank wurde zurückgesetzt"
     redirect_to root_path

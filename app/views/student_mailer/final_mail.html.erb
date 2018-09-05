@@ -1,1 +1,38 @@
-Hallo <%= @student.Vorname %>
+Hallo <%= @student.Vorname %><br />
+<% @presi = Presentation.find_by(Titel: @student.Selected) %>
+<% @presi1 = Presentation.find_by(Titel: @student.Selected1) %>
+<% @presi2 = Presentation.find_by(Titel: @student.Selected2) %>
+Sie haben folgende Presentationen ausgewählt:<br />
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Fach</th>
+      <th scope="col">Betreuer</th>
+      <th scope="col">Zimmer</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+      <th scope="col">Freie<br />Plätze</th>
+      <th scope="col">Abwählen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row"><%= @presi.Name %></td>
+      <td scope="row"><%= @presi.Klasse %></td>
+      <td scope="row"><%= @presi.Titel %></td>
+      <td scope="row"><%= @presi.Fach %></td>
+      <td scope="row"><%= @presi.Betreuer %></td>
+      <td scope="row"><%= @presi.Zimmer %></td>
+      <td scope="row"><%= @presi.Von %></td>
+      <td scope="row"><%= @presi.Bis %></td>
+      <td scope="row"><%= @presi.Frei %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<i>I am a bot, please do not reply</i>

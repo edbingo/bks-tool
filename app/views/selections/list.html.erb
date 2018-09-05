@@ -1,4 +1,8 @@
 <% provide(:title, "Presentationsauswahl") %>
+<% if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil %>
+  Sie haben die Maximale Anzahl Wahlen getroffen. Gehen Sie zu Ihrem Profil um eine Presentation abzuwählen.
+  <%= link_to "Auswahl bestätigen", studenten_profil_path, class: "btn btn-primary" %>
+<% else %>
   <h4>Sortieren</h4>
   <button type="button" class="btn btn-outline-primary center">
     <li class="dropdown">
@@ -13,48 +17,50 @@
         <li><%= link_to "Nach Zeit", studenten_waehlen_zeit_path %></li>
       </ul>
     </li>
-  </button>
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Klasse</th>
-      <th scope="col">Titel</th>
-      <th scope="col">Fach</th>
-      <th scope="col">Betreuer</th>
-      <th scope="col">Zimmer</th>
-      <th scope="col">Von</th>
-      <th scope="col">Bis</th>
-      <th scope="col">Freie Plätze</th>
-      <th scope="col">Wählen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @presentations.each do |pres| %>
+  </button><br />
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
       <tr>
-        <td scope="row"><%= pres.Name %></td>
-        <td scope="row"><%= pres.Klasse %></td>
-        <td scope="row"><%= pres.Titel %></td>
-        <td scope="row"><%= pres.Fach %></td>
-        <td scope="row"><%= pres.Betreuer %></td>
-        <td scope="row"><%= pres.Zimmer %></td>
-        <td scope="row"><%= pres.Von %></td>
-        <td scope="row"><%= pres.Bis %></td>
-        <td scope="row"><%= pres.Frei %></td>
-        <td scope="row">
-          <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
-            <%= form_tag studenten_waehlen_path do %>
-              <%= hidden_field_tag 'title', pres.Titel %>
-              <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
-            <% end %>
+        <th scope="col">Name</th>
+        <th scope="col">Klasse</th>
+        <th scope="col">Titel</th>
+        <th scope="col">Fach</th>
+        <th scope="col">Betreuer</th>
+        <th scope="col">Zimmer</th>
+        <th scope="col">Von</th>
+        <th scope="col">Bis</th>
+        <th scope="col">Freie Plätze</th>
+        <th scope="col">Wählen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @presentations.each do |pres| %>
+        <tr>
+          <td scope="row"><%= pres.Name %></td>
+          <td scope="row"><%= pres.Klasse %></td>
+          <td scope="row"><%= pres.Titel %></td>
+          <td scope="row"><%= pres.Fach %></td>
+          <td scope="row"><%= pres.Betreuer %></td>
+          <td scope="row"><%= pres.Zimmer %></td>
+          <td scope="row"><%= pres.Von %></td>
+          <td scope="row"><%= pres.Bis %></td>
+          <td scope="row"><%= pres.Frei %></td>
+          <td scope="row">
+            <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
+              <%= form_tag studenten_waehlen_path do %>
+                <%= hidden_field_tag 'title', pres.Titel %>
+                <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
+              <% end %>
             <% else %>
               <%= form_tag studenten_profil_path do %>
                 <%= hidden_field_tag 'title', pres.Titel %>
                 <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

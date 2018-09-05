@@ -15,8 +15,8 @@ class StudentMailer < ApplicationMailer
   #
   #   en.student_mailer.catchup_mail.subject
   #
-  def catchup_mail
-
+  def catchup_mail(student)
+    @student = student
     mail to: "to@example.org"
   end
 
