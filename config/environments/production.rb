@@ -67,7 +67,6 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.smtp_settings = {
     :address => 'smtp.bks-campus.ch',
-    :domain =>'bks-campus.ch',
     :port => 25,
     :domain => 'bks-campus.ch'
   }
