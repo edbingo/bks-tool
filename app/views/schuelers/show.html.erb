@@ -354,7 +354,11 @@
         <td></td>
         <td></td>
         <td scope="rowgroup">
-          <%= link_to "Anmeldung abschicken", studenten_profil_send_path, class: "btn btn-primary" %>
+          <% unless @pres0.Von == @pres1.Von || @pres0.Von == @pres2.Von || @pres1.Von == @pres2.Von %>
+            <%= link_to "Anmeldung abschicken", studenten_profil_send_path, class: "btn btn-primary" %>
+          <% else %>
+            Error: Sie haben eine Doppelbuchung.
+          <% end %>
         </td>
       </tr>
     </tbody>

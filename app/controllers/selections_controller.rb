@@ -30,31 +30,24 @@ class SelectionsController < ApplicationController
   def confirm
   end
 
-  def check(title)
-    chk1 = Presentation.find_by(Titel: title)
-
 
   def addtodb
     # Find current student based on Session ID
     @schueler = Schueler.find_by(id: session[:student_id])
     if @schueler.Selected == nil
       title = params[:title]
-      unless @schueler.Selected1 == nil && @schueler.Selected2 == nil
-        check(title)
-      else
-        @schueler.update_attribute(:Selected, title)
-        pres = Presentation.find_by(Titel: title)
-        pres.update_attribute(:Frei, pres.Frei - 1)
-        redirect_to studenten_waehlen_path
-      end
+      @schueler.update_attribute(:Selected, title)
+      pres = Presentation.find_by(Titel: title)
+      pres.update_attribute(:Frei, pres.Frei - 1)
+      redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 == nil
-      title = params[:title]
+      title = params['title']
       @schueler.update_attribute(:Selected1, title)
       pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
       redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
-      title = params[:title]
+      title = params['title']
       @schueler.update_attribute(:Selected2, title)
       pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
