@@ -60,7 +60,9 @@ class SchuelersController < ApplicationController
     @schueler = Schueler.new(schueler_params)
     if @schueler.save
       flash[:success] = "User successfully registered"
-      redirect_to @schueler
+      @schueler.update_attribute(:Code, @schueler.password)
+      @schueler.update_attribute(:Registered, false)
+      redirect_to admin_path
     else
       render 'new'
     end

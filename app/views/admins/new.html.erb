@@ -10,12 +10,12 @@
       <%= f.text_field :name, class: 'form-control' %>
       <%= f.label :mail %>
       <%= f.email_field :mail, class: 'form-control' %>
-      <%= f.label :number %>
+      <%= f.label :nummer %>
       <%= f.text_field :number, class: 'form-control' %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <%= f.label :password_confirmation, "Bestätigung" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.label :passwort %>
+      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :password_bestätigung, "Bestätigung" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
       <%= f.submit "Konto erstellen", class: "btn btn-primary" %>
     <% end %>
   </div>

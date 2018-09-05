@@ -65,6 +65,11 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "bks-tool_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.smtp_settings = {
+    :address => smtp.bks-campus.ch
+    :port => 25
+    :domain => 'bks-campus.ch'
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

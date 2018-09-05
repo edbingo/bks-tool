@@ -6,7 +6,17 @@ class PresentationsController < ApplicationController
   end
   def import
     Presentation.import(params[:file])
-    redirect_to admin_url
-    flash[:success] = "Presentationen erfolgreich hinzugefügt"
+    flash.now[:success] = "Presentationen erfolgreich hinzugefügt"
+    render 'addfree'
+  end
+
+  def addfree
+    number = params[:free]
+    pres = Presentation.all
+    pres.each do |num|
+      num.update_attribute(:Frei, number)
+    end
+    redirect_to admin_path
+    flash[:success] = "Datenbank aktualisiert"
   end
 end

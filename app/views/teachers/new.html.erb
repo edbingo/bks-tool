@@ -1,0 +1,17 @@
+<% provide(:title, 'Registrieren') %>
+<div class="center jumbotron">
+  <h3>Sign up</h3>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= render 'shared/error_messages_teacher' %>
+      <%= form_for(@teacher, url: admin_add_teacher_path) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :Name, class: 'form-control' %>
+        <%= f.label :mail %>
+        <%= f.text_field :Mail, class: 'form-control' %>
+        <%= f.submit "Lehrer hinzufügen", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

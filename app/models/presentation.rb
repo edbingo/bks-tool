@@ -7,7 +7,6 @@ class Presentation < ApplicationRecord
     end
     presentations = Presentation.all
     presentations.each do |row|
-        row.update_attribute(:Frei, 5)
         row.update_attribute(:Besetzt, 0)
         row.update_attribute(:Besucher, nil)
     end
