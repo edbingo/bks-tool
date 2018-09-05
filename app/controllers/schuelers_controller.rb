@@ -50,8 +50,9 @@ class SchuelersController < ApplicationController
     pres1 = Presentation.find_by(Titel: schueler.Selected1)
     pres2 = Presentation.find_by(Titel: schueler.Selected2)
     pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
+    pres1.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
+    pres2.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     StudentMailer.final_mail(schueler).deliver_now
-    # Send email to teacher
     studsend()
   end
 
@@ -96,10 +97,25 @@ class SchuelersController < ApplicationController
     end
   end
 
+  def remove
+    @student = if params[:term]
+      Schueler.where('Name LIKE ?', "%#{params[:term]}")
+    else
+      Schueler.all
+    end
+  end
+
+  def stentf
+    num = params[:number]
+    Schueler.find_by(Number: num).destroy
+    redirect_to admin_path
+    flash[:success] = "Schüler wurde erfolgreich entfernt"
+  end
+
   private
 
     def schueler_params
       params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,
-        :password,:password_confirmation)
+        :password,:password_confirmation,:term)
     end
 end

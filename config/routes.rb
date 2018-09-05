@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   get '/admin/send/login', to: 'admins#logindetailssend'
   get '/admin/send/list', to: 'admins#finallistsend'
   get '/admin/send/remind', to: 'admins#remindersend'
+  get '/admin/student/remove', to: 'schuelers#remove'
+  post '/admin/student/remove', to: 'schuelers#stentf'
 
 
 # Static Pages

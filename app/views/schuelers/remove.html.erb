@@ -1,0 +1,44 @@
+<h1>Nach Benutzer suchen</h1><br/>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Vorname</th>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Number</th>
+      <th scope="col">Password</th>
+      <th scope="col">Registered?</th>
+      <th scope="col">Entfernen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @student.each do |stud| %>
+    <tr>
+      <td scope="row"><%= stud.Vorname %></td>
+      <td scope="row"><%= stud.Name %></td>
+      <td scope="row"><%= stud.Klasse %></td>
+      <td scope="row"><%= stud.Mail %></td>
+      <td scope="row"><%= stud.Number %></td>
+      <td scope="row"><%= stud.Code %></td>
+      <td scope="row"><%= stud.Registered %></td>
+      <td scope="row">
+        <% unless stud.Registered == false %>
+          <%= form_tag admin_student_remove_path do %>
+            <%= hidden_field_tag 'number', stud.Number %>
+            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { disable_with: "Saving", confirm: "Dieser Benutzer hat sich schon Registriert. Wenn er entfernt wird, muss er sich nochmals registrieren" } %>
+          <% end %>
+        <% else %>
+          <%= form_tag admin_student_remove_path do %>
+            <%= hidden_field_tag 'number', stud.Number %>
+            <%= submit_tag "Entfernen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+          <% end %>
+        <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= form_tag(admin_student_remove_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Suchen' %>
+<% end %>

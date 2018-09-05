@@ -36,29 +36,32 @@
     </thead>
     <tbody>
       <% @presentations.each do |pres| %>
-        <tr>
-          <td scope="row"><%= pres.Name %></td>
-          <td scope="row"><%= pres.Klasse %></td>
-          <td scope="row"><%= pres.Titel %></td>
-          <td scope="row"><%= pres.Fach %></td>
-          <td scope="row"><%= pres.Betreuer %></td>
-          <td scope="row"><%= pres.Zimmer %></td>
-          <td scope="row"><%= pres.Von %></td>
-          <td scope="row"><%= pres.Bis %></td>
-          <td scope="row"><%= pres.Frei %></td>
-          <td scope="row">
-            <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
-              <%= form_tag studenten_waehlen_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
-                <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
+        <% unless pres.Frei == 0 %>
+          <tr>
+            <td scope="row"><%= pres.Name %></td>
+            <td scope="row"><%= pres.Klasse %></td>
+            <td scope="row"><%= pres.Titel %></td>
+            <td scope="row"><%= pres.Fach %></td>
+            <td scope="row"><%= pres.Betreuer %></td>
+            <td scope="row"><%= pres.Zimmer %></td>
+            <td scope="row"><%= pres.Von %></td>
+            <td scope="row"><%= pres.Bis %></td>
+            <td scope="row"><%= pres.Frei %></td>
+            <td scope="row">
+              <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
+                <%= form_tag studenten_waehlen_path do %>
+                  <%= hidden_field_tag 'title', pres.Titel %>
+                  <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
+                <% end %>
+              <% else %>
+                <%= form_tag studenten_profil_path do %>
+                  <%= hidden_field_tag 'title', pres.Titel %>
+                  <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+                <% end %>
               <% end %>
-            <% else %>
-              <%= form_tag studenten_profil_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
-                <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
-              <% end %>
-            <% end %>
-          </td>
+            </td>
+          <% else %>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
