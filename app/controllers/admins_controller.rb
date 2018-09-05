@@ -62,7 +62,7 @@ class AdminsController < ApplicationController
 
   def remindersend
     schueler = Schueler.all
-    stud.each do |pupil|
+    schueler.each do |pupil|
       unless pupil.Registered == true
         StudentMailer.catchup_mail(pupil).deliver_now
       end
