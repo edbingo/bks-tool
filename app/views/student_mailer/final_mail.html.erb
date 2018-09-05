@@ -2,8 +2,8 @@ Hallo <%= @student.Vorname %><br />
 <% @presi = Presentation.find_by(Titel: @student.Selected) %>
 <% @presi1 = Presentation.find_by(Titel: @student.Selected1) %>
 <% @presi2 = Presentation.find_by(Titel: @student.Selected2) %>
-Sie haben folgende Presentationen ausgewählt:<br />
-<table>
+Sie haben folgende Presentationen ausgewählt:<br /><br />
+<table class="table bordered" style="th, td{ padding: 5px; text-align: left;}">
   <thead>
     <tr>
       <th scope="col">Name</th>
@@ -14,8 +14,6 @@ Sie haben folgende Presentationen ausgewählt:<br />
       <th scope="col">Zimmer</th>
       <th scope="col">Von</th>
       <th scope="col">Bis</th>
-      <th scope="col">Freie<br />Plätze</th>
-      <th scope="col">Abwählen</th>
     </tr>
   </thead>
   <tbody>
@@ -28,11 +26,10 @@ Sie haben folgende Presentationen ausgewählt:<br />
       <td scope="row"><%= @presi.Zimmer %></td>
       <td scope="row"><%= @presi.Von %></td>
       <td scope="row"><%= @presi.Bis %></td>
-      <td scope="row"><%= @presi.Frei %></td>
     </tr>
   </tbody>
 </table>
 
-
+<br /><br />
 
 <i>I am a bot, please do not reply</i>

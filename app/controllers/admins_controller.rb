@@ -36,6 +36,36 @@ class AdminsController < ApplicationController
     end
   end
 
+  def logindetailssend
+    stud = Schueler.all
+    stud.each do |pupil|
+      StudentMailer.password_mail(pupil).deliver_now
+    end
+    flash[:success] = "Login emails wurden versendet"
+    redirect_to admin_path
+  end
+
+  def remindersend
+    schueler = Schueler.all
+    stud.each do |pupil|
+      unless pupil.Registered == true
+        StudentMailer.catchup_mail(pupil).deliver_now
+      end
+    end
+    flash[:success] = "Schüler wurden gemahnt"
+    redirect_to admin_path
+  end
+
+  def finallistsend
+    teac = Teacher.all
+    teac.each do |send|
+      StudentMailer.list_mail(send).deliver_now
+      send.update_attribute(:Received, true)
+    end
+    flash[:success] = "Presentationslisten wurden versendet"
+    redirect_to admin_path
+  end
+
   private
 
   def admin_params

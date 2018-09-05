@@ -50,10 +50,9 @@ class SchuelersController < ApplicationController
     pres1 = Presentation.find_by(Titel: schueler.Selected1)
     pres2 = Presentation.find_by(Titel: schueler.Selected2)
     pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
-    StudentMailer.final_mail.deliver_now
-    flash[:info] = "Email sent"
-    # Send email to student and to teacher
-    schueler.update_attribute(:Number, ":)")
+    StudentMailer.final_mail(schueler).deliver_now
+    # Send email to teacher
+    schueler.update_attribute(:Number, "User deactivated")
     studsend()
   end
 

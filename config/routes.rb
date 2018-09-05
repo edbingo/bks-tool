@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get '/admin/reset', to: 'admins#reset'
   get '/admin/confirm', to: 'admins#warning'
   get '/admin/clear', to: 'admins#clear'
+  get '/admin/send/login', to: 'admins#logindetailssend'
+  get '/admin/send/list', to: 'admins#finallistsend'
+  get '/admin/send/remind', to: 'admins#remindersend'
 
 
 # Static Pages

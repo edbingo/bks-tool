@@ -7,7 +7,7 @@ class StudentMailer < ApplicationMailer
   #
   def password_mail(student)
     @student = student
-    mail to: student.Mail, subject: "MA19 - Elektronische Anmeldung"
+    mail to: @student.Mail, subject: "MA19 - Elektronische Anmeldung"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -17,7 +17,7 @@ class StudentMailer < ApplicationMailer
   #
   def catchup_mail(student)
     @student = student
-    mail to: "to@example.org"
+    mail to: @student.Mail, subject: "WICHTIG: MA19 - Elektronische Anmeldung"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -27,6 +27,11 @@ class StudentMailer < ApplicationMailer
   #
   def final_mail(student)
     @student = student
-    mail to: "to@example.org"
+    mail to: @student.Mail, subject: "Gewählte Presentationen"
+  end
+
+  def list_mail(teacher)
+    @teacher = teacher
+    mail to: @teacher.Mail, subject: "Definitive Schülerliste"
   end
 end
