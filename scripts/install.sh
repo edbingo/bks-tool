@@ -175,7 +175,8 @@ echo "Copied install file to user home"
 echo -e $TEXT_RESET
 gem install rails
 gem install jquery-rails
-mkdir /scripts
-cp /root/bks-tool/usersetup.sh /scripts
-chown bks-tool: /scripts
-sudo -H -u bks-tool bash -c './scripts/usersetup.sh'
+git clone https://bitbucket.org/elancaster/bks-tool /var/www/bks-tool
+echo -e $TEXT_RED_B'\e[1;31m'
+echo "Install has completed."
+echo "Please run ./usersetup.sh as the bks-tool user"
+echo -e $TEXT_RESET
