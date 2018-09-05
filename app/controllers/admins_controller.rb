@@ -4,6 +4,21 @@ class AdminsController < ApplicationController
     @admin = Admin.new
   end
 
+  def remove
+    @admin = if params[:term]
+      Admin.where('Name LIKE ?', "%#{params[:term]}")
+    else
+      Admin.all
+    end
+  end
+
+  def adent
+    num = params[:number]
+    Admin.find_by(Number: num).destroy
+    redirect_to admin_path
+    flash[:success] = "Admin wurde erfolgreich entfernt"
+  end
+
   def hub
   end
 
@@ -69,6 +84,6 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:name,:vorname,:mail,:number,:password,:password_confirmation)
+    params.require(:admin).permit(:name,:vorname,:mail,:number,:password,:password_confirmation,:term)
   end
 end

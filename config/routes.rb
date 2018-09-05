@@ -37,7 +37,10 @@ Rails.application.routes.draw do
   get '/admin/send/remind', to: 'admins#remindersend'
   get '/admin/student/remove', to: 'schuelers#remove'
   post '/admin/student/remove', to: 'schuelers#stentf'
-
+  get '/admin/teacher/remove', to: 'teachers#remove'
+  post '/admin/teacher/remove', to: 'teachers#tentf'
+  get '/admin/admin/remove', to: 'admins#remove'
+  post '/admin/admin/remove', to: 'admins#adent'
 
 # Static Pages
   get '/hilfe', to: 'static_pages#hilfe'

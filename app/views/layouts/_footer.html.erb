@@ -2,7 +2,7 @@
 
   <small>
     <% if logged_ad? %>
-      Als Administrator angemeldet
+      Als Administrator <%= @current_admin.number %> angemeldet
     <% elsif logged_stud? %>
       Als Schüler <%= @current_student.Number %> angemeldet
     <% else %>

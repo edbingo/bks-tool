@@ -22,9 +22,25 @@ class TeachersController < ApplicationController
     end
   end
 
+  def remove
+    @teacher = if params[:term]
+      Teacher.where('Name LIKE ?', "%#{params[:term]}")
+    else
+      Teacher.all.order(:Name)
+    end
+  end
+
+  def tentf
+    num = params[:number]
+    Teacher.find_by(Mail: num).destroy
+    redirect_to admin_path
+    flash[:success] = "Lehrer wurde erfolgreich entfernt"
+  end
+
   private
+
   def teacher_params
-    params.require(:teacher).permit(:name,:mail)
+    params.require(:teacher).permit(:Name,:Mail,:term)
   end
 
 end

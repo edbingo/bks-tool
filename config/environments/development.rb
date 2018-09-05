@@ -35,8 +35,16 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
   host = 'athene.bks-campus.ch'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp-mail.outlook.com',
+    :port => 587,
+    :domain => 'outlook.com',
+    :user_name => 'elancaster4@live.com',
+    :password => 'HOjejHeSchawtI4',
+    :authenticate => 'plain'
 
 
+  }
 
   config.action_mailer.perform_caching = false
 

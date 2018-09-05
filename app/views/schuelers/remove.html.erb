@@ -1,4 +1,4 @@
-<h1>Nach Benutzer suchen</h1><br/>
+<h2>Nach Benutzer suchen</h2><br/>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
@@ -39,6 +39,7 @@
   </tbody>
 </table>
 <%= form_tag(admin_student_remove_path, method: :get) do %>
+  <%= label_tag :Nachname %>
   <%= text_field_tag :term %>
   <%= submit_tag 'Suchen' %>
 <% end %>

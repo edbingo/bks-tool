@@ -4,35 +4,48 @@
   <br />
   <h4>Dateien Hochladen</h4>
   <div>
-    <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
-    <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
-    <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
+    <% if Presentation.first == nil %>
+      <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
+    <% end %>
+    <% if Schueler.first == nil %>
+      <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
+    <% end %>
+    <% if Teacher.first == nil %>
+      <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
+    <% end %>
   </div>
   <h4>Listen Anzeigen</h4>
   <div>
-  <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-secondary" %>
-  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-secondary" %>
-  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-secondary" %>
-  <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-secondary" %>
+  <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
+  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
+  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
+  <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
   </div>
   <h4>Einzeln hinzufügen</h4>
   <div>
-    <%= link_to "Neuen Admin hinzufügen", admin_new_admin_path, class: "btn btn-secondary" %>
-    <%= link_to "Neuen Schüler hinzufügen", admin_add_student_path, class: "btn btn-secondary" %>
-    <%= link_to "Neuen Lehrer hinzufügen", admin_add_teacher_path, class: "btn btn-secondary" %>
+    <%= link_to "Neuen Admin hinzufügen", admin_new_admin_path, class: "btn btn-primary" %>
+    <%= link_to "Neuen Schüler hinzufügen", admin_add_student_path, class: "btn btn-primary" %>
+    <%= link_to "Neuen Lehrer hinzufügen", admin_add_teacher_path, class: "btn btn-primary" %>
   </div>
   <h4>Mails schicken</h4>
   <div>
-    <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-secondary",
+    <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-primary",
       data: { toggle: "modal" } %>
-    <%= link_to "Mahnungen versenden", admin_send_list_path, class: "btn btn-secondary" %>
-    <%= link_to "Anmeldungsliste versenden", admin_send_remind_path, class: "btn btn-secondary" %>
+    <%= link_to "Mahnungen versenden", admin_send_list_path, class: "btn btn-primary" %>
+    <%= link_to "Anmeldungsliste versenden", admin_send_remind_path, class: "btn btn-primary" %>
   </div>
   <h4>Einträge Entfernen</h4>
-  <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-secondary" %>
-
+  <%= link_to "Admins entfernen", admin_admin_remove_path, class: "btn btn-primary" %>
+  <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-primary" %>
+  <%= link_to "Lehrer entfernen", admin_teacher_remove_path, class: "btn btn-primary" %>
   <h4>System verwalten</h4>
   <div>
-    <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-secondary" %>
+    <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-danger" %>
   </div>
 </div>

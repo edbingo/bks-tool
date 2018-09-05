@@ -1,0 +1,28 @@
+<h2>Nach Lehrer suchen</h2><br/>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teacher.each do |stud| %>
+    <tr>
+      <td scope="row"><%= stud.Name %></td>
+      <td scope="row"><%= stud.Mail %></td>
+      <td scope="row">
+        <%= form_tag admin_teacher_remove_path do %>
+          <%= hidden_field_tag 'number', stud.Mail %>
+          <%= submit_tag "Entfernen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= form_tag(admin_student_remove_path, method: :get) do %>
+  <%= label_tag :Nachname %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Suchen' %>
+<% end %>
