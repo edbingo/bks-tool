@@ -31393,3 +31393,1102 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 62ms (Views: 60.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-09-06 09:16:33 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 720ms (Views: 702.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (32.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (26.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateSchuelers (20180822082306)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schuelers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Vorname" varchar, "Name" varchar, "Klasse" varchar, "Mail" varchar, "Number" varchar, "Code" varchar, "Registered" boolean, "Selected" varchar, "Selected1" varchar, "Selected2" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180822082306_create_schuelers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822082306"]]
+  ↳ bin/rails:9
+  [1m[35m (24.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateAdmins (20180822083241)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "vorname" varchar, "mail" varchar, "number" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180822083241_create_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822083241"]]
+  ↳ bin/rails:9
+  [1m[35m (26.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddPasswordDigestToSchuelers (20180822165605)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "schuelers" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20180822165605_add_password_digest_to_schuelers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822165605"]]
+  ↳ bin/rails:9
+  [1m[35m (32.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddPasswordDigestToAdmins (20180822165612)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "admins" ADD "password_digest" varchar[0m
+  ↳ db/migrate/20180822165612_add_password_digest_to_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180822165612"]]
+  ↳ bin/rails:9
+  [1m[35m (26.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePresentations (20180831113924)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "presentations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Klasse" varchar, "Titel" varchar, "Fach" varchar, "Betreuer" varchar, "Zimmer" varchar, "Von" varchar, "Bis" varchar, "Datum" varchar, "Frei" integer, "Besetzt" integer, "Besucher" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180831113924_create_presentations.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831113924"]]
+  ↳ bin/rails:9
+  [1m[35m (28.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateTeachers (20180904054544)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Name" varchar, "Mail" varchar, "Received" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180904054544_create_teachers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180904054544"]]
+  ↳ bin/rails:9
+  [1m[35m (25.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-06 07:17:12.757803"], ["updated_at", "2018-09-06 07:17:12.757803"]]
+  ↳ bin/rails:9
+  [1m[35m (29.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[36mAdmin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:9
+  [1m[36mAdmin Create (9.6ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Lancaster"], ["vorname", "Edward"], ["mail", "elancaster4@gmail.com"], ["number", "s9362"], ["created_at", "2018-09-06 07:17:23.902670"], ["updated_at", "2018-09-06 07:17:23.902670"], ["password_digest", "$2a$10$Jft2gIstA3iQfjpfb8pqCu6a1Wr/T.OYhkFSAs/dl7QjyrqxqiVza"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (29.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:12
+  [1m[36mAdmin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE LOWER("admins"."number") = LOWER(?) LIMIT ?[0m  [["number", "a2"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mAdmin Create (9.9ms)[0m  [1m[32mINSERT INTO "admins" ("name", "vorname", "mail", "number", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "User"], ["vorname", "Admin"], ["mail", "admin@localhost"], ["number", "a2"], ["created_at", "2018-09-06 07:17:24.079267"], ["updated_at", "2018-09-06 07:17:24.079267"], ["password_digest", "$2a$10$O3HU5T5CTvXE0hWJHVvCbeJ7ETrVMa/GBXfqmebN2pYhwd8vWaoG."]]
+  ↳ db/seeds.rb:12
+  [1m[35m (26.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:12
+Started GET "/" for 127.0.0.1 at 2018-09-06 09:17:44 +0200
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 466ms (Views: 453.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-06 09:20:18 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 303ms (Views: 299.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-09-06 09:20:20 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 120ms (Views: 117.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-09-06 09:20:26 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0ahWQ5S7HD75OdC6QAfhmLfMq+O8YTUMmdMWBS5SNwX4wWmiX5wi603G8iGg++GbXqH5rmmLlceOwua1cDa1DQ==", "session"=>{"number"=>"s9362", "password"=>"[FILTERED]"}, "commit"=>"Anmelden"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."number" = ? LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 156ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-06 09:20:26 +0200
+Processing by AdminsController#hub as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering admins/hub.html.erb within layouts/application
+  [1m[36mPresentation Load (1.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" ORDER BY "presentations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:7
+  [1m[36mSchueler Load (0.5ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" ORDER BY "schuelers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:12
+  [1m[36mTeacher Load (0.6ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:17
+  Rendered admins/hub.html.erb within layouts/application (114.7ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 297ms (Views: 280.3ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/admin/add/presentations" for 127.0.0.1 at 2018-09-06 09:20:30 +0200
+Processing by PresentationsController#add as HTML
+  Rendering presentations/add.html.erb within layouts/application
+  Rendered presentations/add.html.erb within layouts/application (2.0ms)
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (1.6ms)
+Completed 200 OK in 215ms (Views: 209.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/presentations/import" for 127.0.0.1 at 2018-09-06 09:22:09 +0200
+Processing by PresentationsController#import as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KtX2XvzW1WTIarJNEqpii/RvSx23xqrTJATSp7HmNXq1fmK5G1MAy80F/EEwWGOmpSYJ3xlTr2bJf0XlloKBtg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f8ace545820 @tempfile=#<Tempfile:/tmp/RackMultipart20180906-27253-qld2j1.csv>, @original_filename="PresList.csv", @content_type="application/vnd.ms-excel", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"PresList.csv\"\r\nContent-Type: application/vnd.ms-excel\r\n">, "commit"=>"Import CSV"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Max Muster"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (10.5ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Max Muster"], ["Klasse", "6 Ga"], ["Titel", "Erstellung einer gefälschten Persönlichkeit"], ["Fach", "Psychologie"], ["Betreuer", "Petra Holzheu"], ["Zimmer", "K614"], ["Von", "12:00"], ["Bis", "12:15"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:09.859234"], ["updated_at", "2018-09-06 07:22:09.859234"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (34.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Selena Gomez"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (2.1ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Selena Gomez"], ["Klasse", "6 Gb"], ["Titel", "Gestaltung eines Albums"], ["Fach", "Musik"], ["Betreuer", "Iso Albin"], ["Zimmer", "C109"], ["Von", "12:00"], ["Bis", "12:15"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:09.913885"], ["updated_at", "2018-09-06 07:22:09.913885"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (23.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Elon Musk"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (6.7ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Elon Musk"], ["Klasse", "6 Gc"], ["Titel", "Das Elektroauto der Zukunft"], ["Fach", "Physik"], ["Betreuer", "Alberto Maraffio"], ["Zimmer", "N364"], ["Von", "13:45"], ["Bis", "14:00"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:09.949356"], ["updated_at", "2018-09-06 07:22:09.949356"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (44.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Bill Gates"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (3.4ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Bill Gates"], ["Klasse", "6 Gd"], ["Titel", "Bauen einer neuen Betriebssystem"], ["Fach", "Informatik"], ["Betreuer", "Caspar Bamert"], ["Zimmer", "K621"], ["Von", "12:20"], ["Bis", "12:35"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:10.017261"], ["updated_at", "2018-09-06 07:22:10.017261"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (35.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Roger Federer"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (2.4ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Roger Federer"], ["Klasse", "6 Ge"], ["Titel", "Die Technik in Tennis"], ["Fach", "Sport"], ["Betreuer", "Daniel Meier"], ["Zimmer", "B123"], ["Von", "12:45"], ["Bis", "13:00"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:10.070207"], ["updated_at", "2018-09-06 07:22:10.070207"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (25.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Sadiq Khan"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (2.5ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Sadiq Khan"], ["Klasse", "6 Gf"], ["Titel", "Verwaltung einer Stadt"], ["Fach", "Staatskunde"], ["Betreuer", "Ueli Maurer"], ["Zimmer", "K714"], ["Von", "13:30"], ["Bis", "13:45"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:10.113130"], ["updated_at", "2018-09-06 07:22:10.113130"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (36.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "presentations" WHERE LOWER("presentations"."Name") = LOWER(?) LIMIT ?[0m  [["Name", "Linus Torvalds"], ["LIMIT", 1]]
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Create (2.5ms)[0m  [1m[32mINSERT INTO "presentations" ("Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Bis", "Datum", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Name", "Linus Torvalds"], ["Klasse", "6 Gg"], ["Titel", "UNIX basiertes Betriebssystem"], ["Fach", "Informatik"], ["Betreuer", "Caspar Bamert"], ["Zimmer", "K621"], ["Von", "14:00"], ["Bis", "14:15"], ["Datum", "07.11.18"], ["created_at", "2018-09-06 07:22:10.165511"], ["updated_at", "2018-09-06 07:22:10.165511"]]
+  ↳ app/models/presentation.rb:6
+  [1m[35m (33.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:6
+  [1m[36mPresentation Load (0.8ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/models/presentation.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (2.7ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.215779"], ["id", 1]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (30.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (3.1ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.261259"], ["id", 2]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (31.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (3.3ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.306535"], ["id", 3]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (36.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (3.3ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.360095"], ["id", 4]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (34.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (2.0ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.408431"], ["id", 5]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (36.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (2.0ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.457919"], ["id", 6]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (37.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[36mPresentation Update (2.5ms)[0m  [1m[33mUPDATE "presentations" SET "Besetzt" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besetzt", 0], ["updated_at", "2018-09-06 07:22:10.507725"], ["id", 7]]
+  ↳ app/models/presentation.rb:10
+  [1m[35m (36.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/presentation.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/presentation.rb:11
+  Rendering presentations/addfree.html.erb within layouts/application
+  Rendered presentations/addfree.html.erb within layouts/application (1.8ms)
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 921ms (Views: 189.0ms | ActiveRecord: 532.5ms)
+
+
+Started POST "/admin/add/presentations/free" for 127.0.0.1 at 2018-09-06 09:22:24 +0200
+Processing by PresentationsController#addfree as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pc2NHfe9SO49H/PvpE2WHDhOIS7T/SVpCTk2qFdpB00vtzP6NamJEEANO70Ae/bUnoFxg9PYWok0Ud6ABmsTcA==", "free"=>"1", "commit"=>"Wählen"}
+  [1m[36mPresentation Load (1.5ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations"[0m
+  ↳ app/controllers/presentations_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (9.6ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.093640"], ["id", 1]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (25.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (2.9ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.140548"], ["id", 2]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (30.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (2.6ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.183942"], ["id", 3]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (35.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (2.2ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.249633"], ["id", 4]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (35.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (2.4ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.295070"], ["id", 5]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (52.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (3.5ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.362503"], ["id", 6]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (34.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[36mPresentation Update (2.4ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 1], ["updated_at", "2018-09-06 07:22:24.409253"], ["id", 7]]
+  ↳ app/controllers/presentations_controller.rb:17
+  [1m[35m (37.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/presentations_controller.rb:17
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 376ms (ActiveRecord: 277.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-06 09:22:24 +0200
+Processing by AdminsController#hub as HTML
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering admins/hub.html.erb within layouts/application
+  [1m[36mPresentation Load (0.8ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" ORDER BY "presentations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:7
+  [1m[36mSchueler Load (0.5ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" ORDER BY "schuelers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:12
+  [1m[36mTeacher Load (0.6ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:17
+  Rendered admins/hub.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (2.6ms)
+Completed 200 OK in 267ms (Views: 254.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:22:32 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (1.0ms)
+  Rendered schuelers/new.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 248ms (Views: 224.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:23:03 +0200
+Processing by SchuelersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e4jnuWSnbYdurewAM/TOnjk1UXhzFq3LkakUjgb/hx7+RT0nv5ikwoH4hnX8oejcTc/K/TQitBXuBCJw7RZI/A==", "schueler"=>{"Vorname"=>"Edward", "Name"=>"Lancaster", "Mail"=>"s9362@bks-campus.ch", "Klasse"=>"6 Gf", "Number"=>"s9362", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Schüler erstellen"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:61
+  [1m[36mSchueler Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "schuelers" WHERE LOWER("schuelers"."Number") = LOWER(?) LIMIT ?[0m  [["Number", "s9362"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:61
+  [1m[36mSchueler Create (9.7ms)[0m  [1m[32mINSERT INTO "schuelers" ("Vorname", "Name", "Klasse", "Mail", "Number", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["Vorname", "Edward"], ["Name", "Lancaster"], ["Klasse", "6 Gf"], ["Mail", "s9362@bks-campus.ch"], ["Number", "s9362"], ["created_at", "2018-09-06 07:23:04.146597"], ["updated_at", "2018-09-06 07:23:04.146597"], ["password_digest", "$2a$10$tdHll58UkulaD9p148t9zONAqP3ONXrqvEimjL4avmiBSj/TMJaUu"]]
+  ↳ app/controllers/schuelers_controller.rb:61
+  [1m[35m (31.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:61
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:63
+  [1m[36mSchueler Update (2.4ms)[0m  [1m[33mUPDATE "schuelers" SET "Code" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Code", "Site"], ["updated_at", "2018-09-06 07:23:04.195257"], ["id", 1]]
+  ↳ app/controllers/schuelers_controller.rb:63
+  [1m[35m (43.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:63
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:64
+  [1m[36mSchueler Update (2.3ms)[0m  [1m[33mUPDATE "schuelers" SET "Registered" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Registered", 0], ["updated_at", "2018-09-06 07:23:04.248024"], ["id", 1]]
+  ↳ app/controllers/schuelers_controller.rb:64
+  [1m[35m (28.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:64
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 285ms (ActiveRecord: 119.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-06 09:23:04 +0200
+Processing by AdminsController#hub as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering admins/hub.html.erb within layouts/application
+  [1m[36mPresentation Load (0.7ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" ORDER BY "presentations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:7
+  [1m[36mSchueler Load (0.7ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" ORDER BY "schuelers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:12
+  [1m[36mTeacher Load (0.6ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:17
+  Rendered admins/hub.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.9ms)
+Completed 200 OK in 199ms (Views: 188.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/show/students" for 127.0.0.1 at 2018-09-06 09:23:08 +0200
+Processing by SchuelersController#list as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/list.html.erb within layouts/application
+  [1m[36mSchueler Load (0.5ms)[0m  [1m[34mSELECT "schuelers".* FROM "schuelers" ORDER BY "schuelers"."Name" ASC[0m
+  ↳ app/views/schuelers/list.html.erb:28
+  Rendered schuelers/list.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 202ms (Views: 191.2ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/admin/login" for 127.0.0.1 at 2018-09-06 09:23:14 +0200
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"t13n+24fR9yRN7aouHLGGwSykuJejgS+IXcDyuAUxJQ9J1kcrAuGIuwlfvocRKbTon3CT16re14cH+visRbQqQ=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-06 09:23:14 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 226ms (Views: 219.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/studenten/anmelden" for 127.0.0.1 at 2018-09-06 09:23:16 +0200
+Processing by SessionsController#newstud as HTML
+  Rendering sessions/newstud.html.erb within layouts/application
+  Rendered sessions/newstud.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 195ms (Views: 189.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/studenten/anmelden" for 127.0.0.1 at 2018-09-06 09:23:20 +0200
+Processing by SessionsController#studcreate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YRkJ8qLUnau+pMgQCHtSzXjYPLrDn69lI8U7p2Le/fkHFCq1gD/f24jQebGayhiHyIJhTSb2H33IQqc802J1nQ==", "session"=>{"number"=>"s9362", "password"=>"[FILTERED]"}, "commit"=>"Anmelden"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."number" = ? LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:23
+Redirected to http://localhost:3000/studenten/waehlen
+Completed 302 Found in 115ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:20 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.6ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.7ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations" ORDER BY "presentations"."Name" ASC[0m
+  ↳ app/views/selections/list.html.erb:38
+  Rendered selections/list.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 180ms (Views: 173.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:25 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/+zckmaH22gH0bBWkdjEDFj0WQOLeDxLcl2A8dtjSd11lmJ1pJMalnrDeAQ17qTE/jsJrotdQ6tPNWjZimFd4A==", "title"=>"Das Elektroauto der Zukunft", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  [1m[36mCACHE Schueler Load (0.0ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:39
+  [1m[36mSchueler Update (1.5ms)[0m  [1m[33mUPDATE "schuelers" SET "Selected" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Selected", "Das Elektroauto der Zukunft"], ["updated_at", "2018-09-06 07:23:25.155645"], ["id", 1]]
+  ↳ app/controllers/selections_controller.rb:39
+  [1m[35m (23.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:39
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Das Elektroauto der Zukunft"], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:40
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:41
+  [1m[36mPresentation Update (2.0ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 0], ["updated_at", "2018-09-06 07:23:25.189381"], ["id", 3]]
+  ↳ app/controllers/selections_controller.rb:41
+  [1m[35m (24.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:41
+Redirected to http://localhost:3000/studenten/waehlen
+Completed 302 Found in 72ms (ActiveRecord: 51.9ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:25 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.7ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations" ORDER BY "presentations"."Name" ASC[0m
+  ↳ app/views/selections/list.html.erb:38
+  Rendered selections/list.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 224ms (Views: 214.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:27 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cjfBMOZOP/CDtosQ1tSKgTqNQSMK90LvWUDWWw7sg9H4TX/XJFr+Dv6kQ0Jy4upJnEIRjgrSPQ9kKD5zX+6X7A==", "title"=>"Verwaltung einer Stadt", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.6ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  [1m[36mCACHE Schueler Load (0.0ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:36
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:45
+  [1m[36mSchueler Update (9.8ms)[0m  [1m[33mUPDATE "schuelers" SET "Selected1" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Selected1", "Verwaltung einer Stadt"], ["updated_at", "2018-09-06 07:23:27.142072"], ["id", 1]]
+  ↳ app/controllers/selections_controller.rb:45
+  [1m[35m (32.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:45
+  [1m[36mPresentation Load (0.5ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Verwaltung einer Stadt"], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:46
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:47
+  [1m[36mPresentation Update (3.1ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 0], ["updated_at", "2018-09-06 07:23:27.195669"], ["id", 6]]
+  ↳ app/controllers/selections_controller.rb:47
+  [1m[35m (38.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:47
+Redirected to http://localhost:3000/studenten/waehlen
+Completed 302 Found in 112ms (ActiveRecord: 84.7ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:27 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendering selections/list.html.erb within layouts/application
+  [1m[36mPresentation Load (0.8ms)[0m  [1m[34mSELECT "presentations".* FROM "presentations" ORDER BY "presentations"."Name" ASC[0m
+  ↳ app/views/selections/list.html.erb:38
+  Rendered selections/list.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 266ms (Views: 256.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:28 +0200
+Processing by SelectionsController#addtodb as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8oHlXz3EdKMaqA4guM5IpNlMqAJBmUjN1aehnnlyXxB4+1u4/9C1XWe6xnIc+Chsf4P4r0G8Ny3oz0m2KHBLLQ==", "title"=>"UNIX basiertes Betriebssystem", "commit"=>"Wählen"}
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  [1m[36mCACHE Schueler Load (0.0ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:36
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:51
+  [1m[36mSchueler Update (3.8ms)[0m  [1m[33mUPDATE "schuelers" SET "Selected2" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Selected2", "UNIX basiertes Betriebssystem"], ["updated_at", "2018-09-06 07:23:28.903238"], ["id", 1]]
+  ↳ app/controllers/selections_controller.rb:51
+  [1m[35m (31.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:51
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "UNIX basiertes Betriebssystem"], ["LIMIT", 1]]
+  ↳ app/controllers/selections_controller.rb:52
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/selections_controller.rb:53
+  [1m[36mPresentation Update (2.1ms)[0m  [1m[33mUPDATE "presentations" SET "Frei" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Frei", 0], ["updated_at", "2018-09-06 07:23:28.955194"], ["id", 7]]
+  ↳ app/controllers/selections_controller.rb:53
+  [1m[35m (30.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/selections_controller.rb:53
+Redirected to http://localhost:3000/studenten/waehlen
+Completed 302 Found in 131ms (ActiveRecord: 69.0ms)
+
+
+Started GET "/studenten/waehlen" for 127.0.0.1 at 2018-09-06 09:23:29 +0200
+Processing by SelectionsController#list as HTML
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendering selections/list.html.erb within layouts/application
+  Rendered selections/list.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 179ms (Views: 172.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/studenten/profil" for 127.0.0.1 at 2018-09-06 09:23:30 +0200
+Processing by SchuelersController#show as HTML
+  [1m[36mSchueler Load (0.6ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:8
+  [1m[36mPresentation Load (0.4ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Das Elektroauto der Zukunft"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:12
+  [1m[36mPresentation Load (0.6ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Verwaltung einer Stadt"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:13
+  [1m[36mPresentation Load (0.6ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "UNIX basiertes Betriebssystem"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:14
+  Rendering schuelers/show.html.erb within layouts/application
+  Rendered schuelers/show.html.erb within layouts/application (12.6ms)
+  [1m[36mCACHE Schueler Load (0.0ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 211ms (Views: 184.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/studenten/profil/send" for 127.0.0.1 at 2018-09-06 09:23:34 +0200
+Processing by SchuelersController#confirm as HTML
+  [1m[36mSchueler Load (1.8ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:19
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Das Elektroauto der Zukunft"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:20
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Verwaltung einer Stadt"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:21
+  [1m[36mPresentation Load (0.5ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "UNIX basiertes Betriebssystem"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:22
+  Rendering schuelers/confirm.html.erb within layouts/application
+  Rendered schuelers/confirm.html.erb within layouts/application (1.5ms)
+  [1m[36mCACHE Schueler Load (0.0ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:35
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 196ms (Views: 184.7ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/studenten/profil/send" for 127.0.0.1 at 2018-09-06 09:23:40 +0200
+Processing by SchuelersController#sendfile as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9VUq7+FVJaJ1CghYyl6JOBrx3OtBp3mGTrEYK9rkRVFJBCPw6psBehFTeoh6aHb5nBrIyj7O2kq6RKRkX0ySag==", "commit"=>"Absenden"}
+  [1m[36mSchueler Load (0.3ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:47
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:48
+  [1m[36mSchueler Update (10.0ms)[0m  [1m[33mUPDATE "schuelers" SET "Registered" = ?, "updated_at" = ? WHERE "schuelers"."id" = ?[0m  [["Registered", 1], ["updated_at", "2018-09-06 07:23:40.399083"], ["id", 1]]
+  ↳ app/controllers/schuelers_controller.rb:48
+  [1m[35m (22.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:48
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Das Elektroauto der Zukunft"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:49
+  [1m[36mPresentation Load (0.2ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Verwaltung einer Stadt"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:50
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "UNIX basiertes Betriebssystem"], ["LIMIT", 1]]
+  ↳ app/controllers/schuelers_controller.rb:51
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:52
+  [1m[36mPresentation Update (3.1ms)[0m  [1m[33mUPDATE "presentations" SET "Besucher" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besucher", "Edward Lancaster,"], ["updated_at", "2018-09-06 07:23:40.440588"], ["id", 3]]
+  ↳ app/controllers/schuelers_controller.rb:52
+  [1m[35m (37.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:52
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:53
+  [1m[36mPresentation Update (3.3ms)[0m  [1m[33mUPDATE "presentations" SET "Besucher" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besucher", "Edward Lancaster,Edward Lancaster,"], ["updated_at", "2018-09-06 07:23:40.491696"], ["id", 6]]
+  ↳ app/controllers/schuelers_controller.rb:53
+  [1m[35m (44.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:53
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:54
+  [1m[36mPresentation Update (2.2ms)[0m  [1m[33mUPDATE "presentations" SET "Besucher" = ?, "updated_at" = ? WHERE "presentations"."id" = ?[0m  [["Besucher", "Edward Lancaster,Edward Lancaster,"], ["updated_at", "2018-09-06 07:23:40.548524"], ["id", 7]]
+  ↳ app/controllers/schuelers_controller.rb:54
+  [1m[35m (34.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/schuelers_controller.rb:54
+  Rendering student_mailer/final_mail.html.erb within layouts/mailer
+  [1m[36mPresentation Load (0.7ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Das Elektroauto der Zukunft"], ["LIMIT", 1]]
+  ↳ app/views/student_mailer/final_mail.html.erb:2
+  [1m[36mPresentation Load (0.3ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "Verwaltung einer Stadt"], ["LIMIT", 1]]
+  ↳ app/views/student_mailer/final_mail.html.erb:3
+  [1m[36mPresentation Load (0.7ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" WHERE "presentations"."Titel" = ? LIMIT ?[0m  [["Titel", "UNIX basiertes Betriebssystem"], ["LIMIT", 1]]
+  ↳ app/views/student_mailer/final_mail.html.erb:4
+  Rendered student_mailer/final_mail.html.erb within layouts/mailer (9.6ms)
+  Rendering student_mailer/final_mail.text.erb within layouts/mailer
+  Rendered student_mailer/final_mail.text.erb within layouts/mailer (0.7ms)
+StudentMailer#final_mail: processed outbound mail in 2765.0ms
+Sent mail to s9362@bks-campus.ch (148.5ms)
+Date: Thu, 06 Sep 2018 09:23:43 +0200
+From: noreply@bks-campus
+To: s9362@bks-campus.ch
+Message-ID: <5b90d5ffa61dd_6a753fc56e006c70806a7@PCNOTEB706.mail>
+Subject: =?UTF-8?Q?Gew=C3=A4hlte_Presentationen?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5b90d5ff90db4_6a753fc56e006c70805e0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5b90d5ff90db4_6a753fc56e006c70805e0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Student#final_mail
+
+, find me in app/views/student_mailer/final_mail.text.erb
+
+
+----==_mimepart_5b90d5ff90db4_6a753fc56e006c70805e0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    Hallo Edward<br />
+Sie haben folgende Presentationen ausgew=C3=A4hlt:<br /><br />
+<table class=3D"table bordered" style=3D"th, td{ padding: 5px; text-align=
+: left;}">
+  <thead>
+    <tr>
+      <th scope=3D"col">Name</th>
+      <th scope=3D"col">Klasse</th>
+      <th scope=3D"col">Titel</th>
+      <th scope=3D"col">Fach</th>
+      <th scope=3D"col">Betreuer</th>
+      <th scope=3D"col">Zimmer</th>
+      <th scope=3D"col">Von</th>
+      <th scope=3D"col">Bis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope=3D"row">Elon Musk</td>
+      <td scope=3D"row">6 Gc</td>
+      <td scope=3D"row">Das Elektroauto der Zukunft</td>
+      <td scope=3D"row">Physik</td>
+      <td scope=3D"row">Alberto Maraffio</td>
+      <td scope=3D"row">N364</td>
+      <td scope=3D"row">13:45</td>
+      <td scope=3D"row">14:00</td>
+    </tr>
+    <tr>
+      <td scope=3D"row">Sadiq Khan</td>
+      <td scope=3D"row">6 Gf</td>
+      <td scope=3D"row">Verwaltung einer Stadt</td>
+      <td scope=3D"row">Staatskunde</td>
+      <td scope=3D"row">Ueli Maurer</td>
+      <td scope=3D"row">K714</td>
+      <td scope=3D"row">13:30</td>
+      <td scope=3D"row">13:45</td>
+    </tr>
+    <tr>
+      <td scope=3D"row">Linus Torvalds</td>
+      <td scope=3D"row">6 Gg</td>
+      <td scope=3D"row">UNIX basiertes Betriebssystem</td>
+      <td scope=3D"row">Informatik</td>
+      <td scope=3D"row">Caspar Bamert</td>
+      <td scope=3D"row">K621</td>
+      <td scope=3D"row">14:00</td>
+      <td scope=3D"row">14:15</td>
+    </tr>
+  </tbody>
+</table>
+
+<br /><br />
+
+<i>I am a bot, please do not reply</i>
+
+  </body>
+</html>
+
+----==_mimepart_5b90d5ff90db4_6a753fc56e006c70805e0--
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 3380ms (ActiveRecord: 160.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-06 09:23:43 +0200
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (5.7ms)
+Completed 200 OK in 257ms (Views: 250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/studenten/anmelden" for 127.0.0.1 at 2018-09-06 09:23:45 +0200
+Processing by SessionsController#newstud as HTML
+  Rendering sessions/newstud.html.erb within layouts/application
+  Rendered sessions/newstud.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (2.3ms)
+Completed 200 OK in 205ms (Views: 195.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/studenten/anmelden" for 127.0.0.1 at 2018-09-06 09:23:50 +0200
+Processing by SessionsController#studcreate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EeddorwwRjm4kyCI1UcS3UlWNlMnlUN5TQYQ0lWFlVp36n7lntsESY7nkSlH9liX+QxrpML882GmgYxJ5DkdPg==", "session"=>{"number"=>"s9362", "password"=>"[FILTERED]"}, "commit"=>"Anmelden"}
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" WHERE "schuelers"."number" = ? LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:23
+  Rendering sessions/newstud.html.erb within layouts/application
+  Rendered sessions/newstud.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.6ms)
+Completed 200 OK in 446ms (Views: 200.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/studenten/anmelden" for 127.0.0.1 at 2018-09-06 09:24:35 +0200
+Processing by SessionsController#newstud as HTML
+  Rendering sessions/newstud.html.erb within layouts/application
+  Rendered sessions/newstud.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 264ms (Views: 251.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-09-06 09:24:36 +0200
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (1.8ms)
+Completed 200 OK in 186ms (Views: 179.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-09-06 09:25:43 +0200
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M+YQ/Pc89P6Z1XfTHzQCiM3Wzp4peW7R5qWry8pEtzgajy8dPBvKKy0qVUj/yAKLJLuc0/yTzhrxtFt7lCA1MA==", "session"=>{"number"=>"s9362", "password"=>"[FILTERED]"}, "commit"=>"Anmelden"}
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."number" = ? LIMIT ?[0m  [["number", "s9362"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:11
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 125ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-06 09:25:43 +0200
+Processing by AdminsController#hub as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering admins/hub.html.erb within layouts/application
+  [1m[36mPresentation Load (0.8ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" ORDER BY "presentations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:7
+  [1m[36mSchueler Load (0.7ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" ORDER BY "schuelers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:12
+  [1m[36mTeacher Load (0.7ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:17
+  Rendered admins/hub.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 325ms (Views: 315.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/admin/show/students" for 127.0.0.1 at 2018-09-06 09:25:59 +0200
+Processing by SchuelersController#list as HTML
+  [1m[36mAdmin Load (3.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/list.html.erb within layouts/application
+  [1m[36mSchueler Load (0.4ms)[0m  [1m[34mSELECT "schuelers".* FROM "schuelers" ORDER BY "schuelers"."Name" ASC[0m
+  ↳ app/views/schuelers/list.html.erb:28
+  Rendered schuelers/list.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 667ms (Views: 627.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-09-06 09:39:53 +0200
+Processing by AdminsController#hub as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering admins/hub.html.erb within layouts/application
+  [1m[36mPresentation Load (0.8ms)[0m  [1m[34mSELECT  "presentations".* FROM "presentations" ORDER BY "presentations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:7
+  [1m[36mSchueler Load (0.5ms)[0m  [1m[34mSELECT  "schuelers".* FROM "schuelers" ORDER BY "schuelers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:12
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/admins/hub.html.erb:17
+  Rendered admins/hub.html.erb within layouts/application (152.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 401ms (Views: 317.4ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:39:59 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered schuelers/new.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (2.2ms)
+Completed 200 OK in 284ms (Views: 262.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:43:08 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered schuelers/new.html.erb within layouts/application (56.1ms)
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 5.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `add' for #<Schueler:0x00007f8ace14efc8>):
+    28:         <%= f.password_field :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= f.label :Login_daten_versenden %>
+    31:         <%= f.check_box :add %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb__254808675964440695_70117067781880'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb__254808675964440695_70117067781880'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:43:23 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered schuelers/new.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `add' for #<Schueler:0x00007f8ac83ab420>):
+    28:         <%= f.password_field :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= f.label :Login_daten_versenden %>
+    31:         <%= f.check_box 'add' %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb__254808675964440695_70117020749760'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb__254808675964440695_70117020749760'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:43:34 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered schuelers/new.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 0, expected 1..4)):
+    28:         <%= f.password_field :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= f.label :Login_daten_versenden %>
+    31:         <%= f.check_box  %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb__254808675964440695_70117063506160'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb__254808675964440695_70117063506160'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:43:56 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered schuelers/new.html.erb within layouts/application (19.4ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for "validated":String):
+    28:         <%= f.password_field :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= f.label :Login_daten_versenden %>
+    31:         <%= f.check_box("post", "validated")  %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb__254808675964440695_70117019718400'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb__254808675964440695_70117019718400'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:44:04 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered schuelers/new.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `post' for #<Schueler:0x00007f8acd56dd80>):
+    28:         <%= f.password_field :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= f.label :Login_daten_versenden %>
+    31:         <%= f.check_box("post")  %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb__254808675964440695_70117063592860'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb__254808675964440695_70117063592860'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:53:17 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered schuelers/new.html.erb within layouts/application (488.8ms)
+Completed 500 Internal Server Error in 673ms (ActiveRecord: 4.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007f25e0e01598>:0x00007f25e0e0fa58>):
+    28:         <%= password_field_tag :password_confirmation, class: 'form-control' %>
+    29: 
+    30:         <%= label_tag :Login_daten_versenden %>
+    31:         <%= f.check_box("post")  %>
+    32: 
+    33:         <%= f.submit "Schüler erstellen", class: "btn btn-primary" %>
+    34:       <% end %>
+  
+app/views/schuelers/new.html.erb:31:in `block in _app_views_schuelers_new_html_erb___1679466973333179626_69900331651560'
+app/views/schuelers/new.html.erb:7:in `_app_views_schuelers_new_html_erb___1679466973333179626_69900331651560'
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:53:42 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.7ms)
+  Rendered schuelers/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 2545ms (Views: 2523.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:54:31 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.5ms)
+  Rendered schuelers/new.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 114ms (Views: 109.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/add/student" for 127.0.0.1 at 2018-09-06 09:54:59 +0200
+Processing by SchuelersController#new as HTML
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:29
+  Rendering schuelers/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (0.8ms)
+  Rendered schuelers/new.html.erb within layouts/application (232.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+Completed 200 OK in 383ms (Views: 366.3ms | ActiveRecord: 2.0ms)
+
+

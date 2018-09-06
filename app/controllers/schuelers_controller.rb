@@ -59,9 +59,10 @@ class SchuelersController < ApplicationController
   def create
     @schueler = Schueler.new(schueler_params)
     if @schueler.save
-      flash[:success] = "User successfully registered"
+      flash[:success] = "User successfully registered, login details sent"
       @schueler.update_attribute(:Code, @schueler.password)
       @schueler.update_attribute(:Registered, false)
+      StudentMailer.password_mail(@schueler).deliver_now
       redirect_to admin_path
     else
       render 'new'
@@ -116,6 +117,6 @@ class SchuelersController < ApplicationController
 
     def schueler_params
       params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,
-        :password,:password_confirmation,:term)
+        :password,:password_confirmation,:term,:add)
     end
 end
