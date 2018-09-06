@@ -53,14 +53,14 @@ class AdminsController < ApplicationController
 
   def logindetailssend # Sends all student class users an email with their login details
     stud = Schueler.all # Selects all students
-    stud.each do |pupil| # Sends an email to each 
+    stud.each do |pupil| # Sends an email to each
       StudentMailer.password_mail(pupil).deliver_now
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path
   end
 
-  def remindersend
+  def remindersend # Sends unregistered students a warning mail
     schueler = Schueler.all
     schueler.each do |pupil|
       unless pupil.Registered == true
@@ -71,7 +71,7 @@ class AdminsController < ApplicationController
     redirect_to admin_path
   end
 
-  def finallistsend
+  def finallistsend # Sends all teachers a list of their presentations and the guests
     teac = Teacher.all
     teac.each do |send|
       StudentMailer.list_mail(send).deliver_now
@@ -81,9 +81,11 @@ class AdminsController < ApplicationController
     redirect_to admin_path
   end
 
+  # Find all email templates and commands in the mailers folder
+
   private
 
-  def admin_params
+  def admin_params # Tells rails which paramaters to accept
     params.require(:admin).permit(:name,:vorname,:mail,:number,:password,:password_confirmation,:term)
   end
 end

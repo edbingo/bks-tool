@@ -22,9 +22,21 @@
   </div>
   <h4>Listen Anzeigen</h4>
   <div>
-  <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
-  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
-  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
+  <% unless Presentation.first == nil %>
+    <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-secondary" %>
+  <% end %>
+  <% unless Schueler.first == nil %>
+    <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-secondary" %>
+  <% end %>
+  <% unless Teacher.first == nil %>
+    <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-secondary" %>
+  <% end %>
   <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
   </div>
   <h4>Einzeln hinzufügen</h4>
@@ -34,11 +46,17 @@
     <%= link_to "Neuen Lehrer hinzufügen", admin_add_teacher_path, class: "btn btn-primary" %>
   </div>
   <h4>Mails schicken</h4>
-  <div>
-    <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-primary", data: { toggle: "modal" } %>
-    <%= link_to "Mahnungen versenden", admin_send_remind_path, class: "btn btn-primary" %>
-    <%= link_to "Anmeldungsliste versenden", admin_send_list_path, class: "btn btn-primary" %>
-  </div>
+  <% unless Schueler.first == nil && Presentation.first == nil && Teacher.first == nil %>
+    <div>
+      <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-primary", data: { toggle: "modal" } %>
+      <%= link_to "Mahnungen versenden", admin_send_remind_path, class: "btn btn-primary" %>
+      <%= link_to "Anmeldungsliste versenden", admin_send_list_path, class: "btn btn-primary" %>
+    </div>
+  <% else %>
+    <div>
+      Um Mails zu versenden müssen zuerst mindestens ein Eintrag in jeder Datenbank vorhanden sein
+    </div>
+  <% end %>
   <h4>Einträge Entfernen</h4>
   <%= link_to "Admins entfernen", admin_admin_remove_path, class: "btn btn-primary" %>
   <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-primary" %>

@@ -4,7 +4,7 @@ class Schueler < ApplicationRecord
   def self.import(file)
     table = CSV.read(file.path, { headers: true, col_sep: "," })
 
-    table.each do |row|
+    table.each do |row| # Generates password for each user and marks selection as nil
       pass = 1.times.map{ 9999 + Random.rand(100000) }
       row["password"] = pass.join
       row["password_confirmation"] = pass.join

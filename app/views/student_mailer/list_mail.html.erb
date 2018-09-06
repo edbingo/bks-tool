@@ -1,5 +1,5 @@
 Sehr Geehrte / r <%= @teacher.Name %>.
-Ihre Presentationen: <br />
+Ihre Präsentationen: <br />
 <% preslist = Presentation.where(Betreuer: @teacher.Name) %>
 
 <table class="table table-hover">

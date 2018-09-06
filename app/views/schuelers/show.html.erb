@@ -1,7 +1,7 @@
 <% provide(:title, "Schüler anzeigen") %>
 
   <%= @schueler.Vorname %>, <%= @schueler.Name %>, <%= @schueler.Klasse %><br />
-  Sie haben folgende Presentationen gewählt:
+  Sie haben folgende Präsentationen gewählt:
 
   <% if @schueler.Selected != nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil %>
     <table class="table table-hover">

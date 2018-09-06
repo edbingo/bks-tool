@@ -3,7 +3,7 @@ class SelectionsController < ApplicationController
   def new
   end
 
-  def list
+  def list # Sorting functions for student selection database
     @presentations = Presentation.all.order(:Name)
   end
 
@@ -34,6 +34,7 @@ class SelectionsController < ApplicationController
   def addtodb
     # Find current student based on Session ID
     @schueler = Schueler.find_by(id: session[:student_id])
+    # Fills in first free slot in student database
     if @schueler.Selected == nil
       title = params[:title]
       @schueler.update_attribute(:Selected, title)
@@ -55,7 +56,7 @@ class SelectionsController < ApplicationController
     end
   end
 
-  def logged_in_stud
+  def logged_in_stud # stops unregistered students from accessing select page
     unless logged_stud?
       flash[:danger] = "Diese Seite ist nur für angemeldete Schüler zugänglich"
       redirect_to studenten_anmelden_path

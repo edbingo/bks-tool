@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def newstud
   end
 
-  def create
+  def create # Creates session for admins
     mildstudestroy
     admin = Admin.find_by(number: params[:session][:number].downcase)
     if admin && admin.authenticate(params[:session][:password])
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def studcreate
+  def studcreate # Creates session for students
     mildestroy
     schueler = Schueler.find_by(number: params[:session][:number].downcase)
     if schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == false
@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy # Destroys session for admins
     flash[:success] = "Erfolgreich abgemolden"
     log_out
     redirect_to root_url
@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
     log_out
   end
 
-  def studdestroy
+  def studdestroy # Destroys session for students
     flash[:success] = "Erfolgreich abgemolden"
     stud_out
     redirect_to root_path

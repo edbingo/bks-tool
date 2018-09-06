@@ -1,28 +1,28 @@
 class SchuelersController < ApplicationController
-  before_action :logged_in_stud, only: [:new, :import, :list, :create]
+  before_action :logged_in_stud, only: [:new, :import, :list, :create, :add,:new,]
   def new
     @schueler = Schueler.new
   end
 
   def show
-    @schueler = Schueler.find_by(id: session[:student_id])
+    @schueler = Schueler.find_by(id: session[:student_id]) # Called profile in interface
     if @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil
-      redirect_to error_path
-    else
+      redirect_to error_path # If nothing has been selected, display relevant error page
+    else # Sets variables required for showing list of presentations
       @pres0 = Presentation.find_by(Titel: @schueler.Selected)
       @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
       @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
     end
   end
 
-  def confirm
+  def confirm # Resets the variables
     @schueler = Schueler.find_by(id: session[:student_id])
     @pres0 = Presentation.find_by(Titel: @schueler.Selected)
     @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
     @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
   end
 
-  def delfromdb
+  def delfromdb # Function removes previous selection from DB
     @schueler = Schueler.find_by(id: session[:student_id])
     title = params[:title]
     if params[:title] == @schueler.Selected
@@ -43,7 +43,7 @@ class SchuelersController < ApplicationController
     end
   end
 
-  def sendfile
+  def sendfile # Removes ability to log in and sends email with selected presentations
     schueler = Schueler.find_by(id: session[:student_id])
     schueler.update_attribute(:Registered, true)
     pres0 = Presentation.find_by(Titel: schueler.Selected)
@@ -56,7 +56,7 @@ class SchuelersController < ApplicationController
     studsend()
   end
 
-  def create
+  def create # Creates new student based on entered parameters
     @schueler = Schueler.new(schueler_params)
     if @schueler.save
       flash[:success] = "User successfully registered, login details sent"
@@ -69,13 +69,13 @@ class SchuelersController < ApplicationController
     end
   end
 
-  def import
+  def import # Tells rails how to import CSV
     Schueler.import(params[:file])
     redirect_to admin_url
     flash[:success] = "Students added successfully"
   end
 
-  def list
+  def list # Following functions sorts students
     @student = Schueler.all.order(:Name)
   end
 
@@ -91,14 +91,14 @@ class SchuelersController < ApplicationController
     @student = Schueler.all.order(:Registered)
   end
 
-  def logged_in_stud
+  def logged_in_stud # Stops students from accessing admin sites
     unless logged_ad?
       flash[:danger] = "Diese Seite ist nur für Administrator zugänglich"
       redirect_to admin_login_path
     end
   end
 
-  def remove
+  def remove # Search function on student removal page
     @student = if params[:term]
       Schueler.where('Name LIKE ?', "%#{params[:term]}")
     else
@@ -106,7 +106,7 @@ class SchuelersController < ApplicationController
     end
   end
 
-  def stentf
+  def stentf # Actually removes student from db
     num = params[:number]
     Schueler.find_by(Number: num).destroy
     redirect_to admin_path

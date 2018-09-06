@@ -1,16 +1,27 @@
 class PresentationsController < ApplicationController
+  before_action :logged_in_stud
+
+  def logged_in_stud
+    unless logged_ad?
+      flash[:danger] = "Diese Seite ist nur für Admins verfügbar"
+      redirect_to admin_login_path
+    end
+  end
+
   def list
     @presentations = Presentation.all.order(:Name)
   end
+
   def show
   end
+
   def import
-    Presentation.import(params[:file])
-    flash.now[:success] = "Presentationen erfolgreich hinzugefügt"
+    Presentation.import(params[:file]) # Import presentation from file parameters
+    flash.now[:success] = "Präsentationen erfolgreich hinzugefügt"
     render 'addfree'
   end
 
-  def addfree
+  def addfree # Set available spaces per presentation
     number = params[:free]
     pres = Presentation.all
     pres.each do |num|

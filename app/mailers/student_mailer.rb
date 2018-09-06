@@ -12,7 +12,7 @@ class StudentMailer < ApplicationMailer
 
   def final_mail(student) # Sends user their selected presentations
     @student = student
-    mail to: @student.Mail, subject: "Gewählte Presentationen"
+    mail to: @student.Mail, subject: "Gewählte Präsentationen"
   end
 
   def list_mail(teacher) # Sends teachers list of their presentations and list of attendants

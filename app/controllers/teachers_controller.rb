@@ -1,11 +1,20 @@
 class TeachersController < ApplicationController
+  before_action :logged_in_stud
   def list
     @teacher = Teacher.all.order(:name)
+  end
+
+  def logged_in_stud
+    unless logged_ad?
+      flash[:danger] = "Diese Seite ist nur für Admins verfügbar"
+      redirect_to admin_login_path
+    end
   end
 
   def new
     @teacher = Teacher.new
   end
+
   def import
     Teacher.import(params[:file])
     redirect_to admin_url
