@@ -11,4 +11,5 @@ Im CSV Ordner finden Sie einige Demo CSVs, die Sie zu Testzwecken gebrauchen
 können. Der standard Login für Admins ist Benutzername: a2, Passwort: hallo123
 
 Um dieses Programm zu installieren müssen Sie auf einem Debian Server zuerst
-setup.sh ausführen, dann usersetup.sh
+setup.sh ausführen, dann usersetup.sh. Schlussendlich einen Neustart machen,
+dann auf athene.bks-campus.ch besuchen!

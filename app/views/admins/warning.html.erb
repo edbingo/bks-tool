@@ -1,4 +1,20 @@
 <% provide(:title, "Datenbank zurücksetzen") %>
 <h1>Das ist Ihre letzte Warnung</h1>
   <p>Diese Aktion kann nicht rückgangig gemacht werden.</p>
+<br />
+<h2>Voreinstellungen für Admin:</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nummer</th>
+      <th>Passwort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a2</td>
+      <td>hallo123</td>
+    </tr>
+  </tbody>
+</table>
 <%= link_to "Datenbank löschen", admin_clear_path, class: "btn btn-danger" %>

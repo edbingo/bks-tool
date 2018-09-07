@@ -25,17 +25,14 @@
   <% unless Presentation.first == nil %>
     <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-secondary" %>
   <% end %>
   <% unless Schueler.first == nil %>
     <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-secondary" %>
   <% end %>
   <% unless Teacher.first == nil %>
     <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
   <% else %>
-    <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-secondary" %>
   <% end %>
   <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
   </div>
@@ -59,8 +56,12 @@
   <% end %>
   <h4>Einträge Entfernen</h4>
   <%= link_to "Admins entfernen", admin_admin_remove_path, class: "btn btn-primary" %>
-  <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-primary" %>
+  <% unless Schueler.first == nil %>
+    <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-primary" %>
+  <% end %>
+  <% unless Teacher.first == nil %>
   <%= link_to "Lehrer entfernen", admin_teacher_remove_path, class: "btn btn-primary" %>
+  <% end %>
   <h4>System verwalten</h4>
   <div>
     <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-danger" %>
