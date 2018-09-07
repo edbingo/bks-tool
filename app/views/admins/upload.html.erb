@@ -4,6 +4,20 @@
   <br />
 <h4>Dateien Hochladen</h4>
 <div>
-  <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
-  <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
+  <% if Presentation.first == nil %>
+    <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
+  <% end %>
+  <% if Schueler.first == nil %>
+    <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
+  <% end %>
+  <% if Teacher.first == nil %>
+    <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
+  <% end %>
+</div>
 </div>
