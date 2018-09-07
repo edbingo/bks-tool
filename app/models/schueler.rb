@@ -2,7 +2,7 @@ class Schueler < ApplicationRecord
   include Resetable
   require "csv"
   def self.import(file)
-    table = CSV.read(file.path, { headers: true, col_sep: "," })
+    table = CSV.read(file.path, { headers: true, col_sep: ";" })
 
     table.each do |row| # Generates password for each user and marks selection as nil
       pass = 1.times.map{ 9999 + Random.rand(100000) }
