@@ -37,6 +37,20 @@
             <% end %>
           </td>
         </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td scope="rowgroup">
+            <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
+          </td>
+        </tr>
       </tbody>
     </table>
 
@@ -74,7 +88,21 @@
             <% end %>
           </td>
         </tr>
-    </tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td scope="rowgroup">
+            <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
+          </td>
+        </tr>
+      </tbody>
   </table>
 
   <% elsif @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 != nil %>
@@ -111,6 +139,20 @@
             <% end %>
           </td>
       </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td scope="rowgroup">
+          <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
+        </td>
+      </tr>
     </tbody>
   </table>
 
@@ -132,38 +174,52 @@
     </thead>
     <tbody>
       <tr>
-          <td scope="row"><%= @pres0.Name %></td>
-          <td scope="row"><%= @pres0.Klasse %></td>
-          <td scope="row"><%= @pres0.Titel %></td>
-          <td scope="row"><%= @pres0.Fach %></td>
-          <td scope="row"><%= @pres0.Betreuer %></td>
-          <td scope="row"><%= @pres0.Zimmer %></td>
-          <td scope="row"><%= @pres0.Von %></td>
-          <td scope="row"><%= @pres0.Bis %></td>
-          <td scope="row"><%= @pres0.Frei %></td>
-          <td scope="row">
-            <%= form_tag studenten_profil_path do %>
-              <%= hidden_field_tag 'title', @pres0.Titel %>
-              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td scope="row"><%= @pres1.Name %></td>
-          <td scope="row"><%= @pres1.Klasse %></td>
-          <td scope="row"><%= @pres1.Titel %></td>
-          <td scope="row"><%= @pres1.Fach %></td>
-          <td scope="row"><%= @pres1.Betreuer %></td>
-          <td scope="row"><%= @pres1.Zimmer %></td>
-          <td scope="row"><%= @pres1.Von %></td>
-          <td scope="row"><%= @pres1.Bis %></td>
-          <td scope="row"><%= @pres1.Frei %></td>
-          <td scope="row">
-            <%= form_tag studenten_profil_path do %>
-              <%= hidden_field_tag 'title', @pres1.Titel %>
-              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
-            <% end %>
-          </td>
+        <td scope="row"><%= @pres0.Name %></td>
+        <td scope="row"><%= @pres0.Klasse %></td>
+        <td scope="row"><%= @pres0.Titel %></td>
+        <td scope="row"><%= @pres0.Fach %></td>
+        <td scope="row"><%= @pres0.Betreuer %></td>
+        <td scope="row"><%= @pres0.Zimmer %></td>
+        <td scope="row"><%= @pres0.Von %></td>
+        <td scope="row"><%= @pres0.Bis %></td>
+        <td scope="row"><%= @pres0.Frei %></td>
+        <td scope="row">
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres0.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres1.Name %></td>
+        <td scope="row"><%= @pres1.Klasse %></td>
+        <td scope="row"><%= @pres1.Titel %></td>
+        <td scope="row"><%= @pres1.Fach %></td>
+        <td scope="row"><%= @pres1.Betreuer %></td>
+        <td scope="row"><%= @pres1.Zimmer %></td>
+        <td scope="row"><%= @pres1.Von %></td>
+        <td scope="row"><%= @pres1.Bis %></td>
+        <td scope="row"><%= @pres1.Frei %></td>
+        <td scope="row">
+          <%= form_tag studenten_profil_path do %>
+            <%= hidden_field_tag 'title', @pres1.Titel %>
+            <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td scope="rowgroup">
+          <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -219,6 +275,20 @@
           <% end %>
         </td>
       </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td scope="rowgroup">
+          <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
+        </td>
+      </tr>
     </tbody>
   </table>
 
@@ -271,6 +341,20 @@
             <%= hidden_field_tag 'title', @pres1.Titel %>
             <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
           <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td scope="rowgroup">
+          <%= link_to "Zurück zur Auswahl", studenten_waehlen_path, class:"btn btn-primary" %>
         </td>
       </tr>
   </tbody>

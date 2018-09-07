@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       log_in admin
       redirect_to admin_path
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Nummer oder Passwort inkorrekt'
       render 'new'
     end
   end
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = "Sie haben sich schon Registriert"
       render 'newstud'
     else
-      flash.now[:danger] = "Benutzer name oder Passwort falsch"
+      flash.now[:danger] = "NUmmer oder Passwort falsch"
       render 'newstud'
     end
   end
