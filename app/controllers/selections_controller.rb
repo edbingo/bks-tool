@@ -30,6 +30,9 @@ class SelectionsController < ApplicationController
   def confirm
   end
 
+  def clean
+    @presentations = Presentation.all.order(:Name)
+  end
 
   def addtodb
     # Find current student based on Session ID
@@ -40,18 +43,20 @@ class SelectionsController < ApplicationController
       @schueler.update_attribute(:Selected, title)
       pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
-      redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 == nil
       title = params['title']
       @schueler.update_attribute(:Selected1, title)
       pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
-      redirect_to studenten_waehlen_path
     elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
       title = params['title']
       @schueler.update_attribute(:Selected2, title)
       pres = Presentation.find_by(Titel: title)
       pres.update_attribute(:Frei, pres.Frei - 1)
+    end
+    if @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 != nil
+      redirect_to studenten_clean_path
+    else
       redirect_to studenten_waehlen_path
     end
   end

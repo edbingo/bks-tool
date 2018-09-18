@@ -1,0 +1,32 @@
+<% provide(:title, "Schülerliste") %>
+<h2>Bearbeiten</h2>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr> <!-- This table lists all relevant entries from the presentation db -->
+      <th scope="col">Vorname</th>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Number</th>
+      <th scope="col">Password</th>
+      <th scope="col">Registered?</th>
+      <th scope="col">Speichern</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%= form_tag admin_show_students_update_path do %>
+        <%= hidden_field_tag 'id', $newstud.id %>
+        <td><%= text_field_tag 'vorname', "#{$newstud.Vorname}" %></td>
+        <td><%= text_field_tag 'name', "#{$newstud.Name}" %></td>
+        <td><%= text_field_tag 'klasse', "#{$newstud.Klasse}" %></td>
+        <td><%= text_field_tag 'mail', "#{$newstud.Mail}" %></td>
+        <td><%= text_field_tag 'number', "#{$newstud.Number}" %></td>
+        <td><%= text_field_tag 'code', "#{$newstud.Code}" %></td>
+        <td><%= text_field_tag 'registered', "#{$newstud.Registered}" %></td>
+        <td><%= submit_tag "Speichern", class: "btn btn-primary" %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<% @upd = $newstud %>

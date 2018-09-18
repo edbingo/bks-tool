@@ -11,30 +11,50 @@ Rails.application.routes.draw do
 
 # Admin related sites
   get '/admin', to: 'admins#hub'
+# Dedicated upload page
   get '/admin/add', to: 'admins#upload'
+# Upload process for presentations
   get '/admin/add/presentations', to: 'presentations#add'
   post '/admin/add/presentations/free', to: 'presentations#addfree'
+# Upload process for students
   get '/admin/add/students', to: 'schuelers#add'
-  get '/admin/add/teachers', to: 'teachers#add'
-  get '/admin/add/teacher', to: 'teachers#new'
-  post '/admin/add/teacher', to: 'teachers#create'
+# Single student signup page
   get '/admin/add/student', to: 'schuelers#new'
   post '/admin/add/student', to: 'schuelers#create'
-  get '/admin/show/presentations', to: 'presentations#list'
-  get '/admin/show/students/vn', to: 'schuelers#listfn'
-  get '/admin/show/students/kl', to: 'schuelers#listkl'
-  get '/admin/show/students/st', to: 'schuelers#listst'
-  get '/admin/show/students', to: 'schuelers#list'
-  get '/admin/show/admins', to: 'admins#list'
-  get '/admin/show/teachers', to: 'teachers#list'
+# Upload process for teachers
+  get '/admin/add/teachers', to: 'teachers#add'
+# Single teacher signup page
+  get '/admin/add/teacher', to: 'teachers#new'
+  post '/admin/add/teacher', to: 'teachers#create'
+# Single admin signup page
   get '/admin/new/admin', to: 'admins#new'
   post '/admin/new/admin', to: 'admins#create'
+# Management tools for presentations
+  get '/admin/show/presentations', to: 'presentations#list'
+  post '/admin/show/presentations/edit', to: 'presentations#edit'
+  post '/admin/show/presentations/update', to: 'presentations#update'
+  post '/admin/show/presentations/remove', to: 'presentations#deleter'
+# Management tools for students
+  get '/admin/show/students', to: 'schuelers#list'
+  post '/admin/show/students/edit', to: 'schuelers#edit'
+  post '/admin/show/students/update', to: 'schuelers#update'
+  post '/admin/show/students/remove', to: 'schuelers#deleter'
+# Management tools for admins
+  get '/admin/show/admins', to: 'admins#list'
+  post '/admin/show/admins/edit', to: 'admins#edit'
+  post '/admin/show/admins/update', to: 'admins#update'
+  post '/admin/show/admins/remove', to: 'admins#deleter'
+# Management tools for teachers
+  get '/admin/show/teachers', to: 'teachers#list'
+# System Management pages
   get '/admin/reset', to: 'admins#reset'
   get '/admin/confirm', to: 'admins#warning'
   get '/admin/clear', to: 'admins#clear'
+# Mailer services
   get '/admin/send/login', to: 'admins#logindetailssend'
   get '/admin/send/list', to: 'admins#finallistsend'
   get '/admin/send/remind', to: 'admins#remindersend'
+# Redundant old user Management system
   get '/admin/student/remove', to: 'schuelers#remove'
   post '/admin/student/remove', to: 'schuelers#stentf'
   get '/admin/teacher/remove', to: 'teachers#remove'
@@ -59,6 +79,7 @@ Rails.application.routes.draw do
 
   get '/studenten/waehlen', to: 'selections#list'
   post '/studenten/waehlen', to: 'selections#addtodb'
+  get '/studenten/clean', to: 'selections#clean'
   get '/studenten/bestaetigen', to: 'selections#confirm'
 
   get '/studenten/waehlen/klasse', to:'selections#listk'

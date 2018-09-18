@@ -1,5 +1,7 @@
 class SchuelersController < ApplicationController
   before_action :logged_in_stud, only: [:new, :import, :list, :create, :add,:new,]
+  helper_method :sort_col, :sort_dir
+
   def new
     @schueler = Schueler.new
   end
@@ -29,17 +31,17 @@ class SchuelersController < ApplicationController
       @schueler.update_attribute(:Selected, nil)
       pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     elsif params[:title] == @schueler.Selected1
       @schueler.update_attribute(:Selected1, nil)
       pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     elsif params[:title] == @schueler.Selected2
       @schueler.update_attribute(:Selected2, nil)
       pres = Presentation.find_by(Titel: title)
       pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_profil_path
+      redirect_to studenten_waehlen_path
     end
   end
 
@@ -76,19 +78,30 @@ class SchuelersController < ApplicationController
   end
 
   def list # Following functions sorts students
-    @student = Schueler.all.order(:Name)
+    @student = Schueler.order("#{sort_col} #{sort_dir}")
   end
 
-  def listfn
-    @student = Schueler.all.order(:Vorname)
+  def edit
+    id = params[:id]
+    $newstud = Schueler.find_by(id: id)
   end
 
-  def listkl
-    @student = Schueler.all.order(:Klasse)
+  def update
+    ustud = Schueler.find_by(id: $newstud.id)
+    ustud.update_attribute(:Vorname, params[:vorname])
+    ustud.update_attribute(:Name, params[:name])
+    ustud.update_attribute(:Klasse, params[:klasse])
+    ustud.update_attribute(:Mail, params[:mail])
+    ustud.update_attribute(:Number, params[:number])
+    ustud.update_attribute(:Code, params[:code])
+    redirect_to admin_show_students_path
   end
 
-  def listst
-    @student = Schueler.all.order(:Registered)
+  def deleter
+    id = params[:id]
+    Schueler.find_by(id: id).destroy
+    redirect_to admin_show_students_path
+    flash[:success] = "Schüler wurde erfolgreich entfernt"
   end
 
   def logged_in_stud # Stops students from accessing admin sites
@@ -118,5 +131,17 @@ class SchuelersController < ApplicationController
     def schueler_params
       params.require(:schueler).permit(:Vorname, :Name, :Mail, :Klasse, :Number,
         :password,:password_confirmation,:term,:add)
+    end
+
+    def sortable_cols
+      ["Vorname", "Name", "Klasse", "Mail", "Number", "Code", "Registered"]
+    end
+
+    def sort_col
+      sortable_cols.include?(params[:col]) ? params[:col] : "Vorname"
+    end
+
+    def sort_dir
+      %w[asc desc].include?(params[:dir]) ? params[:dir] : "asc"
     end
 end

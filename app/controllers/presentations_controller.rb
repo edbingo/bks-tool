@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
   before_action :logged_in_stud
+  helper_method :sort_col, :sort_dir
 
   def logged_in_stud
     unless logged_ad?
@@ -9,7 +10,25 @@ class PresentationsController < ApplicationController
   end
 
   def list
-    @presentations = Presentation.all.order(:Name)
+    @pres = Presentation.order("#{sort_col} #{sort_dir}")
+  end
+
+  def edit
+    id = params[:id]
+    $newpres = Presentation.find_by(id: id)
+  end
+
+  def update
+    upres = Presentation.find_by(id: $newpres.id)
+    upres.update_attribute(:Klasse, params[:klasse])
+    upres.update_attribute(:Name, params[:name])
+    upres.update_attribute(:Titel, params[:title])
+    upres.update_attribute(:Fach, params[:fach])
+    upres.update_attribute(:Betreuer, params[:betreuer])
+    upres.update_attribute(:Zimmer, params[:zimmer])
+    upres.update_attribute(:Von, params[:von])
+    upres.update_attribute(:Bis, params[:bis])
+    redirect_to admin_show_presentations_path
   end
 
   def show
@@ -29,5 +48,26 @@ class PresentationsController < ApplicationController
     end
     redirect_to admin_path
     flash[:success] = "Datenbank aktualisiert"
+  end
+
+  def deleter
+    id = params[:id]
+    Presentation.find_by(id: id).destroy
+    redirect_to admin_show_presentations_path
+    flash[:success] = "Presentation wurde erfolgreich entfernt"
+  end
+
+  private
+
+  def sortable_cols
+    ["Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Frei"]
+  end
+
+  def sort_col
+    sortable_cols.include?(params[:col]) ? params[:col] : "Name"
+  end
+
+  def sort_dir
+    %w[asc desc].include?(params[:dir]) ? params[:dir] : "asc"
   end
 end

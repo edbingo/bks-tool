@@ -3,19 +3,33 @@
 <table class="table table-hover">
   <thead class="thead">
     <tr>
-      <th scope="col">Vorname</th>
-      <th scope="col">Nachname</th>
-      <th scope="col">Mail</th>
-      <th scope="col">Nummer</th>
+      <th scope="col"><%= sort_link "Vorname" %></th>
+      <th scope="col"><%= sort_link "Nachname" %></th>
+      <th scope="col"><%= sort_link "Mail" %></th>
+      <th scope="col"><%= sort_link "Number" %></th>
+      <th scope="col">Bearbeiten</th>
+      <th scope="col">Entfernen</th>
     </tr>
   </thead>
   <tbody>
-    <% @admin.each do |admn| %>
+    <% @admn.each do |admn| %>
       <tr>
         <td scope="row"><%= admn.vorname %></td>
         <td scope="row"><%= admn.name %></td>
         <td scope="row"><%= admn.mail %></td>
         <td scope="row"><%= admn.number %></td>
+        <td scope="row">
+          <%= form_tag admin_show_admins_edit_path do %>
+            <%= hidden_field_tag 'id', admn.id %>
+            <%= submit_tag "Bearbeiten", class: "btn btn-secondary" %>
+          <% end %>
+        </td>
+        <td scope="row">
+          <%= form_tag admin_show_admins_remove_path do %>
+            <%= hidden_field_tag 'id', admn.id %>
+            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Admin wirklich entfernen?"} %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :logged_in_stud
+  helper_method :sort_col, :sort_dir
 
   def hub # Empty function
   end
@@ -19,7 +20,28 @@ class AdminsController < ApplicationController
   end
 
   def list # Makes all admins available to the table
-    @admin = Admin.all
+    @admn = Admin.order("#{sort_col} #{sort_dir}")
+  end
+
+  def edit
+    id = params[:id]
+    $newadmn = Admin.find_by(id: id)
+  end
+
+  def update
+    uadmn = Admin.find_by(id: $newadmn.id)
+    uadmn.update_attribute(:vorname, params[:vorname])
+    uadmn.update_attribute(:name, params[:name])
+    uadmn.update_attribute(:mail, params[:mail])
+    uadmn.update_attribute(:number, params[:nummer])
+    redirect_to admin_show_admins_path
+  end
+
+  def deleter
+    id = params[:id]
+    Admin.find_by(id: id).destroy
+    redirect_to admin_show_admins_path
+    flash[:success] = "Admin wurde erfolgreich entfernt"
   end
 
   def remove # Refactored code for searching the admin database
@@ -87,5 +109,17 @@ class AdminsController < ApplicationController
 
   def admin_params # Tells rails which paramaters to accept
     params.require(:admin).permit(:name,:vorname,:mail,:number,:password,:password_confirmation,:term)
+  end
+
+  def sortable_cols
+    ["Vorname", "Name", "Mail", "Number"]
+  end
+
+  def sort_col
+    sortable_cols.include?(params[:col]) ? params[:col] : "Name"
+  end
+
+  def sort_dir
+    %w[asc desc].include?(params[:dir]) ? params[:dir] : "asc"
   end
 end

@@ -56,7 +56,9 @@ ActiveRecord::Schema.define(version: 2018_09_04_054544) do
   end
 
   create_table "teachers", force: :cascade do |t|
+    t.string "Vorname"
     t.string "Name"
+    t.string "Number"
     t.string "Mail"
     t.boolean "Received"
     t.datetime "created_at", null: false

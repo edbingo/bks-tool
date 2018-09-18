@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   before_action :logged_in_stud
+  
   def list
     @teacher = Teacher.all.order(:name)
   end

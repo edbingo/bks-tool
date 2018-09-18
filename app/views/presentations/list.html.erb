@@ -1,32 +1,46 @@
 <% provide(:title, "Presentationsliste") %>
-<h3>Nach Schülername sortiert</h3>
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr> <!-- This table lists all relevant entries from the presentation db -->
-        <th scope="col">Name</th>
-        <th scope="col">Klasse</th>
-        <th scope="col">Titel</th>
-        <th scope="col">Fach</th>
-        <th scope="col">Betreuer</th>
-        <th scope="col">Zimmer</th>
-        <th scope="col">Von</th>
-        <th scope="col">Bis</th>
-        <th scope="col">Freie<br />Plätze</th>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr> <!-- This table lists all relevant entries from the presentation db -->
+      <th scope="col"><%= sort_link "Name" %></th>
+      <th scope="col"><%= sort_link "Klasse" %></th>
+      <th scope="col"><%= sort_link "Titel" %></th>
+      <th scope="col"><%= sort_link "Fach" %></th>
+      <th scope="col"><%= sort_link "Betreuer" %></th>
+      <th scope="col"><%= sort_link "Zimmer" %></th>
+      <th scope="col"><%= sort_link "Von" %></th>
+      <th scope="col">Bis</th>
+      <th scope="col"><%= sort_link "Frei" %></th>
+      <th scope="col">Bearbeiten</th>
+      <th scope="col">Entfernen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pres.each do |pres| %>
+      <tr>
+        <td scope="row"><%= pres.Name %></td>
+        <td scope="row"><%= pres.Klasse %></td>
+        <td scope="row"><%= pres.Titel %></td>
+        <td scope="row"><%= pres.Fach %></td>
+        <td scope="row"><%= pres.Betreuer %></td>
+        <td scope="row"><%= pres.Zimmer %></td>
+        <td scope="row"><%= pres.Von %></td>
+        <td scope="row"><%= pres.Bis %></td>
+        <td scope="row"><%= pres.Frei %></td>
+        <td scope="row">
+          <%= form_tag admin_show_presentations_edit_path do %>
+            <%= hidden_field_tag 'id', pres.id %>
+            <%= submit_tag "Bearbeiten", class: "btn btn-secondary" %>
+          <% end %>
+        </td>
+        <td scope="row">
+          <%= form_tag admin_show_presentations_remove_path do %>
+            <%= hidden_field_tag 'id', pres.id %>
+            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Diese Presentation wird entfernt. Wenn sich jemand für diese Presentation schon angemolden hat, wird es zu Probleme führen."} %>
+          <% end %>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @presentations.each do |pres| %>
-        <tr>
-          <td scope="row"><%= pres.Name %></td>
-          <td scope="row"><%= pres.Klasse %></td>
-          <td scope="row"><%= pres.Titel %></td>
-          <td scope="row"><%= pres.Fach %></td>
-          <td scope="row"><%= pres.Betreuer %></td>
-          <td scope="row"><%= pres.Zimmer %></td>
-          <td scope="row"><%= pres.Von %></td>
-          <td scope="row"><%= pres.Bis %></td>
-          <td scope="row"><%= pres.Frei %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>

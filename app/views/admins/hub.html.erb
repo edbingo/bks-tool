@@ -20,7 +20,7 @@
       <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
     <% end %>
   </div>
-  <h4>Listen Anzeigen</h4>
+  <h4>Listen Verwalten</h4>
   <div>
   <% unless Presentation.first == nil %>
     <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
@@ -53,14 +53,6 @@
     <div>
       Um Mails zu versenden müssen zuerst mindestens ein Eintrag in jeder Datenbank vorhanden sein
     </div>
-  <% end %>
-  <h4>Einträge Entfernen</h4>
-  <%= link_to "Admins entfernen", admin_admin_remove_path, class: "btn btn-primary" %>
-  <% unless Schueler.first == nil %>
-    <%= link_to "Schueler entfernen", admin_student_remove_path, class: "btn btn-primary" %>
-  <% end %>
-  <% unless Teacher.first == nil %>
-  <%= link_to "Lehrer entfernen", admin_teacher_remove_path, class: "btn btn-primary" %>
   <% end %>
   <h4>System verwalten</h4>
   <div>
