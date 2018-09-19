@@ -41,10 +41,10 @@ class PresentationsController < ApplicationController
   end
 
   def addfree # Set available spaces per presentation
-    number = params[:free]
+    $number = params[:free]
     pres = Presentation.all
     pres.each do |num|
-      num.update_attribute(:Frei, number)
+      num.update_attribute(:Frei, $number)
     end
     redirect_to admin_path
     flash[:success] = "Datenbank aktualisiert"

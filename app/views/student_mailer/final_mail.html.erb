@@ -1,7 +1,7 @@
 Hallo <%= @student.Vorname %><br />
-<% @presi = Presentation.find_by(Titel: @student.Selected) %>
-<% @presi1 = Presentation.find_by(Titel: @student.Selected1) %>
-<% @presi2 = Presentation.find_by(Titel: @student.Selected2) %>
+<% @presi = Presentation.find_by(id: @student.Selected.to_s) %>
+<% @presi1 = Presentation.find_by(id: @student.Selected1.to_s) %>
+<% @presi2 = Presentation.find_by(id: @student.Selected2.to_s) %>
 Sie haben folgende Präsentationen ausgewählt:<br /><br />
 <table class="table bordered" style="th, td{ padding: 5px; text-align: left;}">
   <thead>

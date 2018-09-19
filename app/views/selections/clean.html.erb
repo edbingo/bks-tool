@@ -1,5 +1,14 @@
 <% provide(:title, "Presentationsauswahl") %>
-<%= link_to "Auswahl abschliessen", studenten_profil_send_path, class: "btn btn-primary" %>
+<% pries = Presentation.find_by(id: @current_student.Selected).Von %>
+<% pries1 = Presentation.find_by(id: @current_student.Selected1).Von %>
+<% pries2 = Presentation.find_by(id: @current_student.Selected2).Von %>
+<% if pries == pries1 || pries == pries2 || pries1 == pries2 %>
+  <%= link_to "Error", '#', class: "btn btn-secondary" %>
+  Sie haben eine Doppelbuchung! Bitte lösen Sie das Problem auf.
+<% else %>
+  <%= link_to "Auswahl abschliessen", studenten_profil_send_path, class: "btn btn-primary" %>
+<% end %>
+
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
@@ -17,8 +26,11 @@
   </thead>
   <tbody>
     <% @presentations.each do |pres| %>
-      <% unless pres.Frei == 0 %>
+      <% if @current_student.Selected == pres.id.to_s || @current_student.Selected1 == pres.id.to_s || @current_student.Selected2 == pres.id.to_s %>
+        <tr class="table-primary">
+      <% else %>
         <tr>
+      <% end %>
           <td scope="row"><%= pres.Name %></td>
           <td scope="row"><%= pres.Klasse %></td>
           <td scope="row"><%= pres.Titel %></td>
@@ -29,20 +41,19 @@
           <td scope="row"><%= pres.Bis %></td>
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">
-            <% if pres.Titel == @current_student.Selected || pres.Titel == @current_student.Selected1 || pres.Titel == @current_student.Selected2 %>
+            <% if pres.id.to_s == @current_student.Selected || pres.id.to_s == @current_student.Selected1 || pres.id.to_s == @current_student.Selected2 %>
               <%= form_tag studenten_weg_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
+                <%= hidden_field_tag 'id', pres.id %>
                 <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>
             <% else %>
-              <%= form_tag studenten_weg_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
+              <%= form_tag '#' do %>
+                <%= hidden_field_tag 'title', pres.id %>
                 <%= submit_tag "Wählen", disabled: true, class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>
             <% end %>
           </td>
         <% else %>
-        <% end %>
       </tr>
     <% end %>
   </tbody>

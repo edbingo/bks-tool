@@ -25,24 +25,45 @@ class SelectionsController < ApplicationController
     @schueler = Schueler.find_by(id: session[:student_id])
     # Fills in first free slot in student database
     if @schueler.Selected == nil
-      title = params[:title]
-      @schueler.update_attribute(:Selected, title)
-      pres = Presentation.find_by(Titel: title)
+      id = params[:id].to_s
+      @schueler.update_attribute(:Selected, id)
+      pres = Presentation.find_by(id: id)
       pres.update_attribute(:Frei, pres.Frei - 1)
     elsif @schueler.Selected != nil && @schueler.Selected1 == nil
-      title = params['title']
-      @schueler.update_attribute(:Selected1, title)
-      pres = Presentation.find_by(Titel: title)
+      id = params['id'].to_s
+      @schueler.update_attribute(:Selected1, id)
+      pres = Presentation.find_by(id: id)
       pres.update_attribute(:Frei, pres.Frei - 1)
     elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
-      title = params['title']
-      @schueler.update_attribute(:Selected2, title)
-      pres = Presentation.find_by(Titel: title)
+      id = params['id'].to_s
+      @schueler.update_attribute(:Selected2, id)
+      pres = Presentation.find_by(id: id)
       pres.update_attribute(:Frei, pres.Frei - 1)
     end
     if @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 != nil
       redirect_to studenten_clean_path
     else
+      redirect_to studenten_waehlen_path
+    end
+  end
+
+  def weg # Function removes previous selection from DB
+    @schueler = Schueler.find_by(id: session[:student_id])
+    id = params[:id].to_s
+    if id == @schueler.Selected
+      @schueler.update_attribute(:Selected, nil)
+      pres = Presentation.find_by(id: id)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
+      redirect_to studenten_waehlen_path
+    elsif id == @schueler.Selected1
+      @schueler.update_attribute(:Selected1, nil)
+      pres = Presentation.find_by(id: id)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
+      redirect_to studenten_waehlen_path
+    elsif id == @schueler.Selected2
+      @schueler.update_attribute(:Selected2, nil)
+      pres = Presentation.find_by(id: id)
+      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
       redirect_to studenten_waehlen_path
     end
   end

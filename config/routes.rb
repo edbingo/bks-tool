@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   get '/studenten/clean', to: 'selections#clean'
   get '/studenten/bestaetigen', to: 'selections#confirm'
 
-  post '/studenten/weg', to: 'schuelers#weg'
+  post '/studenten/weg', to: 'selections#weg'
   get '/studenten/profil/send', to: 'schuelers#confirm'
   post '/studenten/profil/send', to: 'schuelers#sendfile'
   get '/error', to: 'schuelers#fail'

@@ -4,11 +4,7 @@
 <% else %>
   <%= link_to "Auswahl noch nicht abgeschlossen", '#', class: "btn btn-disabled" %>
 <% end %>
-<% unless @current_student.Selected == nil || @current_student.Selected1 == nil %>
-  <% if Presentation.find_by(Titel: @current_student.Selected).Von == Presentation.find_by(Titel: @current_student.Selected1).Von %>
-    Error: Doppelbuchung! Bitte wählen Sie conflicting Präsentationen ab.
-  <% end %>
-<% end %>
+
 
 <table class="table table-hover">
   <thead class="thead-dark">
@@ -28,7 +24,11 @@
   <tbody>
     <% @presentations.each do |pres| %>
       <% unless pres.Frei == 0 %>
-        <tr>
+        <% if @current_student.Selected == pres.id.to_s || @current_student.Selected1 == pres.id.to_s || @current_student.Selected2 == pres.id.to_s %>
+          <tr class="table-primary">
+        <% else %>
+          <tr>
+        <% end %>
           <td scope="row"><%= pres.Name %></td>
           <td scope="row"><%= pres.Klasse %></td>
           <td scope="row"><%= pres.Titel %></td>
@@ -40,14 +40,14 @@
           <td scope="row"><%= pres.Bis %></td>
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">
-            <% unless @current_student.Selected == pres.Titel || @current_student.Selected1 == pres.Titel || @current_student.Selected2 == pres.Titel %>
+            <% unless @current_student.Selected == pres.id.to_s || @current_student.Selected1 == pres.id.to_s || @current_student.Selected2 == pres.id.to_s %>
               <%= form_tag studenten_waehlen_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
+                <%= hidden_field_tag 'id', pres.id %>
                 <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
               <% end %>
             <% else %>
               <%= form_tag studenten_weg_path do %>
-                <%= hidden_field_tag 'title', pres.Titel %>
+                <%= hidden_field_tag 'id', pres.id %>
                 <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>
             <% end %>

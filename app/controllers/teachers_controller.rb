@@ -12,8 +12,10 @@ class TeachersController < ApplicationController
   end
 
   def pres
-    id = params[:id]
-    @teaclist = Teacher.where()
+    id = params[:number]
+    teac = Teacher.find_by(Number: id)
+    @teaclist = Presentation.where(Betreuer: teac.Number)
+    render 'preslist'
   end
 
   def update
@@ -77,7 +79,7 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:Name,:Mail,:term)
+    params.require(:teacher).permit(:Name,:Mail,:term,:id,:number)
   end
 
   def sortable_cols

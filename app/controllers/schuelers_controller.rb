@@ -11,46 +11,25 @@ class SchuelersController < ApplicationController
     if @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil
       redirect_to error_path # If nothing has been selected, display relevant error page
     else # Sets variables required for showing list of presentations
-      @pres0 = Presentation.find_by(Titel: @schueler.Selected)
-      @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
-      @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
+      @pres0 = Presentation.find_by(id: @schueler.Selected)
+      @pres1 = Presentation.find_by(id: @schueler.Selected1)
+      @pres2 = Presentation.find_by(id: @schueler.Selected2)
     end
   end
 
   def confirm # Resets the variables
     @schueler = Schueler.find_by(id: session[:student_id])
-    @pres0 = Presentation.find_by(Titel: @schueler.Selected)
-    @pres1 = Presentation.find_by(Titel: @schueler.Selected1)
-    @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
-  end
-
-  def weg # Function removes previous selection from DB
-    @schueler = Schueler.find_by(id: session[:student_id])
-    title = params[:title]
-    if params[:title] == @schueler.Selected
-      @schueler.update_attribute(:Selected, nil)
-      pres = Presentation.find_by(Titel: title)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    elsif params[:title] == @schueler.Selected1
-      @schueler.update_attribute(:Selected1, nil)
-      pres = Presentation.find_by(Titel: title)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    elsif params[:title] == @schueler.Selected2
-      @schueler.update_attribute(:Selected2, nil)
-      pres = Presentation.find_by(Titel: title)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    end
+    @pres0 = Presentation.find_by(id: @schueler.Selected)
+    @pres1 = Presentation.find_by(id: @schueler.Selected1)
+    @pres2 = Presentation.find_by(id: @schueler.Selected2)
   end
 
   def sendfile # Removes ability to log in and sends email with selected presentations
     schueler = Schueler.find_by(id: session[:student_id])
     schueler.update_attribute(:Registered, true)
-    pres0 = Presentation.find_by(Titel: schueler.Selected)
-    pres1 = Presentation.find_by(Titel: schueler.Selected1)
-    pres2 = Presentation.find_by(Titel: schueler.Selected2)
+    pres0 = Presentation.find_by(id: schueler.Selected.to_s)
+    pres1 = Presentation.find_by(id: schueler.Selected1.to_s)
+    pres2 = Presentation.find_by(id: schueler.Selected2.to_s)
     pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     pres1.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     pres2.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
