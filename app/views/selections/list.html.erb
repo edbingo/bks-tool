@@ -1,37 +1,27 @@
 <% provide(:title, "Presentationsauswahl") %>
-<button type="button" class="btn btn-outline-primary center">
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle black" data-toggle="dropdown">
-      Sortieren <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li><%= link_to "Nach Klasse", studenten_waehlen_klasse_path %></li>
-      <li><%= link_to "Nach Titel", studenten_waehlen_titel_path %></li>
-      <li><%= link_to "Nach Fach", studenten_waehlen_fach_path %></li>
-      <li><%= link_to "Nach Betreuer", studenten_waehlen_betreuer_path %></li>
-      <li><%= link_to "Nach Zeit", studenten_waehlen_zeit_path %></li>
-    </ul>
-  </li>
-</button>
 <% if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil %>
   <%= link_to "Auswahl abschliessen", studenten_profil_send_path, class: "btn btn-primary" %>
 <% else %>
   <%= link_to "Auswahl noch nicht abgeschlossen", '#', class: "btn btn-disabled" %>
 <% end %>
-
+<% unless @current_student.Selected == nil || @current_student.Selected1 == nil %>
+  <% if Presentation.find_by(Titel: @current_student.Selected).Von == Presentation.find_by(Titel: @current_student.Selected1).Von %>
+    Error: Doppelbuchung! Bitte wählen Sie conflicting Präsentationen ab.
+  <% end %>
+<% end %>
 
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Klasse</th>
-      <th scope="col">Titel</th>
-      <th scope="col">Fach</th>
-      <th scope="col">Betreuer</th>
-      <th scope="col">Zimmer</th>
-      <th scope="col">Von</th>
+      <th scope="col"><%= sort_link "Name" %></th>
+      <th scope="col"><%= sort_link "Klasse" %></th>
+      <th scope="col"><%= sort_link "Titel" %></th>
+      <th scope="col"><%= sort_link "Fach" %></th>
+      <th scope="col"><%= sort_link "Betreuer" %></th>
+      <th scope="col"><%= sort_link "Zimmer" %></th>
+      <th scope="col"><%= sort_link "Von" %></th>
       <th scope="col">Bis</th>
-      <th scope="col">Freie Plätze</th>
+      <th scope="col"><%= sort_link "Frei" %></th>
       <th scope="col">Wählen</th>
     </tr>
   </thead>
@@ -43,7 +33,8 @@
           <td scope="row"><%= pres.Klasse %></td>
           <td scope="row"><%= pres.Titel %></td>
           <td scope="row"><%= pres.Fach %></td>
-          <td scope="row"><%= pres.Betreuer %></td>
+          <% betr = Teacher.find_by(Number: pres.Betreuer) %>
+          <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
           <td scope="row"><%= pres.Zimmer %></td>
           <td scope="row"><%= pres.Von %></td>
           <td scope="row"><%= pres.Bis %></td>
@@ -55,7 +46,7 @@
                 <%= submit_tag "Wählen", class: "btn btn-primary", data: {disable_with: "Saving"} %>
               <% end %>
             <% else %>
-              <%= form_tag studenten_profil_path do %>
+              <%= form_tag studenten_weg_path do %>
                 <%= hidden_field_tag 'title', pres.Titel %>
                 <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>

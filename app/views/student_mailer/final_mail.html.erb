@@ -22,7 +22,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <td scope="row"><%= @presi.Klasse %></td>
       <td scope="row"><%= @presi.Titel %></td>
       <td scope="row"><%= @presi.Fach %></td>
-      <td scope="row"><%= @presi.Betreuer %></td>
+      <% betr = Teacher.find_by(Number: @presi.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi.Zimmer %></td>
       <td scope="row"><%= @presi.Von %></td>
       <td scope="row"><%= @presi.Bis %></td>
@@ -32,7 +33,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <td scope="row"><%= @presi1.Klasse %></td>
       <td scope="row"><%= @presi1.Titel %></td>
       <td scope="row"><%= @presi1.Fach %></td>
-      <td scope="row"><%= @presi1.Betreuer %></td>
+      <% betr = Teacher.find_by(Number: @presi1.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi1.Zimmer %></td>
       <td scope="row"><%= @presi1.Von %></td>
       <td scope="row"><%= @presi1.Bis %></td>
@@ -42,7 +44,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <td scope="row"><%= @presi2.Klasse %></td>
       <td scope="row"><%= @presi2.Titel %></td>
       <td scope="row"><%= @presi2.Fach %></td>
-      <td scope="row"><%= @presi2.Betreuer %></td>
+      <% betr = Teacher.find_by(Number: @presi2.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi2.Zimmer %></td>
       <td scope="row"><%= @presi2.Von %></td>
       <td scope="row"><%= @presi2.Bis %></td>

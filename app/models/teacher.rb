@@ -2,14 +2,19 @@ class Teacher < ApplicationRecord
   include Resetable
   require "csv"
   def self.import(file)
-    CSV.foreach(file.path, headers:true) do |row|
+    table = CSV.read(file.path, { headers: true, col_sep: ";" })
+
+    CSV.open(file.path, "w") do |f|
+      f << table.headers
+      table.each{ |row| f << row }
+    end
+
+    CSV.foreach(file.path, headers: true) do |row|
       Teacher.create! row.to_hash
     end
-    teacher = Teacher.all
-    teacher.each do |entry|
-      entry.update_attribute(:Received, false)
-    end
+    teachers = Teacher.all
   end
   validates :Name, presence: true
+  validates :Number, uniqueness: { case_sensitive: false }
   validates :Mail, presence: true
 end

@@ -11,6 +11,7 @@
       <th scope="col"><%= sort_link "Password" %></th>
       <th scope="col"><%= sort_link "Registered" %></th>
       <th scope="col">Bearbeiten</th>
+      <th>Force</th>
       <th scope="col">Entfernen</th>
     </tr>
   </thead>
@@ -30,10 +31,20 @@
             <%= submit_tag "Bearbeiten", class: "btn btn-secondary" %>
           <% end %>
         </td>
+        <td>
+          <% if stud.Registered == false %>
+            <%= form_tag admin_force_path do %>
+              <%= hidden_field_tag 'id', stud.id %>
+              <%= submit_tag "Force", class: "btn btn-secondary" %>
+            <% end %>
+          <% else %>
+            Schon registriert
+          <% end %>
+        </td>
         <td scope="row">
           <%= form_tag admin_show_students_remove_path do %>
             <%= hidden_field_tag 'id', stud.id %>
-            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Diese Presentation wird entfernt. Wenn sich jemand für diese Presentation schon angemolden hat, wird es zu Probleme führen."} %>
+            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Schüler entfernen?"} %>
           <% end %>
         </td>
       </tr>

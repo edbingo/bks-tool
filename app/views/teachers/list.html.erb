@@ -1,17 +1,41 @@
 <% provide(:title, "Lehrerliste") %>
-<h3>Nach Name sortiert</h3>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Mail</th>
+      <th scope="col"><%= sort_link "Vorname" %></th>
+      <th scope="col"><%= sort_link "Name" %></th>
+      <th scope="col"><%= sort_link "Mail" %></th>
+      <th scope="col"><%= sort_link "Number" %></th>
+      <th>Präsentationen</th>
+      <th>Bearbeiten</th>
+      <th>Entfernen</th>
     </tr>
   </thead>
   <tbody>
     <% @teacher.each do |teac| %>
     <tr>
+      <td><%= teac.Vorname %></td>
       <td><%= teac.Name %></td>
       <td><%= teac.Mail %></td>
+      <td><%= teac.Number %></td>
+      <td>
+        <%= form_tag admin_show_teachers_pres_path do %>
+          <%= hidden_field_tag 'id', teac.id %>
+          <%= submit_tag "Anschauen", class: "btn btn-secondary" %>
+        <% end %>
+      <td scope="row">
+        <%= form_tag admin_show_teachers_edit_path do %>
+          <%= hidden_field_tag 'id', teac.id %>
+          <%= submit_tag "Bearbeiten", class: "btn btn-secondary" %>
+        <% end %>
+      </td>
+      <td scope="row">
+        <%= form_tag admin_show_teachers_remove_path do %>
+          <%= hidden_field_tag 'id', teac.id %>
+          <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Lehrer entfernen?"} %>
+        <% end %>
+      </td>
+
     </tr>
     <% end %>
   </tbody>

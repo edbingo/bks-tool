@@ -1,3 +1,10 @@
-Student#catchup_mail
+Guten Tag <%= @student.Vorname %>,
+Wir haben bemerkt, dass du dich noch nicht für die Maturavorträge angemeldet
+hast.
+Hier sind deine Login Details, bitte registriere dich sobald wie
+möglich.
+Benutzername: <%= @student.Name %>
+Passwort:     <%= @student.Code %>
+Du kannst dich unter https://athene.bks-campus.ch anmelden.
 
-<%= @greeting %>, find me in app/views/student_mailer/catchup_mail.text.erb
+I am a bot, please do not reply

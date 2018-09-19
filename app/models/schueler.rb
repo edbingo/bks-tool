@@ -13,6 +13,7 @@ class Schueler < ApplicationRecord
       row["Selected"] = nil
       row["Selected1"] = nil
       row["Selected2"] = nil
+      row["Received"] = false
     end
 
     CSV.open(file.path, "w") do |f|

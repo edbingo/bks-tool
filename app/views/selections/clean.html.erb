@@ -3,15 +3,15 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Klasse</th>
-      <th scope="col">Titel</th>
-      <th scope="col">Fach</th>
-      <th scope="col">Betreuer</th>
-      <th scope="col">Zimmer</th>
-      <th scope="col">Von</th>
+      <th scope="col"><%= sort_link "Name" %></th>
+      <th scope="col"><%= sort_link "Klasse" %></th>
+      <th scope="col"><%= sort_link "Titel" %></th>
+      <th scope="col"><%= sort_link "Fach" %></th>
+      <th scope="col"><%= sort_link "Betreuer" %></th>
+      <th scope="col"><%= sort_link "Zimmer" %></th>
+      <th scope="col"><%= sort_link "Von" %></th>
       <th scope="col">Bis</th>
-      <th scope="col">Freie Plätze</th>
+      <th scope="col"><%= sort_link "Frei" %></th>
       <th scope="col">Wählen</th>
     </tr>
   </thead>
@@ -30,12 +30,12 @@
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">
             <% if pres.Titel == @current_student.Selected || pres.Titel == @current_student.Selected1 || pres.Titel == @current_student.Selected2 %>
-              <%= form_tag studenten_profil_path do %>
+              <%= form_tag studenten_weg_path do %>
                 <%= hidden_field_tag 'title', pres.Titel %>
                 <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>
             <% else %>
-              <%= form_tag studenten_profil_path do %>
+              <%= form_tag studenten_weg_path do %>
                 <%= hidden_field_tag 'title', pres.Titel %>
                 <%= submit_tag "Wählen", disabled: true, class: "btn btn-secondary", data: { disable_with: "Saving" } %>
               <% end %>

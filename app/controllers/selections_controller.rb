@@ -1,37 +1,23 @@
 class SelectionsController < ApplicationController
   before_action :logged_in_stud
+  helper_method :sort_col, :sort_dir
+
   def new
   end
 
   def list # Sorting functions for student selection database
-    @presentations = Presentation.all.order(:Name)
-  end
-
-  def listb
-    @presentations = Presentation.all.order(:Betreuer)
-  end
-
-  def listf
-    @presentations = Presentation.all.order(:Fach)
-  end
-
-  def listk
-    @presentations = Presentation.all.order(:Klasse)
-  end
-
-  def listt
-    @presentations = Presentation.all.order(:Titel)
-  end
-
-  def listv
-    @presentations = Presentation.all.order(:Von)
+    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
+      redirect_to studenten_clean_path
+    else
+      @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+    end
   end
 
   def confirm
   end
 
   def clean
-    @presentations = Presentation.all.order(:Name)
+    @presentations = Presentation.order("#{sort_col} #{sort_dir}")
   end
 
   def addtodb
@@ -69,5 +55,17 @@ class SelectionsController < ApplicationController
   end
 
   private
+
+  def sortable_cols
+    ["Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Frei"]
+  end
+
+  def sort_col
+    sortable_cols.include?(params[:col]) ? params[:col] : "Name"
+  end
+
+  def sort_dir
+    %w[asc desc].include?(params[:dir]) ? params[:dir] : "asc"
+  end
 
 end

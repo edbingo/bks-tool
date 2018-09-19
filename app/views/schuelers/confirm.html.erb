@@ -18,7 +18,8 @@
         <td scope="row"><%= @pres0.Klasse %></td>
         <td scope="row"><%= @pres0.Titel %></td>
         <td scope="row"><%= @pres0.Fach %></td>
-        <td scope="row"><%= @pres0.Betreuer %></td>
+        <% betr = Teacher.find_by(Number: @pres0.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres0.Zimmer %></td>
         <td scope="row"><%= @pres0.Von %></td>
         <td scope="row"><%= @pres0.Bis %></td>
@@ -29,7 +30,8 @@
         <td scope="row"><%= @pres1.Klasse %></td>
         <td scope="row"><%= @pres1.Titel %></td>
         <td scope="row"><%= @pres1.Fach %></td>
-        <td scope="row"><%= @pres1.Betreuer %></td>
+        <% betr = Teacher.find_by(Number: @pres1.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres1.Zimmer %></td>
         <td scope="row"><%= @pres1.Von %></td>
         <td scope="row"><%= @pres1.Bis %></td>
@@ -40,7 +42,8 @@
         <td scope="row"><%= @pres2.Klasse %></td>
         <td scope="row"><%= @pres2.Titel %></td>
         <td scope="row"><%= @pres2.Fach %></td>
-        <td scope="row"><%= @pres2.Betreuer %></td>
+        <% betr = Teacher.find_by(Number: @pres2.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres2.Zimmer %></td>
         <td scope="row"><%= @pres2.Von %></td>
         <td scope="row"><%= @pres2.Bis %></td>
@@ -50,7 +53,7 @@
   </table>
   Wenn Sie dieses Formular abschicken können Sie Ihre Wahl nicht mehr ändern!
   <br />
-  <%= link_to "Zurück", studenten_profil_path, class: "btn btn-primary" %>
+  <%= link_to "Zurück", studenten_clean_path, class: "btn btn-primary" %>
   <br />
   <br />
   <%= form_for :lastchance, url: studenten_profil_send_path do %>

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   post '/admin/show/students/edit', to: 'schuelers#edit'
   post '/admin/show/students/update', to: 'schuelers#update'
   post '/admin/show/students/remove', to: 'schuelers#deleter'
+
+  post '/admin/force', to: 'admins#force'
 # Management tools for admins
   get '/admin/show/admins', to: 'admins#list'
   post '/admin/show/admins/edit', to: 'admins#edit'
@@ -46,6 +48,10 @@ Rails.application.routes.draw do
   post '/admin/show/admins/remove', to: 'admins#deleter'
 # Management tools for teachers
   get '/admin/show/teachers', to: 'teachers#list'
+  post '/admin/show/teachers/edit', to: 'teachers#edit'
+  post '/admin/show/teachers/update', to: 'teachers#update'
+  post '/admin/show/teachers/remove', to: 'teachers#deleter'
+  post '/admin/show/teachers/pres', to: 'teachers#pres'
 # System Management pages
   get '/admin/reset', to: 'admins#reset'
   get '/admin/confirm', to: 'admins#warning'
@@ -54,14 +60,6 @@ Rails.application.routes.draw do
   get '/admin/send/login', to: 'admins#logindetailssend'
   get '/admin/send/list', to: 'admins#finallistsend'
   get '/admin/send/remind', to: 'admins#remindersend'
-# Redundant old user Management system
-  get '/admin/student/remove', to: 'schuelers#remove'
-  post '/admin/student/remove', to: 'schuelers#stentf'
-  get '/admin/teacher/remove', to: 'teachers#remove'
-  post '/admin/teacher/remove', to: 'teachers#tentf'
-  get '/admin/admin/remove', to: 'admins#remove'
-  post '/admin/admin/remove', to: 'admins#adent'
-
 # Static Pages
   get '/hilfe', to: 'static_pages#hilfe'
   get '/impressum', to: 'static_pages#impressum'
@@ -82,15 +80,7 @@ Rails.application.routes.draw do
   get '/studenten/clean', to: 'selections#clean'
   get '/studenten/bestaetigen', to: 'selections#confirm'
 
-  get '/studenten/waehlen/klasse', to:'selections#listk'
-  get '/studenten/waehlen/titel', to:'selections#listt'
-  get '/studenten/waehlen/fach', to:'selections#listf'
-  get '/studenten/waehlen/betreuer', to:'selections#listb'
-  get '/studenten/waehlen/zimmer', to:'selections#listz'
-  get '/studenten/waehlen/zeit', to:'selections#listv'
-
-  get '/studenten/profil', to: 'schuelers#show'
-  post '/studenten/profil', to: 'schuelers#delfromdb'
+  post '/studenten/weg', to: 'schuelers#weg'
   get '/studenten/profil/send', to: 'schuelers#confirm'
   post '/studenten/profil/send', to: 'schuelers#sendfile'
   get '/error', to: 'schuelers#fail'

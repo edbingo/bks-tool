@@ -24,7 +24,7 @@ class SchuelersController < ApplicationController
     @pres2 = Presentation.find_by(Titel: @schueler.Selected2)
   end
 
-  def delfromdb # Function removes previous selection from DB
+  def weg # Function removes previous selection from DB
     @schueler = Schueler.find_by(id: session[:student_id])
     title = params[:title]
     if params[:title] == @schueler.Selected
@@ -61,10 +61,9 @@ class SchuelersController < ApplicationController
   def create # Creates new student based on entered parameters
     @schueler = Schueler.new(schueler_params)
     if @schueler.save
-      flash[:success] = "User successfully registered, login details sent"
+      flash[:success] = "User successfully registered"
       @schueler.update_attribute(:Code, @schueler.password)
       @schueler.update_attribute(:Registered, false)
-      StudentMailer.password_mail(@schueler).deliver_now
       redirect_to admin_path
     else
       render 'new'

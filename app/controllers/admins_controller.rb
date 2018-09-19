@@ -5,6 +5,10 @@ class AdminsController < ApplicationController
   def hub # Empty function
   end
 
+  def force
+    log_out
+  end
+
   def new # Used in render 'new'
     @admin = Admin.new
   end
@@ -77,6 +81,7 @@ class AdminsController < ApplicationController
     stud = Schueler.all # Selects all students
     stud.each do |pupil| # Sends an email to each
       StudentMailer.password_mail(pupil).deliver_now
+      stud.Received = true
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path
