@@ -20,7 +20,7 @@ class StudentMailerPreview < ActionMailer::Preview
   end
 
   def list_mail
-    teacher = Teacher.find_by(Name: "Caspar Bamert")
+    teacher = Teacher.find_by(Number: "l274")
     StudentMailer.list_mail(teacher)
     end
 end

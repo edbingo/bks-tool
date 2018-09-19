@@ -30,3 +30,55 @@ Ihre Präsentationen: <br />
     <% end %>
   </tbody>
 </table>
+
+
+Liebe Betreuerperson
+In der folgenden Liste sind die Schülerinnen und Schüler der 5.
+Gymnasialklassen, die sich zum Besuch einer Präsentation der folgenden
+Maturaarbeiten verpflichtet haben.
+Angemeldete SchülerInnen und Schüler:
+<%= Presentation.where(Betreuer: @teacher.Number).Besucher %>
+Ihre Präsentationen:<br/>
+<% preslist = Presentation.where(Betreuer: @teacher.Name) %>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Zimmer</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+      <th scope="col">Freie <br /> Plätze</th>
+      <th scope="col">Besucher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% preslist.each do |pres| %>
+    <tr>
+      <td scope="row"><%= pres.Name %></td>
+      <td scope="row"><%= pres.Klasse %></td>
+      <td scope="row"><%= pres.Titel %></td>
+      <td scope="row"><%= pres.Zimmer %></td>
+      <td scope="row"><%= pres.Von %></td>
+      <td scope="row"><%= pres.Bis %></td>
+      <td scope="row"><%= pres.Frei %></td>
+      <td scope="row"><%= pres.Besucher %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table><br/>
+Pünktliches Erscheinen und pünktlicher Beginn:<br/>
+Die Schülerinnen und Schüler der 5. Gymnasialklassen verpflichten sich,
+pünktlich zu den Präsentationen zu erscheinen. Aus diesem Grund konnten sie
+sich nicht für zwei zeitlich direkt aufeinanderfolgende Praesentationen
+anmelden. Ein verspaetetes Eintreten wird als grobe Unhoeflichkeit gewertet.
+Aus diesem Grund bitte alle verantwortlichen Betreürpersonen, ebenfalls
+pünktlich zu beginnen und den Beginn auch nicht zeitlich vorzuziehen!
+Anwesenheitskontrolle:
+Bitte benutzt diese Liste auch als Praesenzliste und gebt sie nach den Praesentationen umgehend auf dem Sekretariat ab. Damit gehen
+wir sicher, dass alle Schülerinnen und Schüler erfasst sind, die gefehlt haben. Diese Rückmeldung hilft, schon zu Beginn der
+Maturaarbeit die noetige Verbindlichkeit gegenüber dem neuen Jahrgang einzufordern. Besten Dank für die Unterstützung!
+Herzliche Grüsse
+Cristina Maranta, Prorektorin
