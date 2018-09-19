@@ -51,11 +51,11 @@
       </tr>
     </tbody>
   </table>
-  Wenn Sie dieses Formular abschicken können Sie Ihre Wahl nicht mehr ändern!
+  Bitte beachten Sie, das Sie genug Zeit haben, um von einer Presentation zur nächsten zu kommen.<br />
   <br />
   <%= link_to "Zurück", studenten_clean_path, class: "btn btn-primary" %>
   <br />
   <br />
   <%= form_for :lastchance, url: studenten_profil_send_path do %>
-    <%= submit_tag "Absenden", value: "Absenden", class: "btn btn-danger", data: { confirm: "Letzte Chance!" } %>
+    <%= submit_tag "Absenden", value: "Absenden", class: "btn btn-danger", data: { confirm: "Wenn Sie Ihre Anmeldung verschicken können Sie diese im Nachhinein nicht mehr bearbeiten.""" } %>
   <% end %>

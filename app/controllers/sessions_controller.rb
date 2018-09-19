@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = "Sie haben sich schon Registriert"
       render 'newstud'
     else
-      flash.now[:danger] = "NUmmer oder Passwort falsch"
+      flash.now[:danger] = "Nummer oder Passwort falsch"
       render 'newstud'
     end
   end
