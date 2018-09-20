@@ -1,37 +1,30 @@
 <% provide(:title, "Admin Bereich") %>
 <div class="center jumbotron">
   <h3>Willkommen zum Admin Zentrum</h3>
-  <br />
-  <h4>Listen Verwalten</h4>
-  <div>
-  <% unless Presentation.first == nil %>
+  <div align="left">
+    <h4>Listen Verwalten</h4>
+    <div>
     <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
-  <% else %>
-  <% end %>
-  <% unless Schueler.first == nil %>
     <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
-  <% else %>
-  <% end %>
-  <% unless Teacher.first == nil %>
     <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
-  <% else %>
-  <% end %>
-  <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
-  </div>
-  <h4>Mails schicken</h4>
-  <% unless Schueler.first == nil && Presentation.first == nil && Teacher.first == nil %>
-    <div>
-      <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-primary", data: { toggle: "modal" } %>
-      <%= link_to "Mahnungen versenden", admin_send_remind_path, class: "btn btn-primary" %>
-      <%= link_to "Anmeldungsliste versenden", admin_send_list_path, class: "btn btn-primary" %>
+    <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
     </div>
-  <% else %>
+    <h4>Mails schicken</h4>
+    <% unless Schueler.first == nil && Presentation.first == nil && Teacher.first == nil %>
+      <div>
+        <%= link_to "Login daten versenden", admin_send_login_path, class: "btn btn-primary", data: { toggle: "modal" } %>
+        <%= link_to "Mahnungen versenden", admin_send_remind_path, class: "btn btn-primary" %>
+        <%= link_to "Anmeldungsliste versenden", admin_send_list_path, class: "btn btn-primary" %>
+      </div>
+    <% else %>
+      <div>
+        Um Mails zu versenden müssen zuerst mindestens ein Eintrag in jeder Datenbank vorhanden sein
+      </div>
+    <% end %>
+    <h4>System verwalten</h4>
     <div>
-      Um Mails zu versenden müssen zuerst mindestens ein Eintrag in jeder Datenbank vorhanden sein
+      <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-danger" %>
+      <%= link_to "Abmelden", admin_login_path, method: :delete, class: "btn btn-primary" %>
     </div>
-  <% end %>
-  <h4>System verwalten</h4>
-  <div>
-    <%= link_to "Datenbank zurücksetzen", admin_reset_path, class: "btn btn-danger" %>
   </div>
 </div>

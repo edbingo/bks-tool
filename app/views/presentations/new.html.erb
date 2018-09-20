@@ -1,0 +1,27 @@
+<% provide(:title, "Admin Registration") %>
+<h3>Neue Präsentation</h3>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@presentation, url: admin_new_presentation_path) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :Name, class: 'form-control' %>
+      <%= f.label :klasse %>
+      <%= f.text_field :Klasse, class: 'form-control' %>
+      <%= f.label :titel %>
+      <%= f.text_field :Titel, class: 'form-control' %>
+      <%= f.label :fach %>
+      <%= f.text_field :Fach, class: 'form-control' %>
+      <%= f.label :betreuer %>
+      <%= f.text_field :Betreuer, class: 'form-control' %>
+      <%= f.label :zimmer %>
+      <%= f.text_field :Zimmer, class: 'form-control' %>
+      <%= f.label :von %>
+      <%= f.text_field :Von, class: 'form-control' %>
+      <%= f.label :bis %>
+      <%= f.text_field :Bis, class: 'form-control' %>
+      <%= f.label :datum %>
+      <%= f.text_field :Datum, class: 'form-control' %>
+      <%= f.submit "Präsentation hinzufügen", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
