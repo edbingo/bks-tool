@@ -2,6 +2,14 @@ class PresentationsController < ApplicationController
   before_action :logged_in_stud
   helper_method :sort_col, :sort_dir
 
+  def pres
+    send_file(
+      "#{Rails.root}/public/PresList.csv",
+      filename: "Präsentationsliste.csv",
+      type: "text/csv"
+    )
+  end
+
   def new
     @presentation = Presentation.new
   end
@@ -61,7 +69,7 @@ class PresentationsController < ApplicationController
     pres.each do |num|
       num.update_attribute(:Frei, $number)
     end
-    redirect_to admin_path
+    redirect_to admin_add_students_path
     flash[:success] = "Datenbank aktualisiert"
   end
 

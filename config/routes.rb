@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   get 'schuelers/new'
   get 'users/new'
   root   'static_pages#home'
+  get '/presentation/pres', to: 'presentations#pres'
 
 # Admin related sites
   get '/admin', to: 'admins#hub'
+# Setup process
+  get '/admin/setup', to: 'admins#setup'
 # Upload process for presentations
   get '/admin/add/presentations', to: 'presentations#add'
   post '/admin/add/presentations/free', to: 'presentations#addfree'

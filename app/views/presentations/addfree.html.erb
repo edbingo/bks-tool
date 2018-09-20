@@ -1,5 +1,6 @@
 <% provide(:title, "Freie Plätze") %>
-<h4>Wie viele Freie Plätze soll es geben?</h4>
+<h4>Hier können Sie eingeben, wie viele Freie Plätze es pro Präsentation geben
+sollte.</h4>
 <%= form_tag admin_add_presentations_free_path do %>
   <%= number_field_tag 'free', 5, class: 'form-control', min:1, max:15, step:1 %>
   <%= submit_tag "Wählen", class: "btn btn-primary btn-lg", data: { disable_with: "Speichert..." } %>

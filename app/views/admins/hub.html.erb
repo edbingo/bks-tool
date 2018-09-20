@@ -2,24 +2,6 @@
 <div class="center jumbotron">
   <h3>Willkommen zum Admin Zentrum</h3>
   <br />
-  <h4>Dateien Hochladen</h4>
-  <div>
-    <% if Presentation.first == nil %>
-      <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Presentationsliste hochladen", admin_add_presentations_path, class: "btn btn-secondary" %>
-    <% end %>
-    <% if Schueler.first == nil %>
-      <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Schülerliste hochladen", admin_add_students_path, class: "btn btn-secondary" %>
-    <% end %>
-    <% if Teacher.first == nil %>
-      <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Lehrerliste hochladen", admin_add_teachers_path, class: "btn btn-secondary" %>
-    <% end %>
-  </div>
   <h4>Listen Verwalten</h4>
   <div>
   <% unless Presentation.first == nil %>
@@ -35,12 +17,6 @@
   <% else %>
   <% end %>
   <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
-  </div>
-  <h4>Einzeln hinzufügen</h4>
-  <div>
-    <%= link_to "Neuen Admin hinzufügen", admin_new_admin_path, class: "btn btn-primary" %>
-    <%= link_to "Neuen Schüler hinzufügen", admin_add_student_path, class: "btn btn-primary" %>
-    <%= link_to "Neuen Lehrer hinzufügen", admin_add_teacher_path, class: "btn btn-primary" %>
   </div>
   <h4>Mails schicken</h4>
   <% unless Schueler.first == nil && Presentation.first == nil && Teacher.first == nil %>

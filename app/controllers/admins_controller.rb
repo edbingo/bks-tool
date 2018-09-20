@@ -3,6 +3,12 @@ class AdminsController < ApplicationController
   helper_method :sort_col, :sort_dir
 
   def hub # Empty function
+    if Presentation.first == nil && Teacher.first == nil && Schueler.first == nil
+      redirect_to admin_setup_path
+    end
+  end
+
+  def step1
   end
 
   def force
