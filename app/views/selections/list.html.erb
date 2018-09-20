@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     <% @presentations.each do |pres| %>
-      <% unless pres.Frei == 0 %>
+      <% if pres.Frei != 0 %>
         <% if @current_student.Selected == pres.id.to_s || @current_student.Selected1 == pres.id.to_s || @current_student.Selected2 == pres.id.to_s %>
           <tr class="table-primary">
         <% else %>

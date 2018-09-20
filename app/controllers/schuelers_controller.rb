@@ -35,11 +35,6 @@ class SchuelersController < ApplicationController
     StudentMailer.final_mail(schueler).deliver_now
     schueler.update_attribute(:Registered, true)
     studsend()
-    if @current_admin != nil
-      redirect_to admin_path
-    else
-      redirect_to root_path
-    end
   end
 
   def create # Creates new student based on entered parameters

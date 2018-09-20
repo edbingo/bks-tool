@@ -21,7 +21,6 @@ module SessionsHelper
   def studsend
     flash[:success] = "Anmeldung verschickt!"
     stud_out
-    return
   end
   # Method to find out if current session is an Admin session, and which admins is logged in
   def current_admin

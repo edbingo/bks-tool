@@ -12,6 +12,7 @@ class CreateSchuelers < ActiveRecord::Migration[5.2]
       t.string :Selected1
       t.string :Selected2
       t.boolean :Received
+      t.boolean :loginpermit
       t.timestamps
     end
   end

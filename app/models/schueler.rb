@@ -5,7 +5,7 @@ class Schueler < ApplicationRecord
     table = CSV.read(file.path, { headers: true, col_sep: ";" })
 
     table.each do |row| # Generates password for each user and marks selection as nil
-      pass = 1.times.map{ 9999 + Random.rand(100000) }
+      pass = 1.times.map{ 9999 + Random.rand(99999) }
       row["password"] = pass.join
       row["password_confirmation"] = pass.join
       row["Code"] = pass.join
@@ -14,6 +14,7 @@ class Schueler < ApplicationRecord
       row["Selected1"] = nil
       row["Selected2"] = nil
       row["Received"] = false
+      row["loginpermit"] = true
     end
 
     CSV.open(file.path, "w") do |f|
