@@ -1,3 +1,12 @@
-Student#final_mail
+Hallo <%= @student.Vorname %>
+<% @presi = Presentation.find_by(id: @student.Selected.to_s) %>
+<% @presi1 = Presentation.find_by(id: @student.Selected1.to_s) %>
+<% @presi2 = Presentation.find_by(id: @student.Selected2.to_s) %>
+Sie haben folgende Präsentationen ausgewählt:
+Name, Klasse, Titel, Fach, Betreuer, Zimmer, Von, Bis
 
-<%= @greeting %>, find me in app/views/student_mailer/final_mail.text.erb
+<%= @presi.Name %>, <%= @presi.Klasse %>, <%= @presi.Titel %>, <%= @presi.Fach %>, <% betr = Teacher.find_by(Number: @presi.Betreuer) %><%= "#{betr.Vorname} #{betr.Name}" %>, <%= @presi.Zimmer %>, <%= @presi.Von %>, <%= @presi.Bis %>,
+<%= @presi1.Name %>, <%= @presi1.Klasse %>, <%= @presi1.Titel %>, <%= @presi1.Fach %>, <% betr = Teacher.find_by(Number: @presi1.Betreuer) %><%= "#{betr.Vorname} #{betr.Name}" %>, <%= @presi1.Zimmer %>, <%= @presi1.Von %>, <%= @presi1.Bis %>,
+<%= @presi2.Name %>, <%= @presi2.Klasse %>, <%= @presi2.Titel %>, <%= @presi2.Fach %>, <% betr = Teacher.find_by(Number: @presi2.Betreuer) %><%= "#{betr.Vorname} #{betr.Name}" %>, <%= @presi2.Zimmer %>, <%= @presi2.Von %>, <%= @presi2.Bis %>
+
+I am a bot, please do not reply
