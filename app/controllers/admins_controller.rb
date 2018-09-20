@@ -16,7 +16,7 @@ class AdminsController < ApplicationController
   def create # Add admin user to database
     @admin = Admin.new(admin_params) # Accepts user given parameters from page
     if @admin.save # If user presses submit
-      flash[:success] = "Admin wurde registriert"
+      flash[:success] = "Admin #{@admin.number} wurde registriert"
       redirect_to admin_path
     else # If user cancels
       render 'new'

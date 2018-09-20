@@ -1,5 +1,10 @@
 <% provide(:title, "Adminliste") %>
-<h3>Liste der Administratoren</h3>
+<div align="left">
+  <h3>Liste der Administratoren</h3>
+</div>
+<div align="right">
+  <%= link_to "+ Hinzufügen", admin_new_admin_path, class: "btn btn-primary" %>
+</div>
 <table class="table table-hover">
   <thead class="thead">
     <tr>

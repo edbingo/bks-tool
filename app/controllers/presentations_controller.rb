@@ -2,6 +2,21 @@ class PresentationsController < ApplicationController
   before_action :logged_in_stud
   helper_method :sort_col, :sort_dir
 
+  def new
+    @presentation = Presentation.new
+  end
+
+  def create
+    @presentation = Presentation.new(pres_params)
+    if @presentation.save
+      @presentation.update_attribute(:Frei, $number.to_f)
+      flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+      redirect_to admin_show_presentations_path
+    else
+      render 'new'
+    end
+  end
+
   def logged_in_stud
     unless logged_ad?
       flash[:danger] = "Diese Seite ist nur für Admins verfügbar"
@@ -58,6 +73,10 @@ class PresentationsController < ApplicationController
   end
 
   private
+
+  def pres_params
+    params.require(:presentation).permit(:Name,:Klasse,:Titel,:Fach,:Betreuer,:Zimmer,:Von,:Bis,:Datum)
+  end
 
   def sortable_cols
     ["Name", "Klasse", "Titel", "Fach", "Betreuer", "Zimmer", "Von", "Frei"]

@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
 # Admin related sites
   get '/admin', to: 'admins#hub'
-# Dedicated upload page
-  get '/admin/add', to: 'admins#upload'
 # Upload process for presentations
   get '/admin/add/presentations', to: 'presentations#add'
   post '/admin/add/presentations/free', to: 'presentations#addfree'
@@ -29,6 +27,9 @@ Rails.application.routes.draw do
 # Single admin signup page
   get '/admin/new/admin', to: 'admins#new'
   post '/admin/new/admin', to: 'admins#create'
+# Single presentation add page
+  get '/admin/new/presentation', to: 'presentations#new'
+  post '/admin/new/presentation', to: 'presentations#create'
 # Management tools for presentations
   get '/admin/show/presentations', to: 'presentations#list'
   post '/admin/show/presentations/edit', to: 'presentations#edit'
