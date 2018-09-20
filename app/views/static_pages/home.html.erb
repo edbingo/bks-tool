@@ -1,14 +1,23 @@
 <div class="center jumbotron">
-  <h1>Willkommen zum neuen BKS Anmeldetool!</h1>
-  <h2>
-    Finden Sie die Portalseite unter <a href="https://portal.bks-campus.ch">
-      portal.bks-campus.ch</a>.
-  </h2>
-  <% if logged_stud? %>
-    <%= link_to "Jetzt Registrieren", studenten_waehlen_path, class: "btn btn-lg btn-primary" %>
-  <% elsif logged_ad? %>
-    <%= link_to "Jetzt Verwalten", admin_path, class: "btn btn-lg btn-primary" %>
+  <% if Presentation.first == nil && Schueler.first == nil && Teacher.first == nil %>
+    <h1>Willkommen</h1>
+    <p>Dieser Tool wurde noch nicht eingerichtet. Bitte melden Sie sich als
+      Administrator an.
+    </p>
+    <%= link_to "Jetzt Anmelden", admin_login_path, class: "btn btn-lg btn-primary" %>
   <% else %>
-    <%= link_to "Jetzt Anmelden", studenten_anmelden_path, class: "btn btn-lg btn-primary" %>
+
+    <h1>Willkommen zum neuen BKS Anmeldetool!</h1>
+    <h2>
+      Finden Sie die Portalseite unter <a href="https://portal.bks-campus.ch">
+        portal.bks-campus.ch</a>.
+    </h2>
+    <% if logged_stud? %>
+      <%= link_to "Jetzt Registrieren", studenten_waehlen_path, class: "btn btn-lg btn-primary" %>
+    <% elsif logged_ad? %>
+      <%= link_to "Jetzt Verwalten", admin_path, class: "btn btn-lg btn-primary" %>
+    <% else %>
+      <%= link_to "Jetzt Anmelden", studenten_anmelden_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
   <% end %>
 </div>

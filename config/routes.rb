@@ -74,6 +74,8 @@ Rails.application.routes.draw do
   post '/admin/login', to: 'sessions#create'
   delete '/admin/login', to: 'sessions#destroy'
 
+  post '/studenten/force', to: 'sessions#force'
+
 # Student session creation
   get '/studenten/anmelden', to: 'sessions#newstud'
   post '/studenten/anmelden', to: 'sessions#studcreate'

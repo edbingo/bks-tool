@@ -8,10 +8,6 @@ class AdminsController < ApplicationController
     end
   end
 
-  def force
-    log_out
-  end
-
   def new # Used in render 'new'
     @admin = Admin.new
   end

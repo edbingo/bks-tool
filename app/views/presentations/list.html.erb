@@ -1,8 +1,13 @@
 <% provide(:title, "Präsentationsliste") %>
 <h3>Präsentationsliste</h3>
+<div align="center">
+  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
+  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
+  <%= link_to "Adminliste anzeigen", admin_show_admins_path, class: "btn btn-primary" %>
+</div>
 <div align="right">
-  <%= link_to "+ Hinzufügen", admin_new_presentation_path, class: "btn btn-primary" %>
   <%= link_to "+ CSV Hinzufügen", admin_add_presentations_path, class: "btn btn-primary" %>
+  <%= link_to "+ Hinzufügen", admin_new_presentation_path, class: "btn btn-primary" %>
 </div>
 <table class="table table-hover">
   <thead class="thead-dark">

@@ -26,7 +26,6 @@ class SchuelersController < ApplicationController
 
   def sendfile # Removes ability to log in and sends email with selected presentations
     schueler = Schueler.find_by(id: session[:student_id])
-    schueler.update_attribute(:Registered, true)
     pres0 = Presentation.find_by(id: schueler.Selected.to_s)
     pres1 = Presentation.find_by(id: schueler.Selected1.to_s)
     pres2 = Presentation.find_by(id: schueler.Selected2.to_s)
@@ -34,7 +33,13 @@ class SchuelersController < ApplicationController
     pres1.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     pres2.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
     StudentMailer.final_mail(schueler).deliver_now
+    schueler.update_attribute(:Registered, true)
     studsend()
+    if @current_admin != nil
+      redirect_to admin_path
+    else
+      redirect_to root_path
+    end
   end
 
   def create # Creates new student based on entered parameters

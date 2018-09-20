@@ -2,6 +2,11 @@
 <div align="left">
   <h3>Liste der Administratoren</h3>
 </div>
+<div align="center">
+  <%= link_to "Presentationsliste anzeigen", admin_show_presentations_path, class: "btn btn-primary" %>
+  <%= link_to "Schülerliste anzeigen",  admin_show_students_path, class: "btn btn-primary" %>
+  <%= link_to "Lehrerliste anzeigen", admin_show_teachers_path, class: "btn btn-primary" %>
+</div>
 <div align="right">
   <%= link_to "+ Hinzufügen", admin_new_admin_path, class: "btn btn-primary" %>
 </div>
