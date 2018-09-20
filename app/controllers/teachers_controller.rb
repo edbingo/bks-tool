@@ -55,7 +55,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
       flash[:success] = "Lehrer wurde registriert"
-      redirect_to admin_path
+      redirect_to admin_show_teachers_path
     else
       render 'new'
     end
@@ -79,7 +79,7 @@ class TeachersController < ApplicationController
   private
 
   def teacher_params
-    params.require(:teacher).permit(:Name,:Mail,:term,:id,:number)
+    params.require(:teacher).permit(:Name,:Mail,:Number,:Vorname)
   end
 
   def sortable_cols

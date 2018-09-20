@@ -1,8 +1,8 @@
 <% provide(:title, "CSV Hochladen") %>
 <div class="center jumbotron">
-  <h4>Import Student Data</h4>
+  <h4>Laden Sie hier die Schülerliste hoch.</h4>
     <%= form_tag import_schuelers_path, multipart: true do %>
-      <%= file_field_tag :file %>
+      <%= file_field_tag :file, class: "form-control" %>
       <%= submit_tag "Import CSV", data: { disable_with: "Wird hochgeladen..." }, class: "btn btn-primary" %>
     <% end  %>
 </div>

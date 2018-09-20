@@ -1,0 +1,21 @@
+Sehr Geehrte / r <%= @teacher.Name %>.
+Ihre Präsentationen:
+<% preslist = Presentation.where(Betreuer: @teacher.Name) %>
+Name
+Klasse
+Titel
+Zimmer
+Von
+Bis
+Freie Plätze
+Besucher
+<% preslist.each do |pres| %>
+  <%= pres.Name %>
+  <%= pres.Klasse %>
+  <%= pres.Titel %>
+  <%= pres.Zimmer %>
+  <%= pres.Von %>
+  <%= pres.Bis %>
+  <%= pres.Frei %>
+  <%= pres.Besucher %>
+<% end %>

@@ -1,8 +1,14 @@
 <% provide(:title, "CSV Hochladen") %>
 <div class="center jumbotron">
-  <h4>Import Presentation Data</h4>
+  <h4>
+    Bitte beachten Sie, dass keine Einträge doppelt vorhanden sind. Diese Seite
+    akzeptiert nur .csv Dateien. Eine Musterdatei können sie <%= link_to "hier",
+    presentation_pres_path %> herunterladen. Die Datei muss ";" als Seperator
+    nutzen
+  </h4>
+  <p>Präsentationsdaten hochladen</p>
     <%= form_tag import_presentations_path, multipart: true do %>
-      <%= file_field_tag :file %>
+      <%= file_field_tag :file, class: 'form-control' %>
       <%= submit_tag "Import CSV", class: "btn btn-primary", data: { disable_with: "Wird hochgeladen..." } %>
     <% end  %>
 </div>

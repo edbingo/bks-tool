@@ -1,5 +1,9 @@
-<% provide(:title, "Presentationsliste") %>
-
+<% provide(:title, "Präsentationsliste") %>
+<h3>Präsentationsliste</h3>
+<div align="right">
+  <%= link_to "+ Hinzufügen", admin_new_presentation_path, class: "btn btn-primary" %>
+  <%= link_to "+ CSV Hinzufügen", admin_add_presentations_path, class: "btn btn-primary" %>
+</div>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr> <!-- This table lists all relevant entries from the presentation db -->

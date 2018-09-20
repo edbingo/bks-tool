@@ -3,6 +3,9 @@ class AdminsController < ApplicationController
   helper_method :sort_col, :sort_dir
 
   def hub # Empty function
+    if Presentation.first == nil && Teacher.first == nil && Schueler.first == nil
+      redirect_to admin_setup_path
+    end
   end
 
   def force
@@ -16,7 +19,7 @@ class AdminsController < ApplicationController
   def create # Add admin user to database
     @admin = Admin.new(admin_params) # Accepts user given parameters from page
     if @admin.save # If user presses submit
-      flash[:success] = "Admin wurde registriert"
+      flash[:success] = "Admin #{@admin.number} wurde registriert"
       redirect_to admin_path
     else # If user cancels
       render 'new'
@@ -81,7 +84,7 @@ class AdminsController < ApplicationController
     stud = Schueler.all # Selects all students
     stud.each do |pupil| # Sends an email to each
       StudentMailer.password_mail(pupil).deliver_now
-      stud.Received = true
+      pupil["Received"] = true
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path

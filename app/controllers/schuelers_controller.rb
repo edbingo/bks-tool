@@ -51,8 +51,8 @@ class SchuelersController < ApplicationController
 
   def import # Tells rails how to import CSV
     Schueler.import(params[:file])
-    redirect_to admin_url
-    flash[:success] = "Students added successfully"
+    redirect_to admin_add_teachers_path
+    flash[:success] = "Studenten wurden erfolgreich hinzugefügt"
   end
 
   def list # Following functions sorts students

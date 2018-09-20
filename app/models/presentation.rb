@@ -2,13 +2,13 @@ class Presentation < ApplicationRecord
   include Resetable
   require "csv"
   def self.import(file) # Import function
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
       Presentation.create! row.to_hash
     end
     presentations = Presentation.all
     presentations.each do |row| # Sets occupied seats to 0, visitors to nil
-        row.update_attribute(:Besetzt, 0)
-        row.update_attribute(:Besucher, nil)
+        row["Besetzt"] = 0
+        row["Besucher"] = nil
     end
   end
   validates :Name, presence: true, uniqueness: { case_sensitive: false }
