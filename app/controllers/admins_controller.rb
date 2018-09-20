@@ -81,7 +81,7 @@ class AdminsController < ApplicationController
     stud = Schueler.all # Selects all students
     stud.each do |pupil| # Sends an email to each
       StudentMailer.password_mail(pupil).deliver_now
-      stud.Received = true
+      stud["Received"] = true
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path
