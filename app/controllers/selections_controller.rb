@@ -28,17 +28,32 @@ class SelectionsController < ApplicationController
       id = params[:id].to_s
       @schueler.update_attribute(:Selected, id)
       pres = Presentation.find_by(id: id)
-      pres.update_attribute(:Frei, pres.Frei - 1)
+      if pres.Frei == 0
+        redirect_to studenten_waehlen_path
+        flash[:danger] = "Keine freie Plätze mehr"
+      else
+        pres.update_attribute(:Frei, pres.Frei - 1)
+      end
     elsif @schueler.Selected != nil && @schueler.Selected1 == nil
       id = params['id'].to_s
       @schueler.update_attribute(:Selected1, id)
       pres = Presentation.find_by(id: id)
-      pres.update_attribute(:Frei, pres.Frei - 1)
+      if pres.Frei == 0
+        redirect_to studenten_waehlen_path
+        flash[:danger] = "Keine freie Plätze mehr"
+      else
+        pres.update_attribute(:Frei, pres.Frei - 1)
+      end
     elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
       id = params['id'].to_s
       @schueler.update_attribute(:Selected2, id)
       pres = Presentation.find_by(id: id)
-      pres.update_attribute(:Frei, pres.Frei - 1)
+      if pres.Frei == 0
+        redirect_to studenten_waehlen_path
+        flash[:danger] = "Keine freie Plätze mehr"
+      else
+        pres.update_attribute(:Frei, pres.Frei - 1)
+      end
     end
     if @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 != nil
       redirect_to studenten_clean_path

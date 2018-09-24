@@ -1,0 +1,20 @@
+<% provide(:title, "Servereinstellungen") %>
+<%= link_to "Anmeldungen deaktivieren", '#', class: "btn btn-primary" %>
+
+<h4>Maximale Anmeldungen pro Präsentation</h4>
+<%= form_tag admin_opt_free_path do %>
+  <%= number_field_tag 'free', $number, class: "form-control", min:1,max:15,step:1 %>
+  <%= submit_tag "Speichern", class: "btn btn-secondary", data: {disable_with: "Saving"} %>
+<% end %>
+<br/>
+<h4>Erforderliche Anmeldungen pro Schüler</h4>
+<%= form_tag admin_opt_reqs_path do %>
+  <%= number_field_tag 'reqs', $reqs, class: "form-control", min:1,max:10,step:1 %>
+  <%= submit_tag "Speichern", class: "btn btn-secondary", data: {disable_with: "Saving"} %>
+<% end %>
+<br/>
+<h4>Minimaler Abstand zwischen zwei besuchten Präsentationen</h4>
+<%= form_tag admin_opt_time_path do %>
+  <%= number_field_tag 'mins', $mins, class: "form-control", min:10,max:30,step:1 %>
+  <%= submit_tag "Speichern", class: "btn btn-secondary", data: {disable_with: "Saving"} %>
+<% end %>

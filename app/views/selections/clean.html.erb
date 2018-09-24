@@ -37,7 +37,8 @@
           <td scope="row"><%= pres.Fach %></td>
           <td scope="row"><%= pres.Betreuer %></td>
           <td scope="row"><%= pres.Zimmer %></td>
-          <td scope="row"><%= pres.Von %></td>
+          <% sec = pres.Von %>
+          <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
           <td scope="row"><%= pres.Bis %></td>
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">

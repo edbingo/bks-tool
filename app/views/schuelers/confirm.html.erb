@@ -21,7 +21,8 @@
         <% betr = Teacher.find_by(Number: @pres0.Betreuer) %>
         <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres0.Zimmer %></td>
-        <td scope="row"><%= @pres0.Von %></td>
+        <% sec = @pres0.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= @pres0.Bis %></td>
         <td scope="row"><%= @pres0.Frei %></td>
       </tr>
@@ -33,7 +34,8 @@
         <% betr = Teacher.find_by(Number: @pres1.Betreuer) %>
         <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres1.Zimmer %></td>
-        <td scope="row"><%= @pres1.Von %></td>
+        <% sec = @pres1.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= @pres1.Bis %></td>
         <td scope="row"><%= @pres1.Frei %></td>
       </tr>
@@ -45,7 +47,8 @@
         <% betr = Teacher.find_by(Number: @pres2.Betreuer) %>
         <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
         <td scope="row"><%= @pres2.Zimmer %></td>
-        <td scope="row"><%= @pres2.Von %></td>
+        <% sec = @pres2.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= @pres2.Bis %></td>
         <td scope="row"><%= @pres2.Frei %></td>
       </tr>

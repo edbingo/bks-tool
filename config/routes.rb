@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 
 # Admin related sites
   get '/admin', to: 'admins#hub'
+  get '/admin/opt', to: 'admins#manage'
+
+  post '/admin/opt/free', to: 'admins#addfree'
+  post '/admin/opt/reqs', to: 'admins#addreq'
+  post '/admin/opt/time', to: 'admins#addtime'
 # Setup process
   get '/admin/setup', to: 'admins#setup'
 # Upload process for presentations
@@ -19,6 +24,7 @@ Rails.application.routes.draw do
   post '/admin/add/presentations/free', to: 'presentations#addfree'
 # Upload process for students
   get '/admin/add/students', to: 'schuelers#add'
+  post '/admin/add/students/req', to: 'schuelers#addreq'
 # Single student signup page
   get '/admin/add/student', to: 'schuelers#new'
   post '/admin/add/student', to: 'schuelers#create'

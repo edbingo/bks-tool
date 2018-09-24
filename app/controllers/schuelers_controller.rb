@@ -51,8 +51,18 @@ class SchuelersController < ApplicationController
 
   def import # Tells rails how to import CSV
     Schueler.import(params[:file])
+    flash.now[:success] = "Studenten wurden erfolgreich hinzugefügt"
+    render 'addreq'
+  end
+
+  def addreq
+    $reqs = params[:reqs]
+    stud = Schueler.all
+    stud.each do |num|
+      num.update_attribute(:req, $reqs)
+    end
     redirect_to admin_add_teachers_path
-    flash[:success] = "Studenten wurden erfolgreich hinzugefügt"
+    flash[:success] = "Datenbank aktualisiert"
   end
 
   def list # Following functions sorts students

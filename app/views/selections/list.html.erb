@@ -1,4 +1,5 @@
 <% provide(:title, "Presentationsauswahl") %>
+
 <% if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil %>
   <%= link_to "Auswahl abschliessen", studenten_profil_send_path, class: "btn btn-primary" %>
 <% else %>
@@ -36,7 +37,8 @@
           <% betr = Teacher.find_by(Number: pres.Betreuer) %>
           <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
           <td scope="row"><%= pres.Zimmer %></td>
-          <td scope="row"><%= pres.Von %></td>
+          <% sec = pres.Von %>
+          <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
           <td scope="row"><%= pres.Bis %></td>
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">

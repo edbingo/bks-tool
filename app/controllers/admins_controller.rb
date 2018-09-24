@@ -114,6 +114,15 @@ class AdminsController < ApplicationController
     redirect_to admin_path
   end
 
+  def addfree
+  end
+
+  def addreq
+  end
+
+  def addtime
+  end
+
   # Find all email templates and commands in the mailers folder
 
   private

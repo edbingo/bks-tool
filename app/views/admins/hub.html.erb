@@ -1,14 +1,18 @@
-<% provide(:title, "Admin Bereich") %>
+<% provide(:title, "Adminbereich") %>
 <div class="center jumbotron">
   <h3>Admin Zentrum</h3>
   <br/>
   <div>
     <div>
-    <%= link_to "Datenbank Verwalten", admin_show_presentations_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Datenbank Verwalten", admin_show_presentations_path, class: "btn btn-primary btn-lg" %>
     </div>
     <br />
     <div>
       <%= link_to "Mails versenden", admin_send_path, class: "btn btn-primary btn-lg" %>
+    </div>
+    <br />
+    <div>
+      <%= link_to "Servereinstellungen", '#', class: "btn btn-primary" %>
     </div>
     <br />
     <h4>System verwalten</h4>
