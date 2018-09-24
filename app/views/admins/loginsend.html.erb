@@ -1,0 +1,42 @@
+<h3>Logindaten versenden</h3>
+<%= form_tag admin_send_login_path do %>
+<div align="right">
+  <%= submit_tag "Versenden", class: "btn btn-primary" %>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"><%= sort_link "Vorname" %></th>
+      <th scope="col"><%= sort_link "Name" %></th>
+      <th scope="col"><%= sort_link "Klasse" %></th>
+      <th scope="col"><%= sort_link "Mail" %></th>
+      <th scope="col"><%= sort_link "Number" %></th>
+      <th scope="col"><%= sort_link "Password" %></th>
+      <th scope="col"><%= sort_link "Registered" %></th>
+      <th>Erhalten?</th>
+      <th scope="col">Auswahl</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @student.each do |stud| %>
+        <tr>
+          <td scope="row"><%= stud.Vorname %></td>
+          <td scope="row"><%= stud.Name %></td>
+          <td scope="row"><%= stud.Klasse %></td>
+          <td scope="row"><%= stud.Mail %></td>
+          <td scope="row"><%= stud.Number %></td>
+          <td scope="row"><%= stud.Code %></td>
+          <td><%= stud.Registered %></td>
+          <td><%= stud.Received %></td>
+          <td>
+            <% if stud.Received == true %>
+              <%= check_box_tag :send, false %>
+            <% else %>
+              <%= check_box_tag :send, true %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -5,7 +5,15 @@ class AdminsController < ApplicationController
   def hub # Empty function
     if Presentation.first == nil && Teacher.first == nil && Schueler.first == nil
       redirect_to admin_setup_path
+    elsif Presentation.first != nil && Teacher.first == nil && Schueler.first == nil
+      redirect_to admin_add_students_path
+    elsif Presentation.first != nil && Teacher.first == nil && Schueler.first != nil
+      redirect_to admin_add_teachers_path
     end
+  end
+
+  def loginsend
+    @student = Schueler.all
   end
 
   def new # Used in render 'new'
@@ -77,10 +85,9 @@ class AdminsController < ApplicationController
   end
 
   def logindetailssend # Sends all student class users an email with their login details
-    stud = Schueler.all # Selects all students
-    stud.each do |pupil| # Sends an email to each
-      StudentMailer.password_mail(pupil).deliver_now
-      pupil["Received"] = true
+    Schueler.all.each do |stud|
+      StudentMailer.password_mail(stud).deliver_now
+      stud["Received"] = true
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path

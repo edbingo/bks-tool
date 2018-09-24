@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   get '/admin/confirm', to: 'admins#warning'
   get '/admin/clear', to: 'admins#clear'
 # Mailer services
+  get '/admin/send', to: 'admins#mailer'
   get '/admin/send/login', to: 'admins#logindetailssend'
   get '/admin/send/list', to: 'admins#finallistsend'
   get '/admin/send/remind', to: 'admins#remindersend'
