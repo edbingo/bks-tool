@@ -17,11 +17,6 @@ module SessionsHelper
     session.delete(:student_id)
     @current_student = nil
   end
-  # Called when user confirms their selection
-  def studsend
-    flash[:success] = "Anmeldung verschickt!"
-    stud_out
-  end
   # Method to find out if current session is an Admin session, and which admins is logged in
   def current_admin
     if session[:admin_id]

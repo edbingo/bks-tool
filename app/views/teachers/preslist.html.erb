@@ -1,3 +1,7 @@
+<h4><%= @teac.Vorname %> <%= @teac.Name %></h4>
+<div align="right">
+  <%= link_to "Drucken", '#', class: "btn btn-primary" %>
+</div>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr> <!-- This table lists all relevant entries from the presentation db -->
@@ -11,7 +15,6 @@
       <th scope="col">Bis</th>
       <th scope="col"><%= sort_link "Frei" %></th>
       <th scope="col">Besucher</th>
-      <th scope="col">Entfernen</th>
     </tr>
   </thead>
   <tbody>
@@ -28,21 +31,6 @@
         <td scope="row"><%= pres.Bis %></td>
         <td scope="row"><%= pres.Frei %></td>
         <td><%= pres.Besucher %></td>
-        <% if pres.Frei == $number %>
-          <td scope="row">
-            <%= form_tag admin_show_presentations_remove_path do %>
-              <%= hidden_field_tag 'id', pres.id %>
-              <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Diese Presentation wird entfernt. Wenn sich jemand für diese Presentation schon angemolden hat, wird es zu Probleme führen."} %>
-            <% end %>
-          </td>
-        <% else %>
-        <td>
-          <%= form_tag admin_show_presentations_remove_path do %>
-            <%= hidden_field_tag 'id', pres.id %>
-            <%= submit_tag "Entfernen", disabled: true, class: "btn btn-danger" %>
-          <% end %>
-        </td>
-        <% end %>
       </tr>
     <% end %>
   </tbody>

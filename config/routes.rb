@@ -47,20 +47,30 @@ Rails.application.routes.draw do
 # Management tools for students
   get '/admin/show/students', to: 'schuelers#list'
   post '/admin/show/students/edit', to: 'schuelers#edit'
+  get '/admin/show/students/edit', to: 'schuelers#list'
   post '/admin/show/students/update', to: 'schuelers#update'
+  get '/admin/show/students/update', to: 'schuelers#list'
   post '/admin/show/students/remove', to: 'schuelers#deleter'
+  get '/admin/show/students/remove', to: 'schuelers#list'
 
   post '/admin/force', to: 'admins#force'
 # Management tools for admins
   get '/admin/show/admins', to: 'admins#list'
+  get '/admin/show/admins/edit', to: 'admins#list'
   post '/admin/show/admins/edit', to: 'admins#edit'
+  get '/admin/show/admins/update', to: 'admins#list'
   post '/admin/show/admins/update', to: 'admins#update'
+  get '/admin/show/admins/remove', to: 'admins#list'
   post '/admin/show/admins/remove', to: 'admins#deleter'
 # Management tools for teachers
   get '/admin/show/teachers', to: 'teachers#list'
+  get '/admin/show/teachers/edit', to: 'teachers#list'
   post '/admin/show/teachers/edit', to: 'teachers#edit'
+  get '/admin/show/teachers/update', to: 'teachers#list'
   post '/admin/show/teachers/update', to: 'teachers#update'
+  get '/admin/show/teachers/remove', to: 'teachers#list'
   post '/admin/show/teachers/remove', to: 'teachers#deleter'
+  get '/admin/show/teachers/pres', to: 'teachers#pres'
   post '/admin/show/teachers/pres', to: 'teachers#pres'
 # System Management pages
   get '/admin/reset', to: 'admins#reset'

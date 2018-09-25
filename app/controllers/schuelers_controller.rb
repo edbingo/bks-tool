@@ -29,12 +29,14 @@ class SchuelersController < ApplicationController
     pres0 = Presentation.find_by(id: schueler.Selected.to_s)
     pres1 = Presentation.find_by(id: schueler.Selected1.to_s)
     pres2 = Presentation.find_by(id: schueler.Selected2.to_s)
-    pres0.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
-    pres1.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
-    pres2.update_attribute(:Besucher, "#{pres0.Besucher}" + "#{schueler.Vorname} " + "#{schueler.Name},")
+    pres0.update_attribute(:Besucher, "#{pres0.Besucher} #{schueler.Vorname} #{schueler.Name},")
+    pres1.update_attribute(:Besucher, "#{pres1.Besucher} #{schueler.Vorname} #{schueler.Name},")
+    pres2.update_attribute(:Besucher, "#{pres2.Besucher} #{schueler.Vorname} #{schueler.Name},")
     StudentMailer.final_mail(schueler).deliver_now
     schueler.update_attribute(:Registered, true)
-    studsend()
+    flash[:success] = "Anmeldung verschickt"
+    stud_out()
+    redirect_to root_path
   end
 
   def create # Creates new student based on entered parameters

@@ -13,9 +13,13 @@ class TeachersController < ApplicationController
 
   def pres
     id = params[:number]
-    teac = Teacher.find_by(Number: id)
-    @teaclist = Presentation.where(Betreuer: teac.Number)
-    render 'preslist'
+    if id == nil
+      redirect_to admin_show_teachers_path
+    else
+      @teac = Teacher.find_by(Number: id)
+      @teaclist = Presentation.where(Betreuer: @teac.Number)
+      render 'preslist'
+    end
   end
 
   def update
