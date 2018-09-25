@@ -49,7 +49,7 @@ class PresentationsController < ApplicationController
     upres.update_attribute(:Fach, params[:fach])
     upres.update_attribute(:Betreuer, params[:betreuer])
     upres.update_attribute(:Zimmer, params[:zimmer])
-    upres.update_attribute(:Von, params[:von])
+    upres.update_attribute(:Von, Time.parse(params[:von]).seconds_since_midnight)
     upres.update_attribute(:Bis, params[:bis])
     redirect_to admin_show_presentations_path
   end

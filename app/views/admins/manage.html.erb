@@ -5,11 +5,6 @@
   <%= link_to "Anmeldungen aktivieren", admin_opt_on_path, class: "btn btn-primary" %>
 <% end %>
 
-<h4>Maximale Anmeldungen pro Präsentation</h4>
-<%= form_tag admin_opt_free_path do %>
-  <%= number_field_tag 'free', $number, class: "form-control", min:1,max:15,step:1 %>
-  <%= submit_tag "Speichern", class: "btn btn-secondary", data: {disable_with: "Saving"} %>
-<% end %>
 <br/>
 <h4>Erforderliche Anmeldungen pro Schüler</h4>
 <%= form_tag admin_opt_reqs_path do %>

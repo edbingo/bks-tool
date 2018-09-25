@@ -23,7 +23,7 @@
         <td><%= text_field_tag 'title', "#{$newpres.Titel}" %></td>
         <td><%= text_field_tag 'fach', "#{$newpres.Fach}" %></td>
         <td><%= text_field_tag 'betreuer', "#{$newpres.Betreuer}" %></td>
-        <td><%= text_field_tag 'zimmer', "#{$newpres.Zimmer}" %></td>
+        <td><%= text_field_tag 'zimmer', "#{Time.at($newpres.Von.to_i).utc.strftime("%H:%M")}" %></td>
         <td><%= text_field_tag 'von', "#{$newpres.Von}" %></td>
         <td><%= text_field_tag 'bis', "#{$newpres.Bis}" %></td>
         <td><%= submit_tag "Speichern", class: "btn btn-primary" %></td>
