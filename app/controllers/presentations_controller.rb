@@ -69,6 +69,10 @@ class PresentationsController < ApplicationController
     pres.each do |num|
       num.update_attribute(:Frei, $number)
     end
+    $time = (params[:time].to_i + 15) * 60
+    pres.each do |time|
+      time.update_attribute(:time, $time)
+    end
     redirect_to admin_add_students_path
     flash[:success] = "Datenbank aktualisiert"
   end

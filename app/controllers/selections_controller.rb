@@ -13,11 +13,27 @@ class SelectionsController < ApplicationController
     end
   end
 
+  def list2 # Sorting functions for student selection database
+    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
+      redirect_to studenten_clean_path
+    else
+      @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+    end
+  end
+
   def confirm
   end
 
   def clean
     @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+    @pries = Presentation.find_by(id: @current_student.Selected).Von
+    @pries1 = Presentation.find_by(id: @current_student.Selected1).Von
+    @pries2 = Presentation.find_by(id: @current_student.Selected2).Von
+    array = [@pries, @pries1, @pries2]
+    array.sort_by!(&:to_i)
+    @pres0 = array[0]
+    @pres1 = array[1]
+    @pres2 = array[2]
   end
 
   def addtodb

@@ -1,10 +1,10 @@
-<% provide(:title, "Presentationsauswahl") %>
-<% pries = Presentation.find_by(id: @current_student.Selected).Von %>
-<% pries1 = Presentation.find_by(id: @current_student.Selected1).Von %>
-<% pries2 = Presentation.find_by(id: @current_student.Selected2).Von %>
-<% if pries == pries1 || pries == pries2 || pries1 == pries2 %>
+<% provide(:title, "Präsentationsauswahl") %>
+<% if @pries == @pries1 || @pries == @pries2 || @pries1 == @pries2 %>
   <%= link_to "Error", '#', class: "btn btn-secondary" %>
   Sie haben eine Doppelbuchung! Bitte lösen Sie das Problem auf.
+<% elsif @pres0.to_i + Presentation.first.time.to_i > @pres1.to_i || @pres1.to_i + Presentation.first.time.to_i > @pres2.to_i %>
+
+  Nicht genug Zeit zwischen Präsentationen
 <% else %>
   <%= link_to "Auswahl abschliessen", studenten_profil_send_path, class: "btn btn-primary" %>
 <% end %>

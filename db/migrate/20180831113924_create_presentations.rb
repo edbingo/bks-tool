@@ -13,6 +13,7 @@ class CreatePresentations < ActiveRecord::Migration[5.2]
       t.integer :Frei
       t.integer :Besetzt
       t.string :Besucher
+      t.integer :time
 
       t.timestamps
     end
