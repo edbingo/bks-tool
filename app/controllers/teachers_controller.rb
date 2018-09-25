@@ -12,6 +12,7 @@ class TeachersController < ApplicationController
   end
 
   def list
+    teac = Teacher.all
     @teacher = Teacher.order("#{sort_col} #{sort_dir}")
   end
 
@@ -27,7 +28,12 @@ class TeachersController < ApplicationController
     else
       @teac = Teacher.find_by(Number: $tid)
       @teaclist = Presentation.where(Betreuer: @teac.Number)
-      render 'preslist'
+      if @teaclist.first == nil
+        flash[:danger] = "Keine Präsentationen verfügbar"
+        redirect_to admin_show_teachers_path
+      else
+        render 'preslist'
+      end
     end
   end
 
