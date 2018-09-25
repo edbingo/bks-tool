@@ -1,5 +1,9 @@
 <% provide(:title, "Servereinstellungen") %>
-<%= link_to "Anmeldungen deaktivieren", '#', class: "btn btn-primary" %>
+<% if Schueler.first.loginpermit == true %>
+  <%= link_to "Anmeldungen deaktivieren", admin_opt_off_path, class: "btn btn-primary" %>
+<% else %>
+  <%= link_to "Anmeldungen aktivieren", admin_opt_on_path, class: "btn btn-primary" %>
+<% end %>
 
 <h4>Maximale Anmeldungen pro Präsentation</h4>
 <%= form_tag admin_opt_free_path do %>

@@ -5,6 +5,8 @@ ruby '2.5.1'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'prawn-rails'
+gem 'prawn-table'
 # Adds required CSS styling elements
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

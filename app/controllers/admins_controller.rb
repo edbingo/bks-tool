@@ -12,6 +12,24 @@ class AdminsController < ApplicationController
     end
   end
 
+  def deactivate
+    stud = Schueler.all
+    stud.each do |stud|
+      stud["loginpermit"] = false
+    end
+    flash[:success] = "Anmeldungen deaktiviert"
+    redirect_to admin_opt_path
+  end
+
+  def activate
+    stud = Schueler.all
+    stud.each do |stud|
+      stud["loginpermit"] = true
+    end
+    flash[:success] = "Anmeldungen aktiviert"
+    redirect_to admin_opt_path
+  end
+
   def loginsend
     @student = Schueler.all
   end

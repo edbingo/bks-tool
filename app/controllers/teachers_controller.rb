@@ -1,6 +1,15 @@
 class TeachersController < ApplicationController
   before_action :logged_in_stud
   helper_method :sort_col, :sort_dir
+  require 'prawn'
+
+  def download_pdf
+    teac = Teacher.find_by(Number: $tid)
+    pres = Presentation.where(Betreuer: $tid)
+    send_data generate_pdf(teac,pres),
+      filename: "#{teac.Vorname}_#{teac.Name}_praesenzliste.pdf",
+      type: "application/pdf"
+  end
 
   def list
     @teacher = Teacher.order("#{sort_col} #{sort_dir}")
@@ -12,11 +21,11 @@ class TeachersController < ApplicationController
   end
 
   def pres
-    id = params[:number]
-    if id == nil
+    $tid = params[:number]
+    if $tid == nil
       redirect_to admin_show_teachers_path
     else
-      @teac = Teacher.find_by(Number: id)
+      @teac = Teacher.find_by(Number: $tid)
       @teaclist = Presentation.where(Betreuer: @teac.Number)
       render 'preslist'
     end
@@ -96,6 +105,27 @@ class TeachersController < ApplicationController
 
   def sort_dir
     %w[asc desc].include?(params[:dir]) ? params[:dir] : "asc"
+  end
+
+  def generate_pdf(teac,pres)
+    Prawn::Document.new do
+      text "#{teac.Vorname} #{teac.Name}", align: :center
+      text "Ihre Präsentationen"
+      table([
+        ["Name","Titel","Zimmer","Von","Datum"],
+        [pres.collect{ |r| [r.Name] },
+         pres.collect{ |r| [r.Titel] },
+         pres.collect{ |r| [r.Zimmer] },
+         pres.collect{ |r| [Time.at(r.Von.to_i).utc.strftime("%H:%M")] },
+         pres.collect{ |r| [r.Datum] }]
+        ])
+      move_down 20
+      pres.each do |pres|
+        text "Besucher #{pres.Titel}:"
+        text "#{pres.Besucher}"
+        move_down 20
+      end
+    end.render
   end
 
 end

@@ -19,12 +19,15 @@ class SessionsController < ApplicationController
 
   def studcreate # Creates session for students
     schueler = Schueler.find_by(number: params[:session][:number].downcase)
-    if schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == false
+    if schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == false && schueler.loginpermit == true
       stud_in schueler
       redirect_to studenten_waehlen_path
     elsif schueler && schueler.authenticate(params[:session][:password]) && schueler.Registered == true
       flash.now[:danger] = "Sie haben sich schon Registriert"
       render 'newstud'
+    elsif schueler && schueler.authenticate(params[:session][:password]) && schueler.loginpermit == false
+      flash.now[:danger] = "Anmeldungen wurden deaktiviert. Bitte kontaktieren Sie einen Administrator"
+      redirect_to root_path
     else
       flash.now[:danger] = "Nummer oder Passwort falsch"
       render 'newstud'
@@ -33,6 +36,7 @@ class SessionsController < ApplicationController
 
   def force
     stud = Schueler.find_by(Number: params[:number].downcase)
+    log_out
     stud_in stud
     redirect_to studenten_waehlen_path
   end

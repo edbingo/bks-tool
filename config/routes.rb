@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/new'
   root   'static_pages#home'
   get '/presentation/pres', to: 'presentations#pres'
+  get '/teachers/download_pdf'
 
 # Admin related sites
   get '/admin', to: 'admins#hub'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
   post '/admin/opt/free', to: 'admins#addfree'
   post '/admin/opt/reqs', to: 'admins#addreq'
   post '/admin/opt/time', to: 'admins#addtime'
+  get '/admin/opt/off', to: 'admins#deactivate'
+  get '/admin/opt/on', to: 'admins#activate'
 # Setup process
   get '/admin/setup', to: 'admins#setup'
 # Upload process for presentations
