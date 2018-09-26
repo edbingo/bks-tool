@@ -112,11 +112,9 @@ class AdminsController < ApplicationController
   end
 
   def remindersend # Sends unregistered students a warning mail
-    schueler = Schueler.all
+    schueler = Schueler.where(Registered: false)
     schueler.each do |pupil|
-      unless pupil.Registered == true
-        StudentMailer.catchup_mail(pupil).deliver_now
-      end
+      StudentMailer.catchup_mail(pupil).deliver_now
     end
     flash[:success] = "Schüler wurden gemahnt"
     redirect_to admin_path
@@ -125,8 +123,11 @@ class AdminsController < ApplicationController
   def finallistsend # Sends all teachers a list of their presentations and the guests
     teac = Teacher.all
     teac.each do |send|
-      StudentMailer.list_mail(send).deliver_now
-      send.update_attribute(:Received, true)
+      if Presentation.where(Betreuer: send.Number) == []
+      else
+        StudentMailer.list_mail(send).deliver_now
+        send.update_attribute(:Received, true)
+      end
     end
     flash[:success] = "Presentationslisten wurden versendet"
     redirect_to admin_path
@@ -139,6 +140,10 @@ class AdminsController < ApplicationController
   end
 
   def addtime
+    time = params[:mins]
+    Presentation.each do |row|
+      row["time"] = (time + 15) * 60
+    end
   end
 
   # Find all email templates and commands in the mailers folder

@@ -25,6 +25,7 @@ class StudentMailer < ApplicationMailer
   private
 
   def generate_pdf(teac,pres)
+    @pres = Presentation.where(Betreuer: teac.Number)
     Prawn::Document.new do
       text "#{teac.Vorname} #{teac.Name}", align: :center
       text "Ihre Präsentationen"
@@ -40,8 +41,6 @@ class StudentMailer < ApplicationMailer
       pres.each do |pres|
         text "Besucher #{pres.Titel}:"
         text "#{pres.Besucher}"
-        move_down 20
-        text "Total: #{5 - pres.Frei.to_i}"
         move_down 20
       end
     end.render
