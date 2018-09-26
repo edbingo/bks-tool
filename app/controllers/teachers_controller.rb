@@ -118,7 +118,7 @@ class TeachersController < ApplicationController
       text "#{teac.Vorname} #{teac.Name}", align: :center
       text "Ihre Präsentationen"
       table([
-        ["Name","Titel","Zimmer","Von","Datum"],
+        ["Name","Titel","Zimmer","Zeit","Datum"],
         [pres.collect{ |r| [r.Name] },
          pres.collect{ |r| [r.Titel] },
          pres.collect{ |r| [r.Zimmer] },
