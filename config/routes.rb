@@ -55,6 +55,9 @@ Rails.application.routes.draw do
   get '/admin/show/students/update', to: 'schuelers#list'
   post '/admin/show/students/remove', to: 'schuelers#deleter'
   get '/admin/show/students/remove', to: 'schuelers#list'
+  get '/admin/show/students/choice', to: 'schuelers#list'
+
+  post '/admin/show/students/choice', to: 'schuelers#choices'
 
   post '/admin/force', to: 'admins#force'
 # Management tools for admins

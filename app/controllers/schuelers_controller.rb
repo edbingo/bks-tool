@@ -39,6 +39,19 @@ class SchuelersController < ApplicationController
     redirect_to root_path
   end
 
+  def choices
+    @stud = Schueler.find_by(id: params[:id])
+    if @stud.Registered == true
+      @pres0 = Presentation.find_by(id: @stud.Selected)
+      @pres1 = Presentation.find_by(id: @stud.Selected1)
+      @pres2 = Presentation.find_by(id: @stud.Selected2)
+      render 'choices'
+    else
+      flash[:danger] = "Anmeldung noch nicht verschickt"
+      redirect_to admin_show_students_path
+    end
+  end
+
   def create # Creates new student based on entered parameters
     @schueler = Schueler.new(schueler_params)
     if @schueler.save

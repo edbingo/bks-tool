@@ -29,8 +29,20 @@
   <tbody>
     <% @student.each do |stud| %>
       <tr>
-        <td scope="row"><%= stud.Vorname %></td>
-        <td scope="row"><%= stud.Name %></td>
+        <td scope="row">
+          <% if stud.Registered == true %>
+            <%= link_to "#{stud.Vorname}", admin_show_students_choice_path(:id => stud.id), method: :post %>
+          <% else %>
+            <%= stud.Vorname %>
+          <% end %>
+        </td>
+        <td scope="row">
+          <% if stud.Registered == true %>
+            <%= link_to "#{stud.Name}", admin_show_students_choice_path(:id => stud.id), method: :post %>
+          <% else %>
+            <%= stud.Name %>
+          <% end %>
+        </td>
         <td scope="row"><%= stud.Klasse %></td>
         <td scope="row"><%= stud.Mail %></td>
         <td scope="row"><%= stud.Number %></td>

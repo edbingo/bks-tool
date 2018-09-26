@@ -1,0 +1,58 @@
+<% provide(:title, "Auswahl") %>
+<h4><%= @stud.Vorname %> <%= @stud.Name %></h4>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Klasse</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Fach</th>
+      <th scope="col">Betreuer</th>
+      <th scope="col">Zimmer</th>
+      <th scope="col">Von</th>
+      <th scope="col">Bis</th>
+      <th scope="col">Freie<br />Plätze</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td scope="row"><%= @pres0.Name %></td>
+        <td scope="row"><%= @pres0.Klasse %></td>
+        <td scope="row"><%= @pres0.Titel %></td>
+        <td scope="row"><%= @pres0.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres0.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres0.Zimmer %></td>
+        <% sec = @pres0.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres0.Bis %></td>
+        <td scope="row"><%= @pres0.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres1.Name %></td>
+        <td scope="row"><%= @pres1.Klasse %></td>
+        <td scope="row"><%= @pres1.Titel %></td>
+        <td scope="row"><%= @pres1.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres1.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres1.Zimmer %></td>
+        <% sec = @pres1.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres1.Bis %></td>
+        <td scope="row"><%= @pres1.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres2.Name %></td>
+        <td scope="row"><%= @pres2.Klasse %></td>
+        <td scope="row"><%= @pres2.Titel %></td>
+        <td scope="row"><%= @pres2.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres2.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres2.Zimmer %></td>
+        <% sec = @pres2.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres2.Bis %></td>
+        <td scope="row"><%= @pres2.Frei %></td>
+      </tr>
+    </tbody>
+  </table>
