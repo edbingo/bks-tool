@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 2018_09_04_054544) do
     t.string "Number"
     t.string "Mail"
     t.boolean "Received"
+    t.string "nv"
+    t.string "vn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

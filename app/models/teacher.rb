@@ -8,6 +8,8 @@ class Teacher < ApplicationRecord
     teac = Teacher.all
     teac.each do |row|
       row["Received"] = false
+      row.update_attribute(:nv, "#{row.Name} #{row.Vorname}")
+      row.update_attribute(:vn, "#{row.Vorname} #{row.Name}")
     end
 
     Teacher.all.order!(Name: :asc, Vorname: :desc)

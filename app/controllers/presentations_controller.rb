@@ -17,8 +17,14 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(pres_params)
     if @presentation.save
-      @presentation.update_attribute(:Frei, $number.to_f)
+      @presentation.update_attribute(:Frei, $number.to_i)
       flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+      if Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) != nil
+        @presentation["Betreuer"] = Teacher.find_by(vn: params[:Betreuer]).Number
+      elsif Teacher.find_by(nv: params[:Betreuer]) != nil && Teacher.find_by(vn: params[:Betreuer]) == nil
+        @presentation["Betreuer"] = Teacher.find_by(nv: params[:Betreuer]).Number
+      end
+      @presentation.update_attribute(:Von, "#{Time.parse(row.Von).seconds_since_midnight}")
       redirect_to admin_show_presentations_path
     else
       render 'new'

@@ -6,6 +6,8 @@ class CreateTeachers < ActiveRecord::Migration[5.2]
       t.string :Number
       t.string :Mail
       t.boolean :Received
+      t.string :nv
+      t.string :vn
 
       t.timestamps
     end
