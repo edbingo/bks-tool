@@ -17,12 +17,22 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(pres_params)
     if @presentation.save
-      @presentation.update_attribute(:Frei, $number.to_i)
-      flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
       if Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) != nil
         @presentation["Betreuer"] = Teacher.find_by(vn: params[:Betreuer]).Number
+        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+        @presentation.update_attribute(:Frei, $number.to_i)
       elsif Teacher.find_by(nv: params[:Betreuer]) != nil && Teacher.find_by(vn: params[:Betreuer]) == nil
         @presentation["Betreuer"] = Teacher.find_by(nv: params[:Betreuer]).Number
+        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+        @presentation.update_attribute(:Frei, $number.to_i)
+      elsif Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) == nil && Teacher.find_by(Number: params[:Betreuer]) != nil
+        @presentation["Betreuer"] = Teacher.find_by(Number: params[:Betreuer])
+        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+        @presentation.update_attribute(:Frei, $number.to_i)
+      elsif Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) == nil && Teacher.find_by(Number: params[:Betreuer]) == nil
+        flash[:danger] = "Dieser Lehrer wurde nicht gefunden"
+        @presentation.destroy
+        render 'new'
       end
       @presentation.update_attribute(:Von, "#{Time.parse(params[:Von]).seconds_since_midnight}")
       @presentation.update_attribute(:time, Presentation.first.time)
@@ -57,7 +67,7 @@ class PresentationsController < ApplicationController
     upres.update_attribute(:Betreuer, params[:betreuer])
     upres.update_attribute(:Zimmer, params[:zimmer])
     upres.update_attribute(:Von, Time.parse(params[:von]).seconds_since_midnight)
-    upres.update_attribute(:Bis, params[:bis])
+    upres.update_attribute(:Bis, Time.parse(params[:bis]).seconds_since_midnight)
     redirect_to admin_show_presentations_path
   end
 

@@ -39,7 +39,7 @@
         <td scope="row"><%= pres.Zimmer %></td>
         <% sec = pres.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= pres.Bis %></td>
+        <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= pres.Frei %></td>
         <td scope="row">
           <%= form_tag admin_show_presentations_edit_path do %>

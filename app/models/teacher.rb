@@ -3,7 +3,9 @@ class Teacher < ApplicationRecord
   require "csv"
   def self.import(file)
     CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
-      Teacher.create! row.to_hash
+      unless Teacher.where(Number: row["Number"]).count >= 1
+        Teacher.create! row.to_hash
+      end
     end
     teac = Teacher.all
     teac.each do |row|

@@ -8,8 +8,6 @@
       <th scope="col">Klasse</th>
       <th scope="col">Mail</th>
       <th scope="col">Number</th>
-      <th scope="col">Password</th>
-      <th scope="col">Registered?</th>
       <th scope="col">Speichern</th>
     </tr>
   </thead>
@@ -22,8 +20,6 @@
         <td><%= text_field_tag 'klasse', "#{$newstud.Klasse}" %></td>
         <td><%= text_field_tag 'mail', "#{$newstud.Mail}" %></td>
         <td><%= text_field_tag 'number', "#{$newstud.Number}" %></td>
-        <td><%= text_field_tag 'code', "#{$newstud.Code}" %></td>
-        <td><%= text_field_tag 'registered', "#{$newstud.Registered}" %></td>
         <td><%= submit_tag "Speichern", class: "btn btn-primary" %></td>
       <% end %>
     </tr>

@@ -23,7 +23,9 @@ class Schueler < ApplicationRecord
     end
 
     CSV.foreach(file.path, headers: true) do |row|
-      Schueler.create! row.to_hash
+      unless Schueler.where(Number: row["Number"]).count >= 1
+        Schueler.create! row.to_hash
+      end
     end
     students = Schueler.all
     Schueler.all.order!(Name: :asc, Vorname: :desc)

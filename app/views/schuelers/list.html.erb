@@ -54,22 +54,23 @@
             <%= submit_tag "Bearbeiten", class: "btn btn-secondary" %>
           <% end %>
         </td>
-        <td>
-          <% if stud.Registered == false %>
+        <% if stud.Registered == false %>
+          <td>
             <%= form_tag studenten_force_path do %>
               <%= hidden_field_tag :number, stud.Number %>
               <%= submit_tag "Force", class: "btn btn-secondary" %>
             <% end %>
-          <% else %>
-            Schon registriert
-          <% end %>
-        </td>
-        <td scope="row">
-          <%= form_tag admin_show_students_remove_path do %>
-            <%= hidden_field_tag 'id', stud.id %>
-            <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Schüler entfernen?"} %>
-          <% end %>
-        </td>
+          </td>
+          <td>
+              <%= form_tag admin_show_students_remove_path do %>
+              <%= hidden_field_tag 'id', stud.id %>
+              <%= submit_tag "Entfernen", class: "btn btn-danger", data: { confirm: "Schüler entfernen?"} %>
+            <% end %>
+          </td>
+        <% else %>
+          <td>Schon registriert</td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
