@@ -24,7 +24,8 @@ class PresentationsController < ApplicationController
       elsif Teacher.find_by(nv: params[:Betreuer]) != nil && Teacher.find_by(vn: params[:Betreuer]) == nil
         @presentation["Betreuer"] = Teacher.find_by(nv: params[:Betreuer]).Number
       end
-      @presentation.update_attribute(:Von, "#{Time.parse(row.Von).seconds_since_midnight}")
+      @presentation.update_attribute(:Von, "#{Time.parse(params[:Von]).seconds_since_midnight}")
+      @presentation.update_attribute(:time, Presentation.first.time)
       redirect_to admin_show_presentations_path
     else
       render 'new'
