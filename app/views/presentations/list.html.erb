@@ -33,7 +33,9 @@
         <td scope="row"><%= pres.Titel %></td>
         <td scope="row"><%= pres.Fach %></td>
         <% betr = Teacher.find_by(Number: pres.Betreuer) %>
-        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}"%></td>
+        <td scope="row">
+          <%= link_to "#{betr.Vorname} #{betr.Name}", admin_show_teachers_pres_path(:number => betr.Number), method: :post %>
+        </td>
         <td scope="row"><%= pres.Zimmer %></td>
         <% sec = pres.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
