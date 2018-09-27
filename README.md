@@ -6,18 +6,31 @@ rails and passenger, it is designed to run on a debian server with apache.
 
 Uses RUBY 2.5.1 and RAILS 5.2.0
 
-Wichtige Dateien:
-Mailtexte:
+# Wichtige Dateien:
+## Mailtexte:
+
 /var/www/bks-tool/app/views/student_mailer/  Nur .html.erb, nicht die .txt.erb
-Seeds datei:
+
+## Seeds datei:
+
 /var/www/bks-tool/db/seeds.rb  ⇒ Bearbeitbar in vim
-SQLite DB:
+
+## SQLite DB:
+
 /var/www/bks-tool/db/production.sqlite3 ⇒ SQLite DB Browser
-Beispiel CSV Dateien:
+
+## Beispiel CSV Dateien:
+
 /var/www/bks-tool/CSVs/
-Error dateien:
+
+## Error dateien:
+
 /var/www/bks-tool/public/
-Installationsskripte für Einrichtung Debian 9 Server
+
+## Installationsskripte für Einrichtung Debian 9 Server
+
 /var/www/bks-tool/scripts
-Source code:
+
+## Source code:
+
 https://bitbucket.org/elancaster/bks-tool
