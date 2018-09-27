@@ -76,7 +76,7 @@ class SchuelersController < ApplicationController
     stud.each do |num|
       num.update_attribute(:req, $reqs)
     end
-    redirect_to admin_add_teachers_path
+    redirect_to admin_add_presentations_path
     flash[:success] = "Datenbank aktualisiert"
   end
 

@@ -66,7 +66,7 @@ class TeachersController < ApplicationController
 
   def import
     Teacher.import(params[:file])
-    redirect_to admin_url
+    redirect_to admin_add_students_url
     flash[:success] = "Lehrer erfolgreich hinzugefügt"
   end
 

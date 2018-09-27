@@ -90,7 +90,7 @@ class PresentationsController < ApplicationController
     pres.each do |time|
       time.update_attribute(:time, $time)
     end
-    redirect_to admin_add_students_path
+    redirect_to admin_path
     flash[:success] = "Datenbank aktualisiert"
   end
 
