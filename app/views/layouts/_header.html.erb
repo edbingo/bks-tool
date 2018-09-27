@@ -3,15 +3,16 @@
     <%= link_to "BKS Tool", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home",     root_path %></li>
-          <li><%= link_to "Hilfe",    hilfe_path %></li>
+        <li><%= link_to "Home", root_path %></li>
           <% if logged_ad? %>
+            <li><%= link_to "Hub", admin_path %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Menü <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Hub", admin_path %></li>
+                <li><%= link_to "Datenbank verwalten", admin_show_presentations_path %></li>
+                <li><%= link_to "Mails versenden", admin_send_path %></li>
                 <li class="divider"></li>
                 <li><%= link_to "Datenbank löschen", admin_reset_path %></li>
                 <li class="divider"></li>
@@ -25,6 +26,7 @@
             <li><%= link_to "Abmelden", studenten_anmelden_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "Anmelden", studenten_anmelden_path %></li>
+            <li><%= link_to "Hilfe", hilfe_path %></li>
           <% end %>
       </ul>
     </nav>

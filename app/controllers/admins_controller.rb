@@ -15,7 +15,7 @@ class AdminsController < ApplicationController
   def deactivate
     stud = Schueler.all
     stud.each do |stud|
-      stud["loginpermit"] = false
+      stud.update_attribute(:loginpermit, false)
     end
     flash[:success] = "Anmeldungen deaktiviert"
     redirect_to admin_opt_path
@@ -24,7 +24,7 @@ class AdminsController < ApplicationController
   def activate
     stud = Schueler.all
     stud.each do |stud|
-      stud["loginpermit"] = true
+      stud.update_attribute(:loginpermit, true)
     end
     flash[:success] = "Anmeldungen aktiviert"
     redirect_to admin_opt_path
@@ -105,7 +105,7 @@ class AdminsController < ApplicationController
   def logindetailssend # Sends all student class users an email with their login details
     Schueler.all.each do |stud|
       StudentMailer.password_mail(stud).deliver_now
-      stud["Received"] = true
+      stud.update_attribute(:Received, true)
     end
     flash[:success] = "Login emails wurden versendet"
     redirect_to admin_path

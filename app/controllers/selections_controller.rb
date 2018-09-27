@@ -26,9 +26,9 @@ class SelectionsController < ApplicationController
 
   def clean
     @presentations = Presentation.order("#{sort_col} #{sort_dir}")
-    @pries = Presentation.find_by(id: @current_student.Selected).Von
-    @pries1 = Presentation.find_by(id: @current_student.Selected1).Von
-    @pries2 = Presentation.find_by(id: @current_student.Selected2).Von
+    @pries = Presentation.find_by(id: @current_student.Selected).Bis
+    @pries1 = Presentation.find_by(id: @current_student.Selected1).Bis
+    @pries2 = Presentation.find_by(id: @current_student.Selected2).Bis
     array = [@pries, @pries1, @pries2]
     array.sort_by!(&:to_i)
     @pres0 = array[0]

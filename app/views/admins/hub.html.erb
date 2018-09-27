@@ -7,7 +7,13 @@
     <div>
       Warnung: Anmeldungen deaktiviert
     </div>
-  <% else %>
+    <br />
+  <% end %>
+  <% if Schueler.first.Received == false %>
+    <div>
+      Anmeldedaten wurden noch nicht verschickt
+    </div>
+    <br />
   <% end %>
 
   <div>
