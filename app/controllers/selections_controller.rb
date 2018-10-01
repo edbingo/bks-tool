@@ -26,14 +26,22 @@ class SelectionsController < ApplicationController
 
   def clean
     @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+    @priev = Presentation.find_by(id: @current_student.Selected).Von
     @pries = Presentation.find_by(id: @current_student.Selected).Bis
+    @priev1 = Presentation.find_by(id: @current_student.Selected1).Von
     @pries1 = Presentation.find_by(id: @current_student.Selected1).Bis
+    @priev2 = Presentation.find_by(id: @current_student.Selected2).Von
     @pries2 = Presentation.find_by(id: @current_student.Selected2).Bis
     array = [@pries, @pries1, @pries2]
+    arry2 = [@priev, @priev1, @priev2]
     array.sort_by!(&:to_i)
+    arry2.sort_by!(&:to_i)
     @pres0 = array[0]
     @pres1 = array[1]
     @pres2 = array[2]
+    @prev0 = arry2[0]
+    @prev1 = arry2[1]
+    @prev2 = arry2[2]
   end
 
   def addtodb
