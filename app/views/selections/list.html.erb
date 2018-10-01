@@ -37,7 +37,7 @@
           <td scope="row"><%= pres.Zimmer %></td>
           <% sec = pres.Von %>
           <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-          <td scope="row"><%= pres.Bis %></td>
+          <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
           <td scope="row"><%= pres.Frei %></td>
           <td scope="row">
             <% unless @current_student.Selected == pres.id.to_s || @current_student.Selected1 == pres.id.to_s || @current_student.Selected2 == pres.id.to_s %>

@@ -127,7 +127,7 @@ class TeachersController < ApplicationController
         ])
       move_down 20
       pres.each do |pres|
-        text "Besucher #{pres.Titel}:"
+        text "Besucher '#{pres.Titel}':"
         text "#{pres.Besucher}"
         move_down 20
       end
