@@ -26,62 +26,22 @@ cd /
 
 # Installs prerequired packages
 echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installing curl, gnupg, build-essential and dirmngr"
+echo "Installing curl, nodejs, sudo, gnupg, build-essential and dirmngr"
 echo -e $TEXT_RESET
-apt -qq install -y curl gnupg build-essential dirmngr sudo
+apt -qq install -y curl gnupg build-essential dirmngr sudo apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && apt install -y nodejs build-essential
 
 # Fetches key from server
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Key fetched"
 echo -e $TEXT_RESET
 
 # Fetches RVM from server
-curl -sSL https://get.rvm.io | bash -s stable
+curl -sSL https://get.rvm.io | bash -s stable --rails
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "RVM installed"
 echo -e $TEXT_RESET
 
-# Sets rvm source file
-source /etc/profile.d/rvm.sh
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Source has been set"
-echo -e $TEXT_RESET
-
-# Adds current user to rvm group
-usermod -a -G rvm root
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Root user added to rvm group"
-echo -e $TEXT_RESET
-
-# Installs the required version of Ruby
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installing Ruby 2.5.1"
-echo -e $TEXT_RESET
-rvm install ruby-2.5.1
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Ruby 2.5.1 Installed"
-echo -e $TEXT_RESET
-# Sets installed version as default
-rvm --default use ruby-2.5.1
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Ruby 2.5.1 set as default"
-echo -e $TEXT_RESET
-
-# Installs the bundler gem without documentation
-gem install bundler --no-rdoc --no-ri
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Bundler installed"
-echo -e $TEXT_RESET
-
-# Installs nodejs for Rails compatability
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "Installing NodeJS"
-echo -e $TEXT_RESET
-apt -qq update && apt -qq install -y apt-transport-https ca-certificates && curl --fail -ssL -o setup-nodejs https://deb.nodesource.com/setup_8.x && bash setup-nodejs && apt install -y nodejs build-essential
-echo -e $TEXT_RED_B'\e[1;31m'
-echo "nodejs installed"
-echo -e $TEXT_RESET
 # Gets keys for passenger
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 echo -e $TEXT_RED_B'\e[1;31m'
@@ -173,8 +133,6 @@ echo -e $TEXT_RED_B'\e[1;31m'
 echo "Permission given to new user"
 echo "Copied install file to user home"
 echo -e $TEXT_RESET
-gem install rails
-gem install jquery-rails
 git clone https://bitbucket.org/elancaster/bks-tool /var/www/bks-tool
 echo -e $TEXT_RED_B'\e[1;31m'
 echo "Install has completed."
