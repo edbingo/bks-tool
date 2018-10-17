@@ -114,7 +114,7 @@ class TeachersController < ApplicationController
   end
 
   def generate_pdf(teac,pres)
-    Prawn::Document.new do
+    Prawn::Document.new(:page_size => "A4", :page_layout => :landscape) do
       text "#{teac.Vorname} #{teac.Name}", align: :center
       text "Ihre Präsentationen"
       table([

@@ -26,7 +26,7 @@ class StudentMailer < ApplicationMailer
 
   def generate_pdf(teac,pres)
     @pres = Presentation.where(Betreuer: teac.Number)
-    Prawn::Document.new do
+    Prawn::Document.new(:page_size => "A4", :page_layout => :landscape) do
       text "#{teac.Vorname} #{teac.Name}", align: :center
       text "Ihre Präsentationen"
       table([
@@ -39,7 +39,7 @@ class StudentMailer < ApplicationMailer
         ])
       move_down 20
       pres.each do |pres|
-        text "Besucher #{pres.Titel}:"
+        text "Besucher bei '#{pres.Titel}':"
         text "#{pres.Besucher}"
         move_down 20
       end

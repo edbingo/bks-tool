@@ -30,8 +30,8 @@ class SchuelersController < ApplicationController
     pres1 = Presentation.find_by(id: schueler.Selected1.to_s)
     pres2 = Presentation.find_by(id: schueler.Selected2.to_s)
     pres0.update_attribute(:Besucher, "#{pres0.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
-    pres1.update_attribute(:Besucher, "#{pres1.Besucher} #{schueler.Vorname} #{schueler.Name},")
-    pres2.update_attribute(:Besucher, "#{pres2.Besucher} #{schueler.Vorname} #{schueler.Name},")
+    pres1.update_attribute(:Besucher, "#{pres1.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
+    pres2.update_attribute(:Besucher, "#{pres2.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
     StudentMailer.final_mail(schueler).deliver_now
     schueler.update_attribute(:Registered, true)
     flash[:success] = "Anmeldung verschickt"
