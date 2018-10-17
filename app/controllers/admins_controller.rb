@@ -111,11 +111,13 @@ class AdminsController < ApplicationController
   end
 
   def logindetailssend # Sends all student class users an email with their login details
+    n = 0
     Schueler.all.each do |stud|
       StudentMailer.password_mail(stud).deliver_now
       stud.update_attribute(:Received, true)
+      n = n + 1
     end
-    flash[:success] = "Login emails wurden versendet"
+    flash[:success] = "#{n} Login emails wurden versendet"
     redirect_to admin_path
   end
 

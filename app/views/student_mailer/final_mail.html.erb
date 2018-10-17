@@ -25,8 +25,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <% betr = Teacher.find_by(Number: @presi.Betreuer) %>
       <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi.Zimmer %></td>
-      <td scope="row"><%= @presi.Von %></td>
-      <td scope="row"><%= @presi.Bis %></td>
+      <td scope="row"><%= Time.at(@presi.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi.Bis.to_f).utc.strftime("%H:%M") %></td>
     </tr>
     <tr>
       <td scope="row"><%= @presi1.Name %></td>
@@ -36,8 +36,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <% betr = Teacher.find_by(Number: @presi1.Betreuer) %>
       <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi1.Zimmer %></td>
-      <td scope="row"><%= @presi1.Von %></td>
-      <td scope="row"><%= @presi1.Bis %></td>
+      <td scope="row"><%= Time.at(@presi1.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi1.Bis.to_f).utc.strftime("%H:%M") %></td>
     </tr>
     <tr>
       <td scope="row"><%= @presi2.Name %></td>
@@ -47,8 +47,8 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
       <% betr = Teacher.find_by(Number: @presi2.Betreuer) %>
       <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
       <td scope="row"><%= @presi2.Zimmer %></td>
-      <td scope="row"><%= @presi2.Von %></td>
-      <td scope="row"><%= @presi2.Bis %></td>
+      <td scope="row"><%= Time.at(@presi2.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi2.Bis.to_f).utc.strftime("%H:%M") %></td>
     </tr>
   </tbody>
 </table>
