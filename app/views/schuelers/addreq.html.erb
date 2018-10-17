@@ -1,6 +1,0 @@
-<% provide(:title, "Reservationsanzahl") %>
-<h4>Hier können Sie eingeben, wie viele Registrationen für jeden Schüler erforderlich sind.</h4>
-<%= form_tag admin_add_students_req_path do %>
-  <%= number_field_tag 'reqs', 3, class: 'form-control', min:1, max:10, step:1 %>
-  <%= submit_tag "Wählen", class: "btn btn-primary btn-lg", data: { disable_with: "Speichert..." } %>
-<% end %>

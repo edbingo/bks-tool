@@ -15,6 +15,10 @@
     </div>
     <br />
   <% end %>
+  <% if @n != 0 %>
+    Es gibt in der Präsentationdatenbank <%= @n %> Fehler.
+    <%= @dups %>
+  <% end %>
 
   <div>
     <div>

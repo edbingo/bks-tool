@@ -30,10 +30,8 @@
           <td><%= teac.Mail %></td>
           <td><%= teac.Number %></td>
           <td>
-            <%= form_tag admin_show_teachers_pres_path do %>
-              <%= hidden_field_tag 'number', teac.Number %>
-              <%= submit_tag "Anschauen", class: "btn btn-secondary" %>
-            <% end %>
+            <%= link_to "Anschauen", admin_show_teachers_pres_path(:number => teac.Number), method: :post, class: "btn btn-secondary" %>
+          </td>
           <td scope="row">
             <%= form_tag admin_show_teachers_edit_path do %>
               <%= hidden_field_tag 'id', teac.id %>

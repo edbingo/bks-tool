@@ -17,26 +17,33 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(pres_params)
     if @presentation.save
-      if Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) != nil
-        @presentation["Betreuer"] = Teacher.find_by(vn: params[:Betreuer]).Number
-        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+      if Teacher.find_by(nv: @presentation.Betreuer) == nil && Teacher.find_by(vn: @presentation.Betreuer) != nil
+        @presentation["Betreuer"] = Teacher.find_by(vn: @presentation.Betreuer).Number
         @presentation.update_attribute(:Frei, $number.to_i)
-      elsif Teacher.find_by(nv: params[:Betreuer]) != nil && Teacher.find_by(vn: params[:Betreuer]) == nil
-        @presentation["Betreuer"] = Teacher.find_by(nv: params[:Betreuer]).Number
-        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+        @presentation.update_attribute(:Von, "#{Time.parse(@presentation.Von).seconds_since_midnight}")
+        @presentation["Bis"] = "#{Time.parse(@presentation.Bis).seconds_since_midnight}"
+        @presentation.update_attribute(:time, Presentation.first.time)
+        redirect_to admin_show_presentations_path
+      elsif Teacher.find_by(nv: @presentation.Betreuer) != nil && Teacher.find_by(vn: @presentation.Betreuer) == nil
+        @presentation["Betreuer"] = Teacher.find_by(nv: @presentation.Betreuer).Number
         @presentation.update_attribute(:Frei, $number.to_i)
-      elsif Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) == nil && Teacher.find_by(Number: params[:Betreuer]) != nil
-        @presentation["Betreuer"] = Teacher.find_by(Number: params[:Betreuer])
-        flash[:success] = "Präsentation #{@presentation.Titel} gespeichert"
+        @presentation.update_attribute(:Von, "#{Time.parse(@presentation.Von).seconds_since_midnight}")
+        @presentation["Bis"] = "#{Time.parse(@presentation.Bis).seconds_since_midnight}"
+        @presentation.update_attribute(:time, Presentation.first.time)
+        redirect_to admin_show_presentations_path
+      elsif Teacher.find_by(nv: @presentation.Betreuer) == nil && Teacher.find_by(vn: @presentation.Betreuer) == nil && Teacher.find_by(Number: @presentation.Betreuer) != nil
+        @presentation["Betreuer"] = Teacher.find_by(Number: @presentation.Betreuer)
         @presentation.update_attribute(:Frei, $number.to_i)
+        @presentation.update_attribute(:Von, "#{Time.parse(@presentation.Von).seconds_since_midnight}")
+        @presentation["Bis"] = "#{Time.parse(@presentation.Bis).seconds_since_midnight}"
+        @presentation.update_attribute(:time, Presentation.first.time)
+        redirect_to admin_show_presentations_path
       elsif Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) == nil && Teacher.find_by(Number: params[:Betreuer]) == nil
         flash[:danger] = "Dieser Lehrer wurde nicht gefunden"
+        byebug
         @presentation.destroy
         render 'new'
       end
-      @presentation.update_attribute(:Von, "#{Time.parse(params[:Von]).seconds_since_midnight}")
-      @presentation.update_attribute(:time, Presentation.first.time)
-      redirect_to admin_show_presentations_path
     else
       render 'new'
     end

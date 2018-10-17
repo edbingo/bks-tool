@@ -5,7 +5,17 @@ class Presentation < ApplicationRecord
 
   def self.import(file) # Import function
     CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
-      unless Presentation.where(Name: row["Name"]).count >= 1 && Presentation.where(Klasse: row["Klasse"]).count >= 1 || Teacher.where(Number: row["Betreuer"]).count == 0
+      if Teacher.where(Number: row["Betreuer"]).count == 0 && Teacher.where(
+        nv: row["Betreuer"]).count == 0 && Teacher.where(vn: row["Betreuer"]).count != 0
+        row["Betreuer"] = Teacher.find_by(vn: row["Betreuer"]).Number
+      elsif Teacher.where(Number: row["Betreuer"]).count == 0 && Teacher.where(
+        nv: row["Betreuer"]).count != 0 && Teacher.where(vn: row["Betreuer"]).count == 0
+        row["Betreuer"] = Teacher.find_by(nv: row["Betreuer"]).Number
+      elsif Teacher.where(Number: row["Betreuer"]).count != 0 && Teacher.where(
+        nv: row["Betreuer"]).count == 0 && Teacher.where(vn: row["Betreuer"]).count == 0
+      end
+      unless Presentation.where(Name: row["Name"]).count == 1 &&
+        Presentation.where(Titel: row["Titel"]).count == 1
         Presentation.create! row.to_hash
       end
     end

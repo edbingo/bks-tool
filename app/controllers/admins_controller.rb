@@ -2,13 +2,21 @@ class AdminsController < ApplicationController
   before_action :logged_in_stud
   helper_method :sort_col, :sort_dir
 
-  def hub # Empty function
+  def hub
     if Presentation.first == nil && Teacher.first == nil && Schueler.first == nil
       redirect_to admin_setup_path
     elsif Presentation.first != nil && Teacher.first == nil && Schueler.first == nil
       redirect_to admin_add_students_path
     elsif Presentation.first != nil && Teacher.first == nil && Schueler.first != nil
       redirect_to admin_add_teachers_path
+    end
+    @dups = Array.new
+    @n = 0
+    Presentation.all.each do |row|
+      if Presentation.where(Name: row.Name).count != 1 && Presentation.where(Titel: row.Titel).count != 1
+        @dups << row.Titel
+        @n = @n + 1
+      end
     end
   end
 
