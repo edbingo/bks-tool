@@ -25,7 +25,7 @@
         <td scope="row"><%= @pres0.Zimmer %></td>
         <% sec = @pres0.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= @pres0.Bis %></td>
+        <td scope="row"><%= Time.at(@pres0.Bis.to_f).utc.strftime("%H:%M") %></td> %></td>
         <td scope="row"><%= @pres0.Frei %></td>
       </tr>
       <tr>
@@ -38,7 +38,7 @@
         <td scope="row"><%= @pres1.Zimmer %></td>
         <% sec = @pres1.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= @pres1.Bis %></td>
+        <td scope="row"><%= Time.at(@pres1.Bis.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= @pres1.Frei %></td>
       </tr>
       <tr>
@@ -51,7 +51,7 @@
         <td scope="row"><%= @pres2.Zimmer %></td>
         <% sec = @pres2.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= @pres2.Bis %></td>
+        <td scope="row"><%= Time.at(@pres2.Bis.to_f).utc.strftime("%H:%M") %></td>
         <td scope="row"><%= @pres2.Frei %></td>
       </tr>
     </tbody>

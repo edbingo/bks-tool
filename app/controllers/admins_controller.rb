@@ -149,6 +149,10 @@ class AdminsController < ApplicationController
   def addreq
   end
 
+  def mailer
+    @stud = Schueler.where(Registered: false)
+  end
+
   def addtime
     time = params[:mins]
     Presentation.each do |row|
