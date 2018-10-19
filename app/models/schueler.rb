@@ -23,8 +23,13 @@ class Schueler < ApplicationRecord
     end
 
     CSV.foreach(file.path, headers: true) do |row|
+      $errstud = 0
+      $numstud = 0
       unless Schueler.where(Number: row["Number"]).count >= 1
         Schueler.create! row.to_hash
+        $numstud = $numstud + 1
+      else
+        $errstud = $errstud + 1
       end
     end
     students = Schueler.all

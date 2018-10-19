@@ -9,6 +9,7 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
+      <th scope="col"><%= sort_link "Vorname" %></th>
       <th scope="col"><%= sort_link "Name" %></th>
       <th scope="col"><%= sort_link "Klasse" %></th>
       <th scope="col"><%= sort_link "Titel" %></th>
@@ -29,6 +30,7 @@
         <% else %>
           <tr>
         <% end %>
+          <td scope="row"><%= pres.Vorname %></td>
           <td scope="row"><%= pres.Name %></td>
           <td scope="row"><%= pres.Klasse %></td>
           <td scope="row"><%= pres.Titel %></td>

@@ -2,9 +2,11 @@ class Teacher < ApplicationRecord
   include Resetable
   require "csv"
   def self.import(file)
+    $numteac = 0
     CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
       unless Teacher.where(Number: row["Number"]).count >= 1
         Teacher.create! row.to_hash
+        $numteac = $numteac + 1
       end
     end
     teac = Teacher.all

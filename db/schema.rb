@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_054544) do
   end
 
   create_table "presentations", force: :cascade do |t|
+    t.string "Vorname"
     t.string "Name"
     t.string "Klasse"
     t.string "Titel"

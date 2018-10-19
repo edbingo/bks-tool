@@ -14,6 +14,7 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr> <!-- This table lists all relevant entries from the presentation db -->
+      <th scope="col"><%= sort_link "Vorname" %></th>
       <th scope="col"><%= sort_link "Name" %></th>
       <th scope="col"><%= sort_link "Klasse" %></th>
       <th scope="col"><%= sort_link "Titel" %></th>
@@ -30,6 +31,7 @@
   <tbody>
     <% @pres.each do |pres| %>
       <tr>
+        <td scope="row"><%= pres.Vorname %></td>
         <td scope="row"><%= pres.Name %></td>
         <td scope="row"><%= pres.Klasse %></td>
         <td scope="row"><%= pres.Titel %></td>

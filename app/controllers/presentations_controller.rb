@@ -40,7 +40,6 @@ class PresentationsController < ApplicationController
         redirect_to admin_show_presentations_path
       elsif Teacher.find_by(nv: params[:Betreuer]) == nil && Teacher.find_by(vn: params[:Betreuer]) == nil && Teacher.find_by(Number: params[:Betreuer]) == nil
         flash[:danger] = "Dieser Lehrer wurde nicht gefunden"
-        byebug
         @presentation.destroy
         render 'new'
       end
@@ -83,7 +82,8 @@ class PresentationsController < ApplicationController
 
   def import
     Presentation.import(params[:file]) # Import presentation from file parameters
-    flash.now[:success] = "Präsentationen erfolgreich hinzugefügt"
+    byebug
+    flash.now[:success] = "Es wurden #{$numpres} Präsentationen hinzugefügt, und #{$errpres} wurden nicht importiert"
     render 'addfree'
   end
 
@@ -111,7 +111,7 @@ class PresentationsController < ApplicationController
   private
 
   def pres_params
-    params.require(:presentation).permit(:Name,:Klasse,:Titel,:Fach,:Betreuer,:Zimmer,:Von,:Bis,:Datum)
+    params.require(:presentation).permit(:Name,:Vorname,:Klasse,:Titel,:Fach,:Betreuer,:Zimmer,:Von,:Bis,:Datum)
   end
 
   def sortable_cols

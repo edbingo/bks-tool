@@ -3,6 +3,7 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr> <!-- This table lists all relevant entries from the presentation db -->
+      <th scope="col">Vorname</th>
       <th scope="col">Name</th>
       <th scope="col">Klasse</th>
       <th scope="col">Titel</th>
@@ -18,6 +19,7 @@
     <tr>
       <%= form_tag admin_show_presentations_update_path do %>
         <%= hidden_field_tag 'id', $newpres.id %>
+        <td><%= text_field_tag 'vorname', "#{$newpres.Vorname}" %></td>
         <td><%= text_field_tag 'name', "#{$newpres.Name}" %></td>
         <td><%= text_field_tag 'klasse', "#{$newpres.Klasse}" %></td>
         <td><%= text_field_tag 'title', "#{$newpres.Titel}" %></td>

@@ -16,6 +16,7 @@
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
+      <th scope="col"><%= sort_link "Vorname" %></th>
       <th scope="col"><%= sort_link "Name" %></th>
       <th scope="col"><%= sort_link "Klasse" %></th>
       <th scope="col"><%= sort_link "Titel" %></th>
@@ -35,29 +36,30 @@
       <% else %>
         <tr>
       <% end %>
-          <td scope="row"><%= pres.Name %></td>
-          <td scope="row"><%= pres.Klasse %></td>
-          <td scope="row"><%= pres.Titel %></td>
-          <td scope="row"><%= pres.Fach %></td>
-          <td scope="row"><%= pres.Betreuer %></td>
-          <td scope="row"><%= pres.Zimmer %></td>
-          <% sec = pres.Von %>
-          <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-          <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
-          <td scope="row"><%= pres.Frei %></td>
-          <td scope="row">
-            <% if pres.id.to_s == @current_student.Selected || pres.id.to_s == @current_student.Selected1 || pres.id.to_s == @current_student.Selected2 %>
-              <%= form_tag studenten_weg_path do %>
-                <%= hidden_field_tag 'id', pres.id %>
-                <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
-              <% end %>
-            <% else %>
-              <%= form_tag '#' do %>
-                <%= hidden_field_tag 'title', pres.id %>
-                <%= submit_tag "Wählen", disabled: true, class: "btn btn-secondary", data: { disable_with: "Saving" } %>
-              <% end %>
+        <td scope="row"><%= pres.Vorname %></td>
+        <td scope="row"><%= pres.Name %></td>
+        <td scope="row"><%= pres.Klasse %></td>
+        <td scope="row"><%= pres.Titel %></td>
+        <td scope="row"><%= pres.Fach %></td>
+        <td scope="row"><%= pres.Betreuer %></td>
+        <td scope="row"><%= pres.Zimmer %></td>
+        <% sec = pres.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= pres.Frei %></td>
+        <td scope="row">
+          <% if pres.id.to_s == @current_student.Selected || pres.id.to_s == @current_student.Selected1 || pres.id.to_s == @current_student.Selected2 %>
+            <%= form_tag studenten_weg_path do %>
+              <%= hidden_field_tag 'id', pres.id %>
+              <%= submit_tag "Abwählen", class: "btn btn-secondary", data: { disable_with: "Saving" } %>
             <% end %>
-          </td>
+          <% else %>
+            <%= form_tag '#' do %>
+              <%= hidden_field_tag 'title', pres.id %>
+              <%= submit_tag "Wählen", disabled: true, class: "btn btn-secondary", data: { disable_with: "Saving" } %>
+            <% end %>
+          <% end %>
+        </td>
         <% else %>
       </tr>
     <% end %>

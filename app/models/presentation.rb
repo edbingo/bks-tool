@@ -4,6 +4,8 @@ class Presentation < ApplicationRecord
   require 'active_support'
 
   def self.import(file) # Import function
+    $errpres = 0
+    $numpres = 0
     CSV.foreach(file.path, headers: true, col_sep: ";") do |row|
       if Teacher.where(Number: row["Betreuer"]).count == 0 && Teacher.where(
         nv: row["Betreuer"]).count == 0 && Teacher.where(vn: row["Betreuer"]).count != 0
@@ -17,6 +19,9 @@ class Presentation < ApplicationRecord
       unless Presentation.where(Name: row["Name"]).count == 1 &&
         Presentation.where(Titel: row["Titel"]).count == 1
         Presentation.create! row.to_hash
+        $numpres = $numpres + 1
+      else
+        $errpres = $errpres + 1
       end
     end
     presentations = Presentation.all
@@ -27,7 +32,8 @@ class Presentation < ApplicationRecord
         row.update_attribute(:Bis, "#{Time.parse(row.Bis).seconds_since_midnight}")
     end
   end
-  validates :Name, presence: true, uniqueness: { case_sensitive: false }
+  validates :Name, presence: true
+  validates :Vorname, presence: true
   validates :Klasse, presence: true
   validates :Titel, presence: true
   validates :Fach, presence: true

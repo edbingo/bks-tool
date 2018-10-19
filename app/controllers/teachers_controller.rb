@@ -66,8 +66,9 @@ class TeachersController < ApplicationController
 
   def import
     Teacher.import(params[:file])
+    byebug
     redirect_to admin_add_students_url
-    flash[:success] = "Lehrer erfolgreich hinzugefügt"
+    flash[:success] = "#{$numteac} Lehrer erfolgreich hinzugefügt"
   end
 
   def create
@@ -118,16 +119,16 @@ class TeachersController < ApplicationController
       text "#{teac.Vorname} #{teac.Name}", align: :center
       text "Ihre Präsentationen"
       table([
-        ["Name","Titel","Zimmer","Zeit","Datum"],
-        [pres.collect{ |r| [r.Name] },
-         pres.collect{ |r| [r.Titel] },
+        ["Vorname","Name","Titel","Zimmer","Zeit"],
+        [pres.collect{ |r| [r.Vorname] },
+         pres.collect{ |r| [r.Name] },
+         pres.collect{ |r| [r.Titel.truncate(90)] },
          pres.collect{ |r| [r.Zimmer] },
-         pres.collect{ |r| [Time.at(r.Von.to_i).utc.strftime("%H:%M")] },
-         pres.collect{ |r| [r.Datum] }]
+         pres.collect{ |r| [Time.at(r.Von.to_i).utc.strftime("%H:%M")] }]
         ])
       move_down 20
       pres.each do |pres|
-        text "Besucher '#{pres.Titel}':"
+        text "Besucher '#{pres.Titel.truncate(100)}':"
         text "#{pres.Besucher}"
         move_down 20
       end
