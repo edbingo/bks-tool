@@ -82,7 +82,6 @@ class PresentationsController < ApplicationController
 
   def import
     Presentation.import(params[:file]) # Import presentation from file parameters
-    byebug
     flash.now[:success] = "Es wurden #{$numpres} Präsentationen hinzugefügt, und #{$errpres} wurden nicht importiert"
     render 'addfree'
   end

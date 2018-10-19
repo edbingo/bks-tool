@@ -66,7 +66,6 @@ class SchuelersController < ApplicationController
 
   def import # Tells rails how to import CSV
     Schueler.import(params[:file])
-    byebug
     flash[:success] = "Es wurden #{$numstud} Schüler importiert, es gab #{$errstud} Fehler"
     redirect_to admin_add_presentations_path
   end

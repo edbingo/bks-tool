@@ -66,7 +66,6 @@ class TeachersController < ApplicationController
 
   def import
     Teacher.import(params[:file])
-    byebug
     redirect_to admin_add_students_url
     flash[:success] = "#{$numteac} Lehrer erfolgreich hinzugefügt"
   end

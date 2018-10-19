@@ -1,4 +1,4 @@
-Hallo <%= @student.Vorname %><br />
+Hallo <%= @student.Vorname %> <%= @student.Name %><br />
 <% @presi = Presentation.find_by(id: @student.Selected.to_s) %>
 <% @presi1 = Presentation.find_by(id: @student.Selected1.to_s) %>
 <% @presi2 = Presentation.find_by(id: @student.Selected2.to_s) %>
