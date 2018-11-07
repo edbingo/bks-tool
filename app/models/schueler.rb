@@ -1,6 +1,7 @@
 class Schueler < ApplicationRecord
   include Resetable
   require "csv"
+  serialize :selected, Array
   def self.import(file)
     table = CSV.read(file.path, { headers: true, col_sep: ";" })
 
@@ -10,9 +11,6 @@ class Schueler < ApplicationRecord
       row["password_confirmation"] = pass.join
       row["Code"] = pass.join
       row["Registered"] = false
-      row["Selected"] = nil
-      row["Selected1"] = nil
-      row["Selected2"] = nil
       row["Received"] = false
       row["loginpermit"] = true
     end
@@ -22,9 +20,9 @@ class Schueler < ApplicationRecord
       table.each{ |row| f << row }
     end
 
+    $errstud = 0
+    $numstud = 0
     CSV.foreach(file.path, headers: true) do |row|
-      $errstud = 0
-      $numstud = 0
       unless Schueler.where(Number: row["Number"]).count >= 1
         Schueler.create! row.to_hash
         $numstud = $numstud + 1

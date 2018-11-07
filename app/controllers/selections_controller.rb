@@ -6,20 +6,25 @@ class SelectionsController < ApplicationController
   end
 
   def list # Sorting functions for student selection database
-    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
+    if @current_student.selected.count.to_i = @current_student.req.to_i
       redirect_to studenten_clean_path
     else
       @presentations = Presentation.order("#{sort_col} #{sort_dir}")
     end
+#    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
+#      redirect_to studenten_clean_path
+#    else
+#      @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+#    end
   end
 
-  def list2 # Sorting functions for student selection database
-    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
-      redirect_to studenten_clean_path
-    else
-      @presentations = Presentation.order("#{sort_col} #{sort_dir}")
-    end
-  end
+#  def list2 # Sorting functions for student selection database
+#    if @current_student.Selected != nil && @current_student.Selected1 != nil && @current_student.Selected2 != nil
+#      redirect_to studenten_clean_path
+#    else
+#      @presentations = Presentation.order("#{sort_col} #{sort_dir}")
+#    end
+#  end
 
   def confirm
   end
@@ -47,64 +52,15 @@ class SelectionsController < ApplicationController
   def addtodb
     # Find current student based on Session ID
     @schueler = Schueler.find_by(id: session[:student_id])
-    # Fills in first free slot in student database
-    if @schueler.Selected == nil
-      id = params[:id].to_s
-      @schueler.update_attribute(:Selected, id)
-      pres = Presentation.find_by(id: id)
-      if pres.Frei == 0
-        redirect_to studenten_waehlen_path
-        flash[:danger] = "Keine freie Plätze mehr"
-      else
-        pres.update_attribute(:Frei, pres.Frei - 1)
-      end
-    elsif @schueler.Selected != nil && @schueler.Selected1 == nil
-      id = params['id'].to_s
-      @schueler.update_attribute(:Selected1, id)
-      pres = Presentation.find_by(id: id)
-      if pres.Frei == 0
-        redirect_to studenten_waehlen_path
-        flash[:danger] = "Keine freie Plätze mehr"
-      else
-        pres.update_attribute(:Frei, pres.Frei - 1)
-      end
-    elsif @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 == nil
-      id = params['id'].to_s
-      @schueler.update_attribute(:Selected2, id)
-      pres = Presentation.find_by(id: id)
-      if pres.Frei == 0
-        redirect_to studenten_waehlen_path
-        flash[:danger] = "Keine freie Plätze mehr"
-      else
-        pres.update_attribute(:Frei, pres.Frei - 1)
-      end
-    end
-    if @schueler.Selected != nil && @schueler.Selected1 != nil && @schueler.Selected2 != nil
-      redirect_to studenten_clean_path
-    else
-      redirect_to studenten_waehlen_path
-    end
+    @pres = Presentation.find_by(id: id)
+    @schueler.selected.push(@pres.id)
+    @pres.Frei = @pres.Frei - 1
   end
 
   def weg # Function removes previous selection from DB
     @schueler = Schueler.find_by(id: session[:student_id])
     id = params[:id].to_s
-    if id == @schueler.Selected
-      @schueler.update_attribute(:Selected, nil)
-      pres = Presentation.find_by(id: id)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    elsif id == @schueler.Selected1
-      @schueler.update_attribute(:Selected1, nil)
-      pres = Presentation.find_by(id: id)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    elsif id == @schueler.Selected2
-      @schueler.update_attribute(:Selected2, nil)
-      pres = Presentation.find_by(id: id)
-      pres.Frei = pres.update_attribute(:Frei, pres.Frei + 1)
-      redirect_to studenten_waehlen_path
-    end
+    @schueler.delete(id)
   end
 
   def logged_in_stud # stops unregistered students from accessing select page

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_054544) do
+ActiveRecord::Schema.define(version: 2018_11_07_095535) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -49,15 +49,13 @@ ActiveRecord::Schema.define(version: 2018_09_04_054544) do
     t.string "Number"
     t.string "Code"
     t.boolean "Registered"
-    t.string "Selected"
-    t.string "Selected1"
-    t.string "Selected2"
     t.boolean "Received"
     t.boolean "loginpermit"
     t.integer "req"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.text "selected"
   end
 
   create_table "teachers", force: :cascade do |t|

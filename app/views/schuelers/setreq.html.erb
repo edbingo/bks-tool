@@ -1,0 +1,5 @@
+<%= form_tag admin_add_presentations_free_path do %>
+  <%= label_tag :Verlangte_anmeldungen %>
+  <%= number_field_tag 'req', 10, class: "form-control", min:1, max:10, step:1 %>
+  <%= submit_tag "Wählen", class: "btn btn-primary btn-lg", data: { disable_with: "Speichert..." } %>
+<% end %>

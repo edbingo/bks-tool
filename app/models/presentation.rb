@@ -2,6 +2,7 @@ class Presentation < ApplicationRecord
   include Resetable
   require "csv"
   require 'active_support'
+  serialize :besucher, Array
 
   def self.import(file) # Import function
     $errpres = 0
