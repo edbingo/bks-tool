@@ -15,44 +15,21 @@
     </tr>
   </thead>
   <tbody>
+    <%= @pres.each do |p| %>
+      <%= pres = Presentation.find_by(id: p) %>
       <tr>
-        <td scope="row"><%= @pres0.Name %></td>
-        <td scope="row"><%= @pres0.Klasse %></td>
-        <td scope="row"><%= @pres0.Titel %></td>
-        <td scope="row"><%= @pres0.Fach %></td>
-        <% betr = Teacher.find_by(Number: @pres0.Betreuer) %>
+        <td scope="row"><%= pres.Name %></td>
+        <td scope="row"><%= pres.Klasse %></td>
+        <td scope="row"><%= pres.Titel %></td>
+        <td scope="row"><%= pres.Fach %></td>
+        <% betr = Teacher.find_by(Number: pres.Betreuer) %>
         <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
-        <td scope="row"><%= @pres0.Zimmer %></td>
-        <% sec = @pres0.Von %>
+        <td scope="row"><%= pres.Zimmer %></td>
+        <% sec = pres.Von %>
         <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= Time.at(@pres0.Bis.to_f).utc.strftime("%H:%M") %></td> %></td>
-        <td scope="row"><%= @pres0.Frei %></td>
+        <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= pres.Frei %></td>
       </tr>
-      <tr>
-        <td scope="row"><%= @pres1.Name %></td>
-        <td scope="row"><%= @pres1.Klasse %></td>
-        <td scope="row"><%= @pres1.Titel %></td>
-        <td scope="row"><%= @pres1.Fach %></td>
-        <% betr = Teacher.find_by(Number: @pres1.Betreuer) %>
-        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
-        <td scope="row"><%= @pres1.Zimmer %></td>
-        <% sec = @pres1.Von %>
-        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= Time.at(@pres1.Bis.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= @pres1.Frei %></td>
-      </tr>
-      <tr>
-        <td scope="row"><%= @pres2.Name %></td>
-        <td scope="row"><%= @pres2.Klasse %></td>
-        <td scope="row"><%= @pres2.Titel %></td>
-        <td scope="row"><%= @pres2.Fach %></td>
-        <% betr = Teacher.find_by(Number: @pres2.Betreuer) %>
-        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
-        <td scope="row"><%= @pres2.Zimmer %></td>
-        <% sec = @pres2.Von %>
-        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= Time.at(@pres2.Bis.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= @pres2.Frei %></td>
-      </tr>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>

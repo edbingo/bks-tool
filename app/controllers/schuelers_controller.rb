@@ -11,7 +11,7 @@ class SchuelersController < ApplicationController
     Schueler.all.each do |s|
       s.req = n
     end
-    redirect_to admin_add_presentations
+    redirect_to admin_add_presentations_path
   end
 
   def show
@@ -43,10 +43,8 @@ class SchuelersController < ApplicationController
 
   def choices
     @stud = Schueler.find_by(id: params[:id])
+    @pres = @stud.selected
     if @stud.Registered == true
-      @pres0 = Presentation.find_by(id: @stud.Selected)
-      @pres1 = Presentation.find_by(id: @stud.Selected1)
-      @pres2 = Presentation.find_by(id: @stud.Selected2)
       render 'choices'
     else
       flash[:danger] = "Anmeldung noch nicht verschickt"

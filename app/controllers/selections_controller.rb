@@ -6,7 +6,7 @@ class SelectionsController < ApplicationController
   end
 
   def list # Sorting functions for student selection database
-    if @current_student.selected.count.to_i = @current_student.req.to_i
+    if @current_student.selected.count == @current_student.req
       redirect_to studenten_clean_path
     else
       @presentations = Presentation.order("#{sort_col} #{sort_dir}")
@@ -29,37 +29,21 @@ class SelectionsController < ApplicationController
   def confirm
   end
 
-  def clean
-    @presentations = Presentation.order("#{sort_col} #{sort_dir}")
-    @priev = Presentation.find_by(id: @current_student.Selected).Von
-    @pries = Presentation.find_by(id: @current_student.Selected).Bis
-    @priev1 = Presentation.find_by(id: @current_student.Selected1).Von
-    @pries1 = Presentation.find_by(id: @current_student.Selected1).Bis
-    @priev2 = Presentation.find_by(id: @current_student.Selected2).Von
-    @pries2 = Presentation.find_by(id: @current_student.Selected2).Bis
-    array = [@pries, @pries1, @pries2]
-    arry2 = [@priev, @priev1, @priev2]
-    array.sort_by!(&:to_i)
-    arry2.sort_by!(&:to_i)
-    @pres0 = array[0]
-    @pres1 = array[1]
-    @pres2 = array[2]
-    @prev0 = arry2[0]
-    @prev1 = arry2[1]
-    @prev2 = arry2[2]
-  end
-
   def addtodb
     # Find current student based on Session ID
     @schueler = Schueler.find_by(id: session[:student_id])
+    id = params[:id]
     @pres = Presentation.find_by(id: id)
     @schueler.selected.push(@pres.id)
     @pres.Frei = @pres.Frei - 1
+    byebug
+    redirect_to studenten_waehlen_path
+    byebug
   end
 
   def weg # Function removes previous selection from DB
     @schueler = Schueler.find_by(id: session[:student_id])
-    id = params[:id].to_s
+    id = params[:id]
     @schueler.delete(id)
   end
 
