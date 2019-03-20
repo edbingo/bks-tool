@@ -6,36 +6,34 @@ class SchuelersController < ApplicationController
     @schueler = Schueler.new
   end
 
-  def setreq
-    n = params[:req]
-    Schueler.all.each do |s|
-      s.req = n
-    end
-    redirect_to admin_add_presentations_path
-  end
-
   def show
     @schueler = Schueler.find_by(id: session[:student_id]) # Called profile in interface
-    if @schueler.selected.count = 0
+    if @schueler.Selected == nil && @schueler.Selected1 == nil && @schueler.Selected2 == nil
       redirect_to error_path # If nothing has been selected, display relevant error page
     else # Sets variables required for showing list of presentations
-      @pres = @schueler.selected
+      @pres0 = Presentation.find_by(id: @schueler.Selected)
+      @pres1 = Presentation.find_by(id: @schueler.Selected1)
+      @pres2 = Presentation.find_by(id: @schueler.Selected2)
     end
   end
 
   def confirm # Resets the variables
     @schueler = Schueler.find_by(id: session[:student_id])
-    @pres = @schueler.selected
+    @pres0 = Presentation.find_by(id: @schueler.Selected)
+    @pres1 = Presentation.find_by(id: @schueler.Selected1)
+    @pres2 = Presentation.find_by(id: @schueler.Selected2)
   end
 
   def sendfile # Removes ability to log in and sends email with selected presentations
     schueler = Schueler.find_by(id: session[:student_id])
-    schueler.selected.each do |p|
-      pres = Presentation.find_by(id: p)
-      pres.besucher.push(schueler.id)
-    end
+    pres0 = Presentation.find_by(id: schueler.Selected.to_s)
+    pres1 = Presentation.find_by(id: schueler.Selected1.to_s)
+    pres2 = Presentation.find_by(id: schueler.Selected2.to_s)
+    pres0.update_attribute(:Besucher, "#{pres0.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
+    pres1.update_attribute(:Besucher, "#{pres1.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
+    pres2.update_attribute(:Besucher, "#{pres2.Besucher} #{schueler.Vorname} #{schueler.Name}, #{schueler.Klasse},")
     StudentMailer.final_mail(schueler).deliver_now
-    schueler["Registered"] = true
+    schueler.update_attribute(:Registered, true)
     flash[:success] = "Anmeldung verschickt"
     stud_out()
     redirect_to root_path
@@ -43,8 +41,10 @@ class SchuelersController < ApplicationController
 
   def choices
     @stud = Schueler.find_by(id: params[:id])
-    @pres = @stud.selected
     if @stud.Registered == true
+      @pres0 = Presentation.find_by(id: @stud.Selected)
+      @pres1 = Presentation.find_by(id: @stud.Selected1)
+      @pres2 = Presentation.find_by(id: @stud.Selected2)
       render 'choices'
     else
       flash[:danger] = "Anmeldung noch nicht verschickt"
@@ -67,7 +67,7 @@ class SchuelersController < ApplicationController
   def import # Tells rails how to import CSV
     Schueler.import(params[:file])
     flash[:success] = "Es wurden #{$numstud} Schüler importiert, es gab #{$errstud} Fehler"
-    render 'setreq'
+    redirect_to admin_add_presentations_path
   end
 
   def list # Following functions sorts students

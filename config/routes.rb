@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   post '/admin/add/presentations/free', to: 'presentations#addfree'
 # Upload process for students
   get '/admin/add/students', to: 'schuelers#add'
-  post '/admin/add/students/req', to: 'schuelers#setreq'
+  post '/admin/add/students/req', to: 'schuelers#addreq'
 # Single student signup page
   get '/admin/add/student', to: 'schuelers#new'
   post '/admin/add/student', to: 'schuelers#create'

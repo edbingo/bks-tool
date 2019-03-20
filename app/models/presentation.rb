@@ -2,7 +2,6 @@ class Presentation < ApplicationRecord
   include Resetable
   require "csv"
   require 'active_support'
-  serialize :besucher, Array
 
   def self.import(file) # Import function
     $errpres = 0
@@ -28,6 +27,7 @@ class Presentation < ApplicationRecord
     presentations = Presentation.all
     presentations.each do |row| # Sets occupied seats to 0, visitors to nil
         row["Besetzt"] = 0
+        row["Besucher"] = nil
         row.update_attribute(:Von, "#{Time.parse(row.Von).seconds_since_midnight}")
         row.update_attribute(:Bis, "#{Time.parse(row.Bis).seconds_since_midnight}")
     end

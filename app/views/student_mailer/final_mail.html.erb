@@ -1,4 +1,7 @@
-  Hallo <%= @student.Vorname %> <%= @student.Name %><br />
+Hallo <%= @student.Vorname %> <%= @student.Name %><br />
+<% @presi = Presentation.find_by(id: @student.Selected.to_s) %>
+<% @presi1 = Presentation.find_by(id: @student.Selected1.to_s) %>
+<% @presi2 = Presentation.find_by(id: @student.Selected2.to_s) %>
 Sie haben folgende Präsentationen ausgewählt:<br /><br />
 <table class="table bordered" style="th, td{ padding: 5px; text-align: left;}">
   <thead>
@@ -14,21 +17,42 @@ Sie haben folgende Präsentationen ausgewählt:<br /><br />
     </tr>
   </thead>
   <tbody>
-    <%= @student.selected.each do |p| %>
-      <%= pres = Presentation.find_by(id: p) %>
-      <tr>
-        <td scope="row"><%= pres.Vorname %></td>
-        <td scope="row"><%= pres.Name %></td>
-        <td scope="row"><%= pres.Klasse %></td>
-        <td scope="row"><%= pres.Titel %></td>
-        <td scope="row"><%= pres.Fach %></td>
-        <% betr = Teacher.find_by(Number: pres.Betreuer) %>
-        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
-        <td scope="row"><%= pres.Zimmer %></td>
-        <td scope="row"><%= Time.at(pres.Von.to_f).utc.strftime("%H:%M") %></td>
-        <td scope="row"><%= Time.at(pres.Bis.to_f).utc.strftime("%H:%M") %></td>
-      </tr>
-    <% end %>
+    <tr>
+      <td scope="row"><%= @presi.Vorname %></td>
+      <td scope="row"><%= @presi.Name %></td>
+      <td scope="row"><%= @presi.Klasse %></td>
+      <td scope="row"><%= @presi.Titel %></td>
+      <td scope="row"><%= @presi.Fach %></td>
+      <% betr = Teacher.find_by(Number: @presi.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+      <td scope="row"><%= @presi.Zimmer %></td>
+      <td scope="row"><%= Time.at(@presi.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi.Bis.to_f).utc.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+      <td scope="row"><%= @presi1.Vorname %></td>
+      <td scope="row"><%= @presi1.Name %></td>
+      <td scope="row"><%= @presi1.Klasse %></td>
+      <td scope="row"><%= @presi1.Titel %></td>
+      <td scope="row"><%= @presi1.Fach %></td>
+      <% betr = Teacher.find_by(Number: @presi1.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+      <td scope="row"><%= @presi1.Zimmer %></td>
+      <td scope="row"><%= Time.at(@presi1.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi1.Bis.to_f).utc.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+      <td scope="row"><%= @presi2.Vorname %></td>
+      <td scope="row"><%= @presi2.Name %></td>
+      <td scope="row"><%= @presi2.Klasse %></td>
+      <td scope="row"><%= @presi2.Titel %></td>
+      <td scope="row"><%= @presi2.Fach %></td>
+      <% betr = Teacher.find_by(Number: @presi2.Betreuer) %>
+      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+      <td scope="row"><%= @presi2.Zimmer %></td>
+      <td scope="row"><%= Time.at(@presi2.Von.to_f).utc.strftime("%H:%M") %></td>
+      <td scope="row"><%= Time.at(@presi2.Bis.to_f).utc.strftime("%H:%M") %></td>
+    </tr>
   </tbody>
 </table>
 

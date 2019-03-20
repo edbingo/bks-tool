@@ -33,7 +33,7 @@ class StudentMailer < ApplicationMailer
         ["Vorname","Name","Titel","Zimmer","Zeit"],
         [pres.collect{ |r| [r.Vorname] },
          pres.collect{ |r| [r.Name] },
-         pres.collect{ |r| [r.Titel.truncate(90)] },
+         pres.collect{ |r| [r.Titel.truncate(80)] },
          pres.collect{ |r| [r.Zimmer] },
          pres.collect{ |r| [Time.at(r.Von.to_i).utc.strftime("%H:%M")] }]
         ])

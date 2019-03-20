@@ -10,35 +10,55 @@
       <th scope="col">Von</th>
       <th scope="col">Bis</th>
       <th scope="col">Freie<br />Plätze</th>
-      <th>Abwählen</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-    <%= @pres.each do |p| %>
-      <%= pres = Presentation.find_by(id: p) %>
-      <td scope="row"><%= pres.Name %></td>
-      <td scope="row"><%= pres.Klasse %></td>
-      <td scope="row"><%= pres.Titel %></td>
-      <td scope="row"><%= pres.Fach %></td>
-      <% betr = Teacher.find_by(Number: pres.Betreuer) %>
-      <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
-      <td scope="row"><%= pres.Zimmer %></td>
-      <% sec = pres.Von %>
-      <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
-      <td scope="row"><%= Time.at(pres.Bis.to_i).utc.strftime("%H:%M") %></td>
-      <td scope="row"><%= pres.Frei %></td>
-      <td>
-    <% end %>
-    </tr>
-  </tbody>
-</table>
-Bitte beachten Sie, das Sie genug Zeit haben, um von einer Presentation zur nächsten zu kommen.<br />
-<br />
-
-<%= link_to "Zurück", studenten_clean_path, class: "btn btn-primary" %>
-<br />
-<br />
-<%= form_for :lastchance, url: studenten_profil_send_path do %>
-<%= submit_tag "Absenden", value: "Absenden", class: "btn btn-danger", data: { confirm: "Wenn Sie Ihre Anmeldung verschicken können Sie diese im Nachhinein nicht mehr bearbeiten.""" } %>
-<% end %>
+      <tr>
+        <td scope="row"><%= @pres0.Name %></td>
+        <td scope="row"><%= @pres0.Klasse %></td>
+        <td scope="row"><%= @pres0.Titel %></td>
+        <td scope="row"><%= @pres0.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres0.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres0.Zimmer %></td>
+        <% sec = @pres0.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= Time.at(@pres0.Bis.to_i).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres0.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres1.Name %></td>
+        <td scope="row"><%= @pres1.Klasse %></td>
+        <td scope="row"><%= @pres1.Titel %></td>
+        <td scope="row"><%= @pres1.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres1.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres1.Zimmer %></td>
+        <% sec = @pres1.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= Time.at(@pres1.Bis.to_i).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres1.Frei %></td>
+      </tr>
+      <tr>
+        <td scope="row"><%= @pres2.Name %></td>
+        <td scope="row"><%= @pres2.Klasse %></td>
+        <td scope="row"><%= @pres2.Titel %></td>
+        <td scope="row"><%= @pres2.Fach %></td>
+        <% betr = Teacher.find_by(Number: @pres2.Betreuer) %>
+        <td scope="row"><%= "#{betr.Vorname} #{betr.Name}" %></td>
+        <td scope="row"><%= @pres2.Zimmer %></td>
+        <% sec = @pres2.Von %>
+        <td scope="row"><%= Time.at(sec.to_f).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= Time.at(@pres2.Bis.to_i).utc.strftime("%H:%M") %></td>
+        <td scope="row"><%= @pres2.Frei %></td>
+      </tr>
+    </tbody>
+  </table>
+  Bitte beachten Sie, das Sie genug Zeit haben, um von einer Presentation zur nächsten zu kommen.<br />
+  <br />
+  <%= link_to "Zurück", studenten_clean_path, class: "btn btn-primary" %>
+  <br />
+  <br />
+  <%= form_for :lastchance, url: studenten_profil_send_path do %>
+    <%= submit_tag "Absenden", value: "Absenden", class: "btn btn-danger", data: { confirm: "Wenn Sie Ihre Anmeldung verschicken können Sie diese im Nachhinein nicht mehr bearbeiten.""" } %>
+  <% end %>

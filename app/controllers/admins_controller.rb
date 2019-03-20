@@ -132,14 +132,16 @@ class AdminsController < ApplicationController
 
   def finallistsend # Sends all teachers a list of their presentations and the guests
     teac = Teacher.all
+    @n = 0
     teac.each do |send|
-      if Presentation.where(Betreuer: send.Number) == []
+      if Presentation.where(Betreuer: send.Number) == [] || send.Received == true
       else
         StudentMailer.list_mail(send).deliver_now
         send.update_attribute(:Received, true)
+        @n = @n + 1
       end
     end
-    flash[:success] = "Presentationslisten wurden versendet"
+    flash[:success] = "#{@n} Presentationslisten wurden versendet"
     redirect_to admin_path
   end
 
